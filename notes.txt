@@ -1,0 +1,28 @@
+schema
+
+session
+
+user
+  username
+  password_digest
+  img_url
+
+message
+  user_id
+  channel_id
+  text { html markdown / images }
+
+channel
+  name
+
+
+channel / user join table
+
+
+
+group
+
+
+
+
+new_demo_user
