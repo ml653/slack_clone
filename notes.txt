@@ -1,11 +1,13 @@
 schema
 
-session
+slack
 
 user
+  email
   username
   password_digest
   img_url
+  session_token
 
 message
   user_id
@@ -13,16 +15,29 @@ message
   text { html markdown / images }
 
 channel
+  creator_id
+  team_id
   name
+  description
+  private
 
-
-channel / user join table
-
-
-
-group
-
-
-
+join tables
+  channel / user join table
+  team / user join table
 
 new_demo_user
+
+mint
+
+user
+  email
+  username
+  password_digest
+  img_url
+  session_token
+
+account
+  bank
+  type
+
+element
