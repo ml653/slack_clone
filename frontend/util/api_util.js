@@ -10,7 +10,7 @@ const wrapAjaxAsPromise = (options) => (
 export const sendMessage = (message) => (
   wrapAjaxAsPromise({
     method: 'POST',
-    url: '',
+    url: '/api/',
     data: { message }
   })
 )

@@ -6,6 +6,5 @@ import store from './store/store'
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
   ReactDOM.render(<Root/>, root)
-  console.log('hi')
   window.store = store
 })
