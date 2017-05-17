@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import RootReducer from '../reducers/root_reducer'
 
-export const store = (preloadedState={}) => {
+export default (preloadedState = {}) => {
   return createStore(RootReducer, preloadedState)
 }
