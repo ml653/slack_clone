@@ -3,9 +3,17 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { within: 6...64, allow_blank: true }
 
+  before_validation :ensure_session_token
+
+  has_many :messages
+
+  has_many :channels
+
+  attr_accessor :password
+
   def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
     @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   def self.find_by_credentials(email, password)
@@ -27,8 +35,7 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64(32)
   end
 
-private
-
+  private
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end

@@ -7,7 +7,7 @@ user
   username
   password_digest
   img_url
-  session_token
+
 
 message
   user_id
