@@ -42,6 +42,7 @@ account
 
 element
 
+// Create user
 $.ajax({
   url: '/api/users/',
   method: 'POST',
@@ -57,15 +58,24 @@ $.ajax({
 .done(n => console.log(n))
 .fail(err => console.log(err))
 
+// Login user
 $.ajax({
-  url: '/api/users/',
+  url: '/api/sessions/',
   method: 'POST',
   data: {
     user: {
-      email: "user_1@gmail.com",
-      password: 'password'
+      email: `user_2@gmail.com`,
+      password: 'password',
     }
   }
 })
 .done(n => console.log(n))
-.fail(err => console.log(err))
+.fail(err => console.log(err.responseJSON))
+
+// Logout user
+$.ajax({
+  url: `/api/sessions/1`,
+  method: 'DELETE'
+})
+.done(n => console.log(n))
+.fail(err => console.log(err.responseJSON))

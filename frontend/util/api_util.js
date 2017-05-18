@@ -1,32 +1,32 @@
-const wrapAjaxAsPromise = (options) => (
-  new Promise((resolve, reject) => {
-    $.ajax(options)
-      .then(
-        res => resolve(res),
-        err => reject(err))
-  })
-)
+// const wrapAjaxAsPromise = (options) => (
+//   new Promise((resolve, reject) => {
+//     $.ajax(options)
+//       .then(
+//         res => resolve(res),
+//         err => reject(err))
+//   })
+// )
 
 export const sendMessage = (message) => (
-  wrapAjaxAsPromise({
+  $.ajax({
     method: 'POST',
     url: '/api/',
     data: { message }
   })
 )
 
-export const login = user => (
+export const signup = user => (
   $.ajax({
     method: 'POST',
-    url: '/api/session',
+    url: '/api/users',
     data: user
   })
 )
 
-export const signup = user => (
+export const login = user => (
   $.ajax({
     method: 'POST',
-    url: '/api/user',
+    url: '/api/sessions',
     data: user
   })
 )
@@ -34,6 +34,6 @@ export const signup = user => (
 export const logout = () => (
   $.ajax({
     method: 'DELETE',
-    url: '/api/session'
+    url: '/api/sessions'
   })
 )
