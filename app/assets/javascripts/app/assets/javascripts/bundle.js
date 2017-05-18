@@ -11958,9 +11958,9 @@ var _reactRouter = __webpack_require__(9);
 
 var _reactRouterDom = __webpack_require__(232);
 
-var _login_form = __webpack_require__(110);
+var _login_page = __webpack_require__(366);
 
-var _login_form2 = _interopRequireDefault(_login_form);
+var _login_page2 = _interopRequireDefault(_login_page);
 
 var _route_util = __webpack_require__(363);
 
@@ -11982,7 +11982,7 @@ var Root = function Root(_ref) {
       _react2.default.createElement(
         _reactRouter.Switch,
         null,
-        _react2.default.createElement(_route_util.AuthRoute, { path: '/login', component: _login_form2.default }),
+        _react2.default.createElement(_route_util.AuthRoute, { path: '/login', component: _login_page2.default }),
         _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _slack2.default })
       )
     )
@@ -12047,8 +12047,6 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(9);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -12068,24 +12066,14 @@ var LoginForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
     _this.state = {
-      username: 'guest',
-      password: 'password'
+      username: '',
+      password: ''
     };
 
     _this.updateField = _this.updateField.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
-
-  // componentDidUpdate() {
-  //   this.redirectIfLoggedIn()
-  // }
-
-  // redirectIfLoggedIn() {
-  //   if (this.props.currentUser) {
-  //     hashHistory.push('/home')
-  //   }
-  // }
 
   _createClass(LoginForm, [{
     key: 'updateField',
@@ -12121,7 +12109,7 @@ var LoginForm = function (_React$Component) {
           _react2.default.createElement(
             'b',
             null,
-            'username'
+            'email address'
           ),
           ' and ',
           _react2.default.createElement(
@@ -12132,7 +12120,7 @@ var LoginForm = function (_React$Component) {
           '.'
         ),
         _react2.default.createElement('input', {
-          placeholder: 'username',
+          placeholder: 'you@example.com',
           type: 'text',
           value: this.state.username,
           onChange: this.updateField('username') }),
@@ -12141,10 +12129,12 @@ var LoginForm = function (_React$Component) {
           type: 'password',
           value: this.state.password,
           onChange: this.updateField('password') }),
-        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
-          { type: 'submit' },
+          {
+            className: 'button sign-in',
+            type: 'submit',
+            onSubmit: this.handleSubmit },
           'Sign In'
         )
       );
@@ -30938,6 +30928,84 @@ var Slack = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Slack;
+
+/***/ }),
+/* 365 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(219);
+
+var _login_form = __webpack_require__(110);
+
+var _login_form2 = _interopRequireDefault(_login_form);
+
+var _session_actions = __webpack_require__(292);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    user: store.session.user
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, { login: _session_actions.login, signup: _session_actions.signup, logout: _session_actions.logout })(_login_form2.default);
+
+/***/ }),
+/* 366 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _login_form_container = __webpack_require__(365);
+
+var _login_form_container2 = _interopRequireDefault(_login_form_container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LoginPage = function LoginPage() {
+  return _react2.default.createElement(
+    'main',
+    { className: 'login' },
+    _react2.default.createElement(
+      'div',
+      { className: 'base-form' },
+      _react2.default.createElement(_login_form_container2.default, null)
+    ),
+    _react2.default.createElement(
+      'footer',
+      { className: 'auth-footer' },
+      _react2.default.createElement(
+        'p',
+        { className: 'footer-info' },
+        'Created by Steven Li.'
+      ),
+      _react2.default.createElement(
+        'nav',
+        null,
+        _react2.default.createElement('ul', { className: 'footer-links' })
+      )
+    )
+  );
+};
+// import HeaderAuthButton from './header_auth_button'
+exports.default = LoginPage;
 
 /***/ })
 /******/ ]);
