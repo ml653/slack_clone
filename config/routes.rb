@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  namespace :api, defaults: { format: :json } do
+    get '/users/find/', to: 'users#find'
+
+    resources :users, only: [ :create ]
+    resources :sessions, only: [ :create ]
+  end
+
 end

@@ -18,3 +18,7 @@
 
 # remove node_modules
 /node_modules
+
+# remove bundle files
+/app/assets/javascripts/bundle.js
+/app/assets/javascripts/bundle.js.map

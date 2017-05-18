@@ -41,3 +41,31 @@ account
   type
 
 element
+
+$.ajax({
+  url: '/api/users/',
+  method: 'POST',
+  data: {
+    user: {
+      username: `new_user_${Math.random() * 1000}`,
+      email: `new_user_${Math.random() * 1000}@gmail.com`,
+      password: 'password',
+      img_url: '/app/assets/images/kitten.jpg'
+    }
+  }
+})
+.done(n => console.log(n))
+.fail(err => console.log(err))
+
+$.ajax({
+  url: '/api/users/',
+  method: 'POST',
+  data: {
+    user: {
+      email: "user_1@gmail.com",
+      password: 'password'
+    }
+  }
+})
+.done(n => console.log(n))
+.fail(err => console.log(err))

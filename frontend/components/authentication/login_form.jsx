@@ -15,9 +15,9 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidUpdate() {
-    this.redirectIfLoggedIn()
-  }
+  // componentDidUpdate() {
+  //   this.redirectIfLoggedIn()
+  // }
 
   redirectIfLoggedIn() {
     if (this.props.currentUser) {
@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
   render() {
     return(
       <form className='auth-form' onSubmit={this.handleSubmit}>
-        <h1>Sign in to Slakk</h1>
+        <h1>Sign in to Slack</h1>
         <p className='auth-prompt'>Enter your <b>username</b> and <b>password</b>.</p>
 
         {/* <Errors errorInfo={this.props.errors}/> */}

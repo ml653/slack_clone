@@ -1,4 +1,12 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+  <% end %>
+</script>
+
+<div id="root"></div>
+
 <h1>Static#index</h1>
-<p>Find me in app/views/static/index.html.erb</p>
-<div id='root'>
+  <p>Find me in app/views/static/index.html.erb</p>
+  <div id='root'>
 </div>
