@@ -1,19 +1,23 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Switch } from 'react-router'
 import { HashRouter } from 'react-router-dom'
 import LoginForm from './authentication/login_form'
 
-const Root = ({ store }) => {
+import { AuthRoute, ProtectedRoute } from '../util/route_util'
+import Slack from './slack/slack'
 
+const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <HashRouter>
-          <Route path='/' component={LoginForm} />
+        <Switch>
+          <AuthRoute path='/login' component={LoginForm}/>
+          <ProtectedRoute path='/' component={Slack}/>
+        </Switch>
       </HashRouter>
     </Provider>
   )
 }
-
 
 export default Root
