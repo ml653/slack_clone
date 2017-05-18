@@ -19,11 +19,11 @@ class LoginForm extends React.Component {
   //   this.redirectIfLoggedIn()
   // }
 
-  redirectIfLoggedIn() {
-    if (this.props.currentUser) {
-      hashHistory.push('/home')
-    }
-  }
+  // redirectIfLoggedIn() {
+  //   if (this.props.currentUser) {
+  //     hashHistory.push('/home')
+  //   }
+  // }
 
   updateField(field) {
     return e => {

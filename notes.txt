@@ -79,3 +79,7 @@ $.ajax({
 })
 .done(n => console.log(n))
 .fail(err => console.log(err.responseJSON))
+
+store.dispatch(sessionActions.signup({user: {email: 'user_1@gmail.com', password: 'password'}}))
+store.dispatch(sessionActions.login({user: {email: 'user_1@gmail.com', password: 'password'}}))
+store.dispatch(sessionActions.logout())

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get '/users/find/', to: 'users#find'
 
     resources :users, only: [ :create ]
-    resources :sessions, only: [ :create, :destroy ]
+    resource :session, only: [ :create, :destroy ]
   end
 
 end

@@ -1,16 +1,14 @@
 import path from 'path'
-const apiUtilPath = path.join(__dirname, 'frontend', 'util', 'api_util')
-import ApiUtil from apiUtilPath
+// const apiUtilPath = path.join(__dirname, 'frontend', 'util', 'api_util')
+// import ApiUtil from apiUtilPath
 
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
 export const SEND_MESSAGE = 'SEND_MESSAGE'
 
-const x = 1
-const x = 1
-
 export const receiveMessage = (message) => ({
-  type: RECEIVE_MESSAGE
+  type: RECEIVE_MESSAGE,
+  message
 })
 
 export const receiveMessages = (messages) => ({
