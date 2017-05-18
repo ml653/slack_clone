@@ -1,10 +1,68 @@
-main {
-  position: absolute;
-  display: block;
-  width: 100%;
-  min-height: 665px;
-  height: 100%;
+@import 'variables';
+
+.auth form {
+  margin: 147px auto;
+  background-color: #ffffff;
+  width: 635px;
+  border: 1px solid #eee;
+  border-radius:5px;
+  box-shadow:0px 1px 0px 0px #bbbbbb;
+  padding: 30px;
+  text-align: center;
+  color: #555459;
+  font-size: 18px;
+
+  h1 {
+    font-size: 34px;
+    font-weight: 500;
+    margin: 15px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 15px;
+  }
+
+  input {
+    background-color: #ffffff;
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+    width: 365px;
+    margin: 5px;
+    padding: 12px;
+    font-color: #c7c7c7;
+    font-weight: 300;
+    text-align: left;
+  }
+
+  input:hover, input:focus, {
+    border-color: #2780f8;
+  }
+
+  button {
+    border-radius: 5px;
+    margin: 8px;
+    padding: 12px;
+    background-color: $slack_green;
+    width: 367px;
+    color: #ffffff;
+  }
+
+  button:hover {
+    box-shadow: 0px 1px 0px 1px $dark_green;
+  }
+
 }
+
+//
+// main {
+//   position: absolute;
+//   display: block;
+//   width: 100%;
+//   min-height: 665px;
+//   height: 100%;
+// }
 
 /*.auth-header {
   position: fixed;
@@ -46,62 +104,6 @@ a.signup-logo {
 .signup-button:hover {
   color: #555459;
 }*/
-
-.login .base-form {
-  margin: 147px auto;
-  background-color: #ffffff;
-  width: 635px;
-  border: 1px solid #eee;
-  border-radius:5px;
-  box-shadow:0px 1px 0px 0px #bbbbbb;
-  padding: 30px;
-  text-align: center;
-}
-
-.base-form h1 {
-  font-size: 34px;
-  font-weight: 500;
-  color: #555459;
-  margin-bottom: 20px;
-}
-
-.base-form .auth-prompt {
-  font-size: 16px;
-  color: #555459;
-  font-weight: 300;
-}
-
-.base-form input {
-  background-color: #ffffff;
-  border: 1px solid #c5c5c5;
-  border-radius: 5px;
-  width: 365px;
-  margin: 5px;
-  padding: 12px;
-  font-size: 20px;
-  font-color: #c7c7c7;
-  color: #555459;
-  font-weight: 300;
-  text-align: left;
-}
-
-.base-form input:hover, .base-form input:focus, {
-  border-color: #2780f8;
-}
-
-.base-form button {
-  border-radius: 5px;
-  margin: 8px;
-  padding: 12px;
-  background-color: #2ab27b;
-  width: 367px;
-  color: #ffffff;
-  font-size: 20px;
-}
-
-.base-form button:hover {
-  box-shadow: 0px 1px 0px 1px #9b9a9a;
-}
 
 /*.auth-form {
   margin: 15px;

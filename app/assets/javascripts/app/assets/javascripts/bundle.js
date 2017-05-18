@@ -12096,7 +12096,7 @@ var LoginForm = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'form',
-        { className: 'auth-form', onSubmit: this.handleSubmit },
+        { onSubmit: this.handleSubmit },
         _react2.default.createElement(
           'h1',
           null,
@@ -12104,7 +12104,7 @@ var LoginForm = function (_React$Component) {
         ),
         _react2.default.createElement(
           'p',
-          { className: 'auth-prompt' },
+          null,
           'Enter your ',
           _react2.default.createElement(
             'b',
@@ -12132,7 +12132,7 @@ var LoginForm = function (_React$Component) {
         _react2.default.createElement(
           'button',
           {
-            className: 'button sign-in',
+            className: 'sign-in',
             type: 'submit',
             onSubmit: this.handleSubmit },
           'Sign In'
@@ -30982,12 +30982,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var LoginPage = function LoginPage() {
   return _react2.default.createElement(
     'main',
-    { className: 'login' },
-    _react2.default.createElement(
-      'div',
-      { className: 'base-form' },
-      _react2.default.createElement(_login_form_container2.default, null)
-    ),
+    { className: 'auth' },
+    _react2.default.createElement(_login_form_container2.default, null),
     _react2.default.createElement(
       'footer',
       { className: 'auth-footer' },

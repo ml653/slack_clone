@@ -4,15 +4,12 @@ import LoginFormContainer from './login_form_container'
 
 const LoginPage = () => {
   return (
-    <main className="login">
+    <main className="auth">
       {/* <header className="auth-header">
         <a className="logo">Slack</a>
         <HeaderAuthButton />
-      </header> */}
-
-      <div className="base-form">
-        <LoginFormContainer />
-      </div>
+        </header> */}
+      <LoginFormContainer />
 
       <footer className="auth-footer">
         <p className="footer-info">Created by Steven Li.</p>

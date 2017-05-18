@@ -30,11 +30,9 @@ class LoginForm extends React.Component {
 
   render() {
     return(
-      <form className='auth-form' onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <h1>Sign in to Slack</h1>
-        <p className='auth-prompt'>Enter your <b>email address</b> and <b>password</b>.</p>
-
-        {/* <Errors errorInfo={this.props.errors}/> */}
+        <p>Enter your <b>email address</b> and <b>password</b>.</p>
 
         <input
           placeholder='you@example.com'
@@ -49,7 +47,7 @@ class LoginForm extends React.Component {
           onChange={this.updateField('password')}/>
 
         <button
-          className='button sign-in'
+          className='sign-in'
           type='submit'
           onSubmit={this.handleSubmit}>
           Sign In
