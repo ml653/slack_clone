@@ -1,0 +1,268 @@
+@import 'variables';
+
+.sidebar-item {
+  padding-left: 16px;
+  padding-right: 16px;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: $slack_dark_purple;
+}
+
+#sidebar {
+  background: $slack_purple;
+  color: $menu_light_grey;
+  width: 220px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  display: block;
+  position: absolute;
+
+  #user {
+    padding-top: 9px;
+    padding-bottom: 9px;
+
+    h2 {
+      color: #ffffff;
+      font-weight: 700;
+      // font-weight: 900;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    #username {
+      font-size: 14px;
+      color: #9b9399;
+      line-height: 21px;
+    }
+  }
+
+  #channels {
+
+    .channel {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 22px;
+    }
+
+    #groups, #direct-messages {
+      padding-bottom: 20px;
+    }
+
+  }
+
+  .selected {
+    background-color: $dark_green;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #ffffff;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// .sidebar-menu {
+//   position: absolute;
+//   left: 15px;
+//   top: 42px;
+//   background-color: #ffffff;
+//   box-shadow: 0 5px 10px rgba(0,0,0,.12);
+//   padding: 6px;
+//   border-radius: 5px;
+//   z-index: 2;
+//   color: #2c2d30;
+// }
+
+// .sidebar-menu li {
+//   padding: 3px 10px 4px 10px;
+//   border-radius: 5px;
+//   font-weight: 400;
+// }
+//
+// .sidebar-menu li:hover {
+//   background-color: #3aa3e3;
+//   color: #f3f1f1;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .message-sidebar {
+//   color: #998897;
+// }
+//
+// .message-sidebar .sidebar-menu-button {
+//   color: #ffffff;
+//   font-size: 20px;
+//   padding: 8px 16px;
+// }
+//
+// .sidebar-menu-button span {
+//   position: relative;
+//   bottom: 5px;
+//   left: 8px;
+//   font-size: 12px;
+//   color: #9b9399;
+// }
+//
+// .sidebar-menu-button {
+//   height: 65px;
+// }
+//
+// .sidebar-menu-button:hover {
+//   background-color: #3e313c;
+// }
+//
+// .sidebar-menu-button:hover span {
+//   color: #ffffff;
+// }
+//
+// .sidebar-menu {
+//   position: absolute;
+//   left: 15px;
+//   top: 42px;
+//   background-color: #ffffff;
+//   box-shadow: 0 5px 10px rgba(0,0,0,.12);
+//   padding: 6px;
+//   border-radius: 5px;
+//   z-index: 2;
+//   color: #2c2d30;
+// }
+//
+// .sidebar-menu li {
+//   padding: 3px 10px 4px 10px;
+//   border-radius: 5px;
+//   font-weight: 400;
+// }
+//
+// .sidebar-menu li:hover {
+//   background-color: #3aa3e3;
+//   color: #f3f1f1;
+// }
+//
+// .channels {
+//   margin-right: 16px;
+// }
+//
+// .channels h2  {
+//   font-size: 13px;
+//   font-weight: 400;
+//   margin: 4px 16px;
+//   display: inline-block;
+// }
+//
+// .channels li {
+//   padding: 2.5px 22px 5px 20px;
+//   border-radius: 0px 5px 5px 0px;
+//   font-size: 16px;
+//   font-weight: 300;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   position: relative;
+// }
+//
+// .channels li:hover {
+//   background-color: #3e313c;
+// }
+//
+// .channels img.delete {
+//   display: none;
+//   position: absolute;
+//   left: 185px;
+// }
+//
+// .channels li:hover .delete {
+//   display: block;
+// }
+//
+//
+// .channels .selected:hover {
+//   background-color: #4c9689;
+// }
+//
+// .channels img {
+//   height: 16px;
+//   float: right;
+//   position: relative;
+//   top: 5px;
+//   filter: invert(45%);
+// }
+//
+// .channels img:hover {
+//   filter: invert(90%);
+// }
+//
+// .channels span {
+//   color: #6b6363;
+//   font-size: 14px;
+// }
+//
+// .selected {
+//   background-color: #4c9689;
+//   color: #fff;
+// }
+//
+// .direct-message span {
+//   background-color: #746572;
+//   padding: 0px 3px 1px 2px;
+//   color: #3e313c;
+//   border-radius: 2px;
+//   font-size: 11px;
+// }
+//
+// li.direct-message.selected span {
+//   background-color: #a5cac4;
+//   color: #6ca99e;
+// }
+//
+// li.selected span {
+//   color: #a7cec2;
+//   display: block;
+//   width: 6px;
+//   margin: 4px 4px 0px 0px;
+//   float: left;
+// }

@@ -12093,8 +12093,6 @@ var LoginForm = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       var errors = this.props.errors.map(function (err) {
         return _react2.default.createElement(
           'p',
@@ -12141,9 +12139,6 @@ var LoginForm = function (_React$Component) {
             type: 'email',
             value: this.state.username,
             required: true,
-            ref: function ref(el) {
-              _this3.emailInput = el;
-            },
             onChange: this.updateField('email') }),
           _react2.default.createElement('input', {
             placeholder: 'password',
@@ -30941,9 +30936,74 @@ var Slack = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'h1',
-        null,
-        'Hello World'
+        'div',
+        { id: 'sidebar', className: 'sidebar-menu' },
+        _react2.default.createElement(
+          'div',
+          { id: 'user', className: 'sidebar-item' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Slack'
+          ),
+          _react2.default.createElement(
+            'p',
+            { id: 'username' },
+            'stevenli'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'channels' },
+          _react2.default.createElement(
+            'ul',
+            { id: 'groups' },
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item selected' },
+              'CHANNELS'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#EBB'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#Estonian Translation'
+            )
+          ),
+          _react2.default.createElement(
+            'ul',
+            { id: 'direct-messages' },
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              'DIRECT MESSAGES'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#Slackbot'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#Chelsea'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#Mark'
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'channel sidebar-item' },
+              '#Robbie'
+            )
+          )
+        )
       );
     }
   }]);

@@ -45,7 +45,6 @@ class LoginForm extends React.Component {
             type='email'
             value={this.state.username}
             required
-            ref={(el) => { this.emailInput = el }}
             onChange={this.updateField('email')} />
 
           <input
