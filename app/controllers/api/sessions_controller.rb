@@ -8,7 +8,6 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      user.channels = Channel.find(user_id: user.id)
       render 'api/users/show.json.jbuilder'
     else
       render json: ["Sorry, you entered an incorrect email address or password."], status: 422
