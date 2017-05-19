@@ -1,4 +1,4 @@
-html, body, div, main, header, div, footer,
+html, body, div, main, header, footer,
 a, ul, li, img, section, article, aside, button,
 h1, h2, h3, h4, h5, p, input {
   margin: 0;
@@ -13,6 +13,9 @@ h1, h2, h3, h4, h5, p, input {
   color: inherit;
   font: inherit;
 
+  /*height: inherit;
+  width: inherit;*/
+
   background: transparent;
   webkit-font-smoothing: inherit;
 }
@@ -24,7 +27,6 @@ html {
   left: 0;
   right: 0;
 }
-
 
 body {
   box-sizing: border-box;
@@ -39,8 +41,8 @@ body {
 button {
   cursor: pointer;
 }
-
-#root, body {
+/*
+html {
   height: 100%;
   width: 100%;
-}
+}*/

@@ -30937,71 +30937,115 @@ var Slack = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { id: 'sidebar', className: 'sidebar-menu' },
+        null,
         _react2.default.createElement(
           'div',
-          { id: 'user', className: 'sidebar-item' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Slack'
-          ),
-          _react2.default.createElement(
-            'p',
-            { id: 'username' },
-            'stevenli'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'channels' },
+          { id: 'messenger' },
           _react2.default.createElement(
             'ul',
-            { id: 'groups' },
+            { id: 'feed' },
             _react2.default.createElement(
               'li',
-              { className: 'channel sidebar-item selected' },
-              'CHANNELS'
+              { className: 'message' },
+              _react2.default.createElement(
+                'div',
+                { className: 'message-avatar' },
+                _react2.default.createElement('img', { src: '/assets/kitten.jpg' })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'message-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-info' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-username' },
+                    'steven'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-date' },
+                    '5:59 PM'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-text' },
+                  'The quick brown fox jumped over the lazy dog.'
+                )
+              )
             ),
             _react2.default.createElement(
               'li',
-              { className: 'channel sidebar-item' },
-              '#EBB'
+              { className: 'message' },
+              _react2.default.createElement(
+                'div',
+                { className: 'message-avatar' },
+                _react2.default.createElement('img', { src: '/assets/kitten.jpg' })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'message-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-info' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-username' },
+                    'steven'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-date' },
+                    '5:59 PM'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-text' },
+                  'The quick brown fox jumped over the lazy dog.'
+                )
+              )
             ),
             _react2.default.createElement(
               'li',
-              { className: 'channel sidebar-item' },
-              '#Estonian Translation'
+              { className: 'message' },
+              _react2.default.createElement(
+                'div',
+                { className: 'message-avatar' },
+                _react2.default.createElement('img', { src: '/assets/kitten.jpg' })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'message-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-info' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-username' },
+                    'steven'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'message-date' },
+                    '5:59 PM'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'message-text' },
+                  'The quick brown fox jumped over the lazy dog.'
+                )
+              )
             )
           ),
           _react2.default.createElement(
-            'ul',
-            { id: 'direct-messages' },
-            _react2.default.createElement(
-              'li',
-              { className: 'channel sidebar-item' },
-              'DIRECT MESSAGES'
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'channel sidebar-item' },
-              '#Slackbot'
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'channel sidebar-item' },
-              '#Chelsea'
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'channel sidebar-item' },
-              '#Mark'
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'channel sidebar-item' },
-              '#Robbie'
-            )
+            'div',
+            { id: 'user-input' },
+            _react2.default.createElement('input', { type: 'textarea',
+              placeholder: 'Message' })
           )
         )
       );
