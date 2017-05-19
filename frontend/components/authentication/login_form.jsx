@@ -30,9 +30,8 @@ class LoginForm extends React.Component {
   render() {
     const errors = this.props.errors
       .map(err => <p className='alert'>{err}</p>)
-      console.log(errors)
-    return(
 
+    return(
       <div>
         <ul>
           {errors}

@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :channels
 
-  attr_accessor :password
+  attr_accessor :password, :channels
 
   def password=(password)
     @password = password
@@ -39,5 +39,7 @@ class User < ApplicationRecord
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end
+
+
 
 end

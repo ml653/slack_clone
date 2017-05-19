@@ -12100,7 +12100,7 @@ var LoginForm = function (_React$Component) {
           err
         );
       });
-      console.log(errors);
+
       return _react2.default.createElement(
         'div',
         null,
