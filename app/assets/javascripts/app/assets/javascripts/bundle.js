@@ -12093,6 +12093,8 @@ var LoginForm = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       var errors = this.props.errors.map(function (err) {
         return _react2.default.createElement(
           'p',
@@ -12137,14 +12139,15 @@ var LoginForm = function (_React$Component) {
           _react2.default.createElement('input', {
             placeholder: 'you@example.com',
             type: 'email',
-            autoComplete: 'on',
             value: this.state.username,
             required: true,
+            ref: function ref(el) {
+              _this3.emailInput = el;
+            },
             onChange: this.updateField('email') }),
           _react2.default.createElement('input', {
             placeholder: 'password',
             type: 'password',
-            autoComplete: 'on',
             value: this.state.password,
             minLength: '6',
             required: true,

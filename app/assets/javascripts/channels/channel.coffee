@@ -8,6 +8,7 @@ App.channel = App.cable.subscriptions.create "ChannelChannel",
   received: (message) ->
     console.log(message)
 
+
   message: (message) ->
     @perform 'message', message: message
     # Called when there's incoming data on the websocket for this channel

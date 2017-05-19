@@ -43,15 +43,14 @@ class LoginForm extends React.Component {
           <input
             placeholder='you@example.com'
             type='email'
-            autoComplete='on'
             value={this.state.username}
             required
+            ref={(el) => { this.emailInput = el }}
             onChange={this.updateField('email')} />
 
           <input
             placeholder='password'
             type='password'
-            autoComplete='on'
             value={this.state.password}
             minLength="6"
             required

@@ -7,9 +7,12 @@ class User < ApplicationRecord
 
   has_many :messages
 
-  has_many :channels
+  has_many :participations
 
-  attr_accessor :password, :channels
+  has_many :channels,
+    through: :participations
+
+  attr_accessor :password
 
   def password=(password)
     @password = password
