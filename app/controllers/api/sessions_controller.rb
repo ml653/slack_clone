@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render 'api/users/show.json.jbuilder'
     else
-      render json: ["invalid credentials"], status: 422
+      render json: ["Sorry, you entered an incorrect email address or password."], status: 422
     end
   end
 

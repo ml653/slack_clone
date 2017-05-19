@@ -6,7 +6,7 @@ class LoginForm extends React.Component {
     super(props)
 
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
 
@@ -24,35 +24,48 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.clearSessionErrors()
     this.props.login(this.state)
   }
 
   render() {
+    const errors = this.props.errors
+      .map(err => <p className='alert'>{err}</p>)
+      console.log(errors)
     return(
-      <form onSubmit={this.handleSubmit}>
-        <h1>Sign in to Slack</h1>
-        <p>Enter your <b>email address</b> and <b>password</b>.</p>
 
-        <input
-          placeholder='you@example.com'
-          type='text'
-          value={this.state.username}
-          onChange={this.updateField('username')} />
+      <div>
+        <ul>
+          {errors}
+        </ul>
+        <form onSubmit={this.handleSubmit}>
+          <h1>Sign in to Slack</h1>
+          <p>Enter your <b>email address</b> and <b>password</b>.</p>
 
-        <input
-          placeholder='password'
-          type='password'
-          value={this.state.password}
-          onChange={this.updateField('password')}/>
+          <input
+            placeholder='you@example.com'
+            type='email'
+            autoComplete='on'
+            value={this.state.username}
+            required
+            onChange={this.updateField('email')} />
 
-        <button
-          className='sign-in'
-          type='submit'
-          onSubmit={this.handleSubmit}>
-          Sign In
-        </button>
-      </form>
+          <input
+            placeholder='password'
+            type='password'
+            autoComplete='on'
+            value={this.state.password}
+            minLength="6"
+            required
+            onChange={this.updateField('password')}/>
+
+          <button
+            className='sign-in'
+            type='submit'
+            onSubmit={this.handleSubmit}>
+            Sign In
+          </button>
+        </form>
+      </div>
     )
   }
 }

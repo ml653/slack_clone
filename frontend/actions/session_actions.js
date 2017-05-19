@@ -30,7 +30,7 @@ export const signup = user => dispatch => (
 )
 
 export const login = user => dispatch => (
-  ApiUtil.login(user)
+  ApiUtil.login({ user })
     .done(user => dispatch(receiveUser(user)))
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 )

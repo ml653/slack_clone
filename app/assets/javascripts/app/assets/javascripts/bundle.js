@@ -12066,7 +12066,7 @@ var LoginForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
     _this.state = {
-      username: '',
+      email: '',
       password: ''
     };
 
@@ -12088,54 +12088,75 @@ var LoginForm = function (_React$Component) {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.clearSessionErrors();
       this.props.login(this.state);
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'form',
-        { onSubmit: this.handleSubmit },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Sign in to Slack'
-        ),
-        _react2.default.createElement(
+      var errors = this.props.errors.map(function (err) {
+        return _react2.default.createElement(
           'p',
-          null,
-          'Enter your ',
-          _react2.default.createElement(
-            'b',
-            null,
-            'email address'
-          ),
-          ' and ',
-          _react2.default.createElement(
-            'b',
-            null,
-            'password'
-          ),
-          '.'
-        ),
-        _react2.default.createElement('input', {
-          placeholder: 'you@example.com',
-          type: 'text',
-          value: this.state.username,
-          onChange: this.updateField('username') }),
-        _react2.default.createElement('input', {
-          placeholder: 'password',
-          type: 'password',
-          value: this.state.password,
-          onChange: this.updateField('password') }),
+          { className: 'alert' },
+          err
+        );
+      });
+      console.log(errors);
+      return _react2.default.createElement(
+        'div',
+        null,
         _react2.default.createElement(
-          'button',
-          {
-            className: 'sign-in',
-            type: 'submit',
-            onSubmit: this.handleSubmit },
-          'Sign In'
+          'ul',
+          null,
+          errors
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Sign in to Slack'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Enter your ',
+            _react2.default.createElement(
+              'b',
+              null,
+              'email address'
+            ),
+            ' and ',
+            _react2.default.createElement(
+              'b',
+              null,
+              'password'
+            ),
+            '.'
+          ),
+          _react2.default.createElement('input', {
+            placeholder: 'you@example.com',
+            type: 'email',
+            autoComplete: 'on',
+            value: this.state.username,
+            required: true,
+            onChange: this.updateField('email') }),
+          _react2.default.createElement('input', {
+            placeholder: 'password',
+            type: 'password',
+            autoComplete: 'on',
+            value: this.state.password,
+            minLength: '6',
+            required: true,
+            onChange: this.updateField('password') }),
+          _react2.default.createElement(
+            'button',
+            {
+              className: 'sign-in',
+              type: 'submit',
+              onSubmit: this.handleSubmit },
+            'Sign In'
+          )
         )
       );
     }
@@ -28577,7 +28598,7 @@ var signup = exports.signup = function signup(user) {
 
 var login = exports.login = function login(user) {
   return function (dispatch) {
-    return ApiUtil.login(user).done(function (user) {
+    return ApiUtil.login({ user: user }).done(function (user) {
       return dispatch(receiveUser(user));
     }).fail(function (err) {
       return dispatch(receiveErrors(err.responseJSON));
@@ -30952,7 +30973,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(store) {
   return {
-    user: store.session.user
+    user: store.session.user,
+    errors: store.session.errors
   };
 };
 
@@ -30983,15 +31005,14 @@ var LoginPage = function LoginPage() {
   return _react2.default.createElement(
     'main',
     { className: 'auth' },
-    _react2.default.createElement(_login_form_container2.default, null),
+    _react2.default.createElement(
+      'div',
+      { className: 'auth-form' },
+      _react2.default.createElement(_login_form_container2.default, null)
+    ),
     _react2.default.createElement(
       'footer',
       { className: 'auth-footer' },
-      _react2.default.createElement(
-        'p',
-        { className: 'footer-info' },
-        'Created by Steven Li.'
-      ),
       _react2.default.createElement(
         'nav',
         null,

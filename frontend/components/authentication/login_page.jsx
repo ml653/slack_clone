@@ -9,10 +9,13 @@ const LoginPage = () => {
         <a className="logo">Slack</a>
         <HeaderAuthButton />
         </header> */}
-      <LoginFormContainer />
+
+      <div className='auth-form'>
+        <LoginFormContainer />
+      </div>
 
       <footer className="auth-footer">
-        <p className="footer-info">Created by Steven Li.</p>
+        {/* <p className="footer-info">Created by Steven Li.</p> */}
         <nav>
           <ul className="footer-links"/>
         </nav>
