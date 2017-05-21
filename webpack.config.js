@@ -5,7 +5,7 @@ module.exports = {
   entry: "./frontend/entry.jsx",
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: "./app/assets/javascripts/bundle.js",
+    filename: "./bundle.js",
     devtoolModuleFilenameTemplate: '[resourcePath]',
     devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
   },
