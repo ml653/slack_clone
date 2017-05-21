@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, p, input {
   /*height: inherit;
   width: inherit;*/
 
-  background: transparent;
+  /*background: transparent;*/
   webkit-font-smoothing: inherit;
 }
 
@@ -36,13 +36,10 @@ body {
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.0725px;
   webkit-font-smoothing: antialiased;
+
+  background: #ffffff;
 }
 
 button {
   cursor: pointer;
 }
-/*
-html {
-  height: 100%;
-  width: 100%;
-}*/

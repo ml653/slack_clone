@@ -13,7 +13,7 @@
 #sidebar {
   background: $slack_purple;
   color: $menu_light_grey;
-  width: 220px;
+  width: $sidebar_size;
   height: 100%;
 
   display: flex;

@@ -1,11 +1,19 @@
 import React from 'react'
+import Message from './message'
 
 class Slack extends React.Component {
 
   render() {
+    const message = {
+      username: 'steven',
+      created_at: new Date(),
+      img_url: '/assets/profile_img_1.png',
+      text: 'The quick brown fox jumped over the lazy dog.',
+    }
     return (
-      <div>
-        {/* <div id='sidebar' className='sidebar-menu'>
+      <div id='app'>
+
+        <div id='sidebar' className='sidebar-menu'>
 
           <div id='user' className='sidebar-item'>
             <h2>Slack</h2>
@@ -28,58 +36,14 @@ class Slack extends React.Component {
             </ul>
           </div>
 
-        </div> */}
+        </div>
 
         <div id='messenger'>
+
           <ul id='feed'>
-            <li className='message'>
-              <div className='message-avatar'>
-                <img src='/assets/kitten.jpg'/>
-              </div>
-
-              <div className='message-content'>
-                <div className='message-info'>
-                  <div className='message-username'>steven</div>
-                  <div className='message-date'>5:59 PM</div>
-                </div>
-                <div className='message-text'>
-                  The quick brown fox jumped over the lazy dog.
-                </div>
-              </div>
-
-            </li>
-
-            <li className='message'>
-              <div className='message-avatar'>
-                <img src='/assets/kitten.jpg'/>
-              </div>
-
-              <div className='message-content'>
-                <div className='message-info'>
-                  <div className='message-username'>steven</div>
-                  <div className='message-date'>5:59 PM</div>
-                </div>
-                <div className='message-text'>
-                  The quick brown fox jumped over the lazy dog.
-                </div>
-              </div>
-            </li>
-
-            <li className='message'>
-              <div className='message-avatar'>
-                <img src='/assets/kitten.jpg'/>
-              </div>
-
-              <div className='message-content'>
-                <div className='message-info'>
-                  <div className='message-username'>steven</div>
-                  <div className='message-date'>5:59 PM</div>
-                </div>
-                <div className='message-text'>
-                  The quick brown fox jumped over the lazy dog.
-                </div>
-              </div>
-            </li>
+            <Message message={message} />
+            <Message message={message} />
+            <Message message={message} />
           </ul>
 
           <div id='user-input'>
