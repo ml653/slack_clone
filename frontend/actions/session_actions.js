@@ -23,6 +23,11 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS
 })
 
+// const receiveUserHelper(user){
+//   dispatch(subscribe(user.channels[0].id))
+//   dispatch(receiveUser)
+// }
+
 export const signup = user => dispatch => (
   ApiUtil.signup(user)
     .done(user => dispatch(receiveUser(user)))

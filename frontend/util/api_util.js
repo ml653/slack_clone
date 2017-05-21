@@ -7,13 +7,20 @@
 //   })
 // )
 
-export const sendMessage = (message) => (
+export const loadMessages = (channel_id) => (
   $.ajax({
-    method: 'POST',
-    url: '/api/',
-    data: { message }
+    method: 'GET',
+    url: `/api/channels/${channel_id}`
   })
 )
+
+// export const sendMessage = (message) => (
+//   $.ajax({
+//     method: 'POST',
+//     url: '/api/channels',
+//     data: { message }
+//   })
+// )
 
 export const signup = user => (
   $.ajax({

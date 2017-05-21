@@ -1,7 +1,6 @@
 class ChannelChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
-    stream_from 'channel_channel'
+    stream_from "channel_#{params[:channel_id]}"
   end
 
   def unsubscribed
@@ -9,6 +8,6 @@ class ChannelChannel < ApplicationCable::Channel
   end
 
   def message(data)
-    ActionCable.server.broadcast 'channel_channel', message: data["message"]
+    ActionCable.server.broadcast "channel_#{data['channel_id']}", message: data["message"]
   end
 end
