@@ -13240,9 +13240,17 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _message = __webpack_require__(366);
+var _feed = __webpack_require__(369);
 
-var _message2 = _interopRequireDefault(_message);
+var _feed2 = _interopRequireDefault(_feed);
+
+var _sidebar = __webpack_require__(367);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+var _user_input = __webpack_require__(368);
+
+var _user_input2 = _interopRequireDefault(_user_input);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13264,101 +13272,15 @@ var Slack = function (_React$Component) {
   _createClass(Slack, [{
     key: 'render',
     value: function render() {
-      var message = {
-        username: 'steven',
-        created_at: new Date(),
-        img_url: '/assets/profile_img_1.png',
-        text: 'The quick brown fox jumped over the lazy dog.'
-      };
       return _react2.default.createElement(
         'div',
-        { id: 'app' },
-        _react2.default.createElement(
-          'div',
-          { id: 'sidebar', className: 'sidebar-menu' },
-          _react2.default.createElement(
-            'div',
-            { id: 'user', className: 'sidebar-item' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Slack'
-            ),
-            _react2.default.createElement(
-              'p',
-              { id: 'username' },
-              'stevenli'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { id: 'channels' },
-            _react2.default.createElement(
-              'ul',
-              { id: 'groups' },
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item selected' },
-                'CHANNELS'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#EBB'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#Estonian Translation'
-              )
-            ),
-            _react2.default.createElement(
-              'ul',
-              { id: 'direct-messages' },
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                'DIRECT MESSAGES'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#Slackbot'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#Chelsea'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#Mark'
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: 'channel sidebar-item' },
-                '#Robbie'
-              )
-            )
-          )
-        ),
+        null,
+        _react2.default.createElement(_sidebar2.default, null),
         _react2.default.createElement(
           'div',
           { id: 'messenger' },
-          _react2.default.createElement(
-            'ul',
-            { id: 'feed' },
-            _react2.default.createElement(_message2.default, { message: message }),
-            _react2.default.createElement(_message2.default, { message: message }),
-            _react2.default.createElement(_message2.default, { message: message })
-          ),
-          _react2.default.createElement(
-            'div',
-            { id: 'user-input' },
-            _react2.default.createElement('input', { type: 'textarea',
-              placeholder: 'Message' })
-          )
+          _react2.default.createElement(_feed2.default, null),
+          _react2.default.createElement(_user_input2.default, null)
         )
       );
     }
@@ -31173,6 +31095,187 @@ exports.default = function (_ref) {
     )
   );
 };
+
+/***/ }),
+/* 367 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (_ref) {
+  var sidebar = _ref.sidebar;
+  return _react2.default.createElement(
+    'div',
+    { id: 'sidebar', className: 'sidebar-menu' },
+    _react2.default.createElement(
+      'div',
+      { id: 'user', className: 'sidebar-item' },
+      _react2.default.createElement(
+        'h2',
+        null,
+        'Slack'
+      ),
+      _react2.default.createElement(
+        'p',
+        { id: 'username' },
+        'stevenli'
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'channels' },
+      _react2.default.createElement(
+        'ul',
+        { id: 'groups' },
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item selected' },
+          'CHANNELS'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#EBB'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#Estonian Translation'
+        )
+      ),
+      _react2.default.createElement(
+        'ul',
+        { id: 'direct-messages' },
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          'DIRECT MESSAGES'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#Slackbot'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#Chelsea'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#Mark'
+        ),
+        _react2.default.createElement(
+          'li',
+          { className: 'channel sidebar-item' },
+          '#Robbie'
+        )
+      )
+    )
+  );
+};
+
+/***/ }),
+/* 368 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  return _react2.default.createElement(
+    'div',
+    { id: 'user-input' },
+    _react2.default.createElement('input', { type: 'textarea',
+      placeholder: 'Message' })
+  );
+};
+
+/***/ }),
+/* 369 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _message = __webpack_require__(366);
+
+var _message2 = _interopRequireDefault(_message);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Feed = function (_React$Component) {
+  _inherits(Feed, _React$Component);
+
+  function Feed() {
+    _classCallCheck(this, Feed);
+
+    return _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).apply(this, arguments));
+  }
+
+  _createClass(Feed, [{
+    key: 'render',
+    value: function render() {
+
+      var message = {
+        username: 'steven',
+        created_at: new Date(),
+        img_url: '/assets/profile_img_1.png',
+        text: 'The quick brown fox jumped over the lazy dog.'
+      };
+
+      return _react2.default.createElement(
+        'ul',
+        { id: 'feed' },
+        _react2.default.createElement(_message2.default, { message: message }),
+        _react2.default.createElement(_message2.default, { message: message }),
+        _react2.default.createElement(_message2.default, { message: message })
+      );
+    }
+  }]);
+
+  return Feed;
+}(_react2.default.Component);
+
+exports.default = Feed;
 
 /***/ })
 /******/ ]);

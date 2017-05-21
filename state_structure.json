@@ -1,0 +1,126 @@
+{
+  "session": {
+    "user": {
+      "id": 1,
+      "username": "user_1",
+      "password_digest": "$2a$10$af4b3w09zFXl8fJ1LvjitOYcnn8lecTRVM6CemO2OqRcU6YpvveTS",
+      "email": "user_1@gmail.com",
+      "img_url": "img.com\/url",
+      "session_token": "_zujRxeFdNWzlfmG85lDZUXD8BlgQL_aE9oRxf6FDb4",
+      "created_at": "2017-05-19T01:02:13.692Z",
+      "updated_at": "2017-05-19T21:32:58.886Z",
+      "channels": [
+        {
+          "id": 1,
+          "name": "General",
+          "description": "This channel is for team-wide communication and announcements.  All team members are on this channel.",
+          "private": false,
+          "created_at": "2017-05-19T01:02:14.156Z",
+          "updated_at": "2017-05-19T01:02:14.156Z",
+          "members": [
+            {
+              "id": 2,
+              "username": "user_2",
+              "email": "user_2@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 3,
+              "username": "user_3",
+              "email": "user_3@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 4,
+              "username": "user_4",
+              "email": "user_4@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 5,
+              "username": "user_5",
+              "email": "user_5@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 1,
+              "username": "user_1",
+              "email": "user_1@gmail.com",
+              "img_url": "\/img.com\/url"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Random",
+          "description": "Non-work banter and water cooler conversation.",
+          "private": false,
+          "created_at": "2017-05-19T01:02:14.159Z",
+          "updated_at": "2017-05-19T01:02:14.159Z",
+          "members": [
+            {
+              "id": 2,
+              "username": "user_2",
+              "email": "user_2@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 3,
+              "username": "user_3",
+              "email": "user_3@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 4,
+              "username": "user_4",
+              "email": "user_4@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 5,
+              "username": "user_5",
+              "email": "user_5@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 1,
+              "username": "user_1",
+              "email": "user_1@gmail.com",
+              "img_url": "\/img.com\/url"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "DM",
+          "description": "DM",
+          "private": true,
+          "created_at": "2017-05-19T01:02:14.162Z",
+          "updated_at": "2017-05-19T01:02:14.162Z",
+          "members": [
+            {
+              "id": 2,
+              "username": "user_2",
+              "email": "user_2@gmail.com",
+              "img_url": "\/img.com\/url"
+            },
+            {
+              "id": 1,
+              "username": "user_1",
+              "email": "user_1@gmail.com",
+              "img_url": "\/img.com\/url"
+            }
+          ]
+        }
+      ]
+    },
+    "errors": []
+  },
+  "channel": {
+    "current_channel_id": 1,
+    "messages": {
+      "1": 1,
+      "2": 2
+    }
+  }
+}
