@@ -4,6 +4,11 @@ export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE'
 
+export const receiveChannelId = (channelId) => ({
+  type: RECEIVE_CHANNEL,
+  channelId
+})
+
 export const receiveMessage = (message) => ({
   type: RECEIVE_MESSAGE,
   message
@@ -19,12 +24,12 @@ export const removeMessage = (id) => ({
   id
 })
 
-export const loadMessages = channelId => dispatch => {
+export const loadMessages = channelId => dispatch => (
   ApiUtil.loadMessages(channelId)
     .then(messages => dispatch(receiveMessages(messages)))
-}
+)
 
-export const sendMessage = dispatch => message => (
+export const sendMessage = message => dispatch => (
   ApiUtil.sendMessage(message)
     .then(message => dispatch(receiveMessage(message)))
 )

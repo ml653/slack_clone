@@ -8,21 +8,9 @@ class Feed extends React.Component {
       <Message key={message.id} message={message} />
     ))
 
-    const message = {
-      user: {
-        id: 1,
-        username: 'steven',
-        img_url: '/assets/profile_img_1.png'
-      },
-      channel: 1,
-      created_at: '2017-05-22T13:30:45.334Z',
-      text: 'The quick brown fox jumped over the lazy dog.'
-    }
-
-    return <div className='scroll'>
+    return <div id='style-1' className='scroll'>
       <ul id='feed'>
         {messages}
-        <Message message={message} />
       </ul>
     </div>
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import FeedContainer from './feed/feed_container'
 import Sidebar from './sidebar/sidebar'
-import UserInput from './user_input/user_input'
+import UserInputContainer from './user_input/user_input_container'
 
 class Team extends React.Component {
 
@@ -9,6 +9,7 @@ class Team extends React.Component {
     this.resetSubscriptions()
 
     const firstChannelId = this.props.user.channels[0].id
+    this.props.receiveChannelId(firstChannelId)
     this.props.loadMessages(firstChannelId)
   }
 
@@ -40,10 +41,6 @@ class Team extends React.Component {
       }, {
         connected: () => {},
         disconnected: () => {},
-        sendMessage: function (message) {
-          // this.perform('message', { message, channel_id: id })
-          this.props.sendMessage(message)
-        },
         received: ({ message }) => {
           this.props.receiveMessage(message)
         }
@@ -57,7 +54,8 @@ class Team extends React.Component {
         <Sidebar/>
         <div id='messenger'>
           <FeedContainer/>
-          <UserInput/>
+          <UserInputContainer/>
+          {/* <UserInput/> */}
         </div>
       </div>
     )
