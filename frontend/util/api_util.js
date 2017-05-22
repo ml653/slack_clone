@@ -7,10 +7,10 @@
 //   })
 // )
 
-export const loadMessages = (channel_id) => (
+export const loadMessages = (channelId) => (
   $.ajax({
     method: 'GET',
-    url: `/api/channels/${channel_id}`
+    url: `/api/messages/${channelId}`
   })
 )
 

@@ -17,16 +17,23 @@
 
   #feed {
     width: 100%;
-    overflow-y: auto;
+    height: 100%;
+    overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
+    // white-space:nowrap;
+    // white-space: normal;
+
     .message {
       padding: $messenger_margin;
       display: flex;
       flex-direction: row;
+
+      // white-space:nowrap;
+      // white-space: normal;
 
       &:hover {
         background: $message_hover_grey;

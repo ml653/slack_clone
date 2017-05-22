@@ -1,4 +1,4 @@
-import ApiUtil from '../util/api_util'
+import * as ApiUtil from '../util/api_util'
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
@@ -32,10 +32,10 @@ export const subscribe = (channelId) => dispatch => (
     })
 )
 
-// export const loadMessages = dispatch => channelId => (
-//   ApiUtil.loadMessages(channelId)
-//     .then(messages => dispatch(receiveMessages(messages)))
-// )
+export const loadMessages = channelId => dispatch => {
+  ApiUtil.loadMessages(channelId)
+    .then(messages => dispatch(receiveMessages(messages)))
+}
 
 export const sendMessage = dispatch => message => (
   ApiUtil.sendMessage(message)

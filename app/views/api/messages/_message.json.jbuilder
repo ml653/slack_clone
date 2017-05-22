@@ -1,8 +1,8 @@
 json.id message.id
-json.body message.body
-json.author do
-  json.id message.author.id
-  json.username message.author.username
-  json.image_url asset_path(message.author.image.url)
+json.text message.text
+json.user do
+  json.id message.user.id
+  json.username message.user.username
+  json.img_url asset_path(message.user.img_url)
 end
 json.created_at message.created_at

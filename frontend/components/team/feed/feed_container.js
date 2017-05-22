@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Feed from './feed'
-import { receiveMessage } from '../../../actions/channel_actions'
+import { loadMessages } from '../../../actions/channel_actions'
 
 function mapStateToProps(state) {
   return {
@@ -8,4 +8,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { receiveMessage })(Feed)
+export default connect(mapStateToProps, { loadMessages })(Feed)

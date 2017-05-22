@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
     resources :users, only: [ :create ]
     resource :session, only: [ :create, :destroy ]
+    resources :messages, only: [:create, :update, :destroy]
+    get '/messages/:channel_id', to: 'messages#index'
+    resources :channels, only: [:show]
   end
 
 end
