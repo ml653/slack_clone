@@ -3,10 +3,6 @@ import Message from './message'
 
 class Feed extends React.Component {
 
-  componentWillMount() {
-    this.props.loadMessages(1)
-  }
-
   render() {
     const messages = Object.values(this.props.messages).map(message => (
       <Message key={message.id} message={message} />
@@ -23,10 +19,12 @@ class Feed extends React.Component {
       text: 'The quick brown fox jumped over the lazy dog.'
     }
 
-    return <ul id='feed'>
-      {messages}
-      <Message message={message} />
-    </ul>
+    return <div className='scroll'>
+      <ul id='feed'>
+        {messages}
+        <Message message={message} />
+      </ul>
+    </div>
   }
 }
 

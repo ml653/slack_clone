@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Root from './components/root'
 import configureStore from './store/store'
 import * as sessionActions from './actions/session_actions'
+import * as ApiUtil from './util/api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.store = store
   window.sessionActions = sessionActions
+  window.ApiUtil = ApiUtil
 
   const root = document.getElementById('root')
   ReactDOM.render(<Root store={store}/>, root)

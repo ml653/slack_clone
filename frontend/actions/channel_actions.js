@@ -19,19 +19,6 @@ export const removeMessage = (id) => ({
   id
 })
 
-export const receiveChannel = (channel) => ({
-  type: RECEIVE_CHANNEL,
-  channel
-})
-
-export const subscribe = (channelId) => dispatch => (
-  ApiUtil.subscribe(channelId)
-    .then(({channel, messages}) => {
-      dispatch(receiveChannel(channel))
-      dispatch(receiveMessages(messages))
-    })
-)
-
 export const loadMessages = channelId => dispatch => {
   ApiUtil.loadMessages(channelId)
     .then(messages => dispatch(receiveMessages(messages)))
@@ -51,3 +38,17 @@ export const deleteMessage = dispatch => id => (
   ApiUtil.deleteMessage(id)
     .then(message => dispatch(removeMessage(message.id)))
 )
+
+
+// export const receiveChannel = (channel) => ({
+//   type: RECEIVE_CHANNEL,
+//   channel
+// })
+
+// export const subscribe = (channelId) => dispatch => (
+//   ApiUtil.subscribe(channelId)
+//     .then(({channel, messages}) => {
+//       dispatch(receiveChannel(channel))
+//       dispatch(receiveMessages(messages))
+//     })
+// )

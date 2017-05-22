@@ -14,13 +14,13 @@ export const loadMessages = (channelId) => (
   })
 )
 
-// export const sendMessage = (message) => (
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/channels',
-//     data: { message }
-//   })
-// )
+export const sendMessage = (message) => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/messages',
+    data: { message }
+  })
+)
 
 export const signup = user => (
   $.ajax({
