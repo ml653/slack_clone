@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Root from './components/root'
 import configureStore from './store/store'
 import * as sessionActions from './actions/session_actions'
+import * as channelActions from './actions/channel_actions'
 import * as ApiUtil from './util/api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.store = store
   window.sessionActions = sessionActions
+  window.channelActions = channelActions
   window.ApiUtil = ApiUtil
 
   const root = document.getElementById('root')

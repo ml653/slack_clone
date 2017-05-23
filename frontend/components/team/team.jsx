@@ -1,21 +1,19 @@
 import React from 'react'
 import FeedContainer from './feed/feed_container'
 import Sidebar from './sidebar/sidebar'
+import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
+import { values } from 'lodash'
 
 class Team extends React.Component {
 
   componentDidMount() {
     this.resetSubscriptions()
 
-    const firstChannelId = this.props.user.channels[0].id
-    this.props.receiveChannelId(firstChannelId)
-    this.props.loadMessages(firstChannelId)
+    // const firstChannelId = this.props.user.channels[0].id
+    this.props.receiveChannelId(1)
+    this.props.loadMessages(1)
   }
-
-  // componentWillReceiveProps(newProps) {
-  //   this.resetSubscriptions()
-  //
 
   componentWillUnmount() {
     this.unsubscribeFromAll()
@@ -33,7 +31,7 @@ class Team extends React.Component {
   }
 
   subscribeToAll() {
-    this.props.user.channels.forEach(({ id }) => {
+    Object.values(this.props.user.channels).forEach(({ id }) => {
 
       window.App.cable.subscriptions.create({
         channel: 'ChannelChannel',
@@ -51,7 +49,7 @@ class Team extends React.Component {
   render() {
     return (
       <div>
-        <Sidebar/>
+        <SidebarContainer/>
         <div id='messenger'>
           <FeedContainer/>
           <UserInputContainer/>

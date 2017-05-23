@@ -1,11 +1,11 @@
 import * as ApiUtil from '../util/api_util'
-export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
+export const RECEIVE_CHANNEL_ID = 'RECEIVE_CHANNEL_ID'
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE'
 
 export const receiveChannelId = (channelId) => ({
-  type: RECEIVE_CHANNEL,
+  type: RECEIVE_CHANNEL_ID,
   channelId
 })
 
@@ -19,10 +19,18 @@ export const receiveMessages = (messages) => ({
   messages
 })
 
-export const removeMessage = (id) => ({
-  type: REMOVE_MESSAGE,
-  id
-})
+// export const removeMessage = (id) => ({
+//   type: REMOVE_MESSAGE,
+//   id
+// })
+
+export const loadChannel = channelId => dispatch => {
+  ApiUtil.loadMessages(channelId)
+    .then(messages => {
+      dispatch(receiveChannelId(channelId))
+      dispatch(receiveMessages(messages))
+    })
+}
 
 export const loadMessages = channelId => dispatch => (
   ApiUtil.loadMessages(channelId)
@@ -34,19 +42,19 @@ export const sendMessage = message => dispatch => (
     .then(message => dispatch(receiveMessage(message)))
 )
 
-export const editMessage = dispatch => message => (
-  ApiUtil.editMessage(message)
-    .then(message => dispatch(receiveMessage(message)))
-)
-
-export const deleteMessage = dispatch => id => (
-  ApiUtil.deleteMessage(id)
-    .then(message => dispatch(removeMessage(message.id)))
-)
+// export const editMessage = dispatch => message => (
+//   ApiUtil.editMessage(message)
+//     .then(message => dispatch(receiveMessage(message)))
+// )
+//
+// export const deleteMessage = dispatch => id => (
+//   ApiUtil.deleteMessage(id)
+//     .then(message => dispatch(removeMessage(message.id)))
+// )
 
 
 // export const receiveChannel = (channel) => ({
-//   type: RECEIVE_CHANNEL,
+//   type: RECEIVE_CHANNEL_ID,
 //   channel
 // })
 

@@ -53,10 +53,6 @@ class Feed extends React.Component {
        </div>
     ))
 
-    console.log('y', this.lastMessage)
-    // this.lastChild = messages[messages.length - 1]
-    // debugger
-
     return <div id='style-1' className='scroll'>
       <ul id='feed'>
         {messages}
