@@ -55,7 +55,6 @@ class Team extends React.Component {
         <div id='messenger'>
           <FeedContainer/>
           <UserInputContainer/>
-          {/* <UserInput/> */}
         </div>
       </div>
     )

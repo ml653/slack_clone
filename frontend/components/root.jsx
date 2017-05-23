@@ -7,19 +7,6 @@ import LoginPage from './authentication/login_page'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import TeamContainer from './team/team_container'
 
-// const Root = ({ store }) => {
-//   return (
-//     <Provider store={store}>
-//       <HashRouter>
-//         <Switch>
-//           <AuthRoute path='/login' component={LoginPage}/>
-//           <ProtectedRoute path='/' component={Team}/>
-//         </Switch>
-//       </HashRouter>
-//     </Provider>
-//   )
-// }
-
 class Root extends React.Component {
 
   render() {

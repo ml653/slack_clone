@@ -1,24 +1,27 @@
 import React from 'react'
 
-function formatDate(date){
-  const parsedDate = new Date(date)
-  return parsedDate.toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")
+export default class Message extends React.Component {
+
+  formatDate(date) {
+    const parsedDate = new Date(date)
+    return parsedDate.toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")
+  }
+
+  render() {
+    return <li className='message'>
+      <div className='message-avatar'>
+        <img src={this.props.message.user.img_url}/>
+      </div>
+
+      <div className='message-content'>
+        <div className='message-info'>
+          <span className='message-username'>{this.props.message.user.username}</span>
+          <span className='message-date'>{this.formatDate(this.props.message.created_at)}</span>
+        </div>
+        <div className='message-text'>
+          {this.props.message.text}
+        </div>
+      </div>
+    </li>
+  }
 }
-
-export default ({message}) => (
-  <li className='message'>
-    <div className='message-avatar'>
-      <img src={message.user.img_url}/>
-    </div>
-
-    <div className='message-content'>
-      <div className='message-info'>
-        <span className='message-username'>{message.user.username}</span>
-        <span className='message-date'>{formatDate(message.created_at)}</span>
-      </div>
-      <div className='message-text'>
-        {message.text}
-      </div>
-    </div>
-  </li>
-)
