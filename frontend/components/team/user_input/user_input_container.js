@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { sendMessage } from '../../../actions/channel_actions'
 
 function mapStateToProps(state) {
+  const currentChannelId = state.channel.currentChannelId
   return {
-    channelId: state.channel.currentChannelId,
+    channel: state.session.user.channels[currentChannelId],
     userId: state.session.user.id
   }
 }
