@@ -12,16 +12,21 @@ User.create(username: 'debsfong', password: 'password', email: 'user_3@gmail.com
 User.create(username: 'kelly', password: 'password', email: 'user_4@gmail.com', 'img_url': '/assets/profile_img_1.png')
 User.create(username: 'swwang', password: 'password', email: 'user_5@gmail.com', 'img_url': '/assets/profile_img_1.png')
 
-Channel.create(name: 'General',
+Channel.create(
+  name: 'General',
   description: 'This channel is for team-wide communication and announcements.  All team members are on this channel.',
+  isDirectMessage: false,
   private: false)
 
-Channel.create(name: 'Random',
+Channel.create(
+  name: 'Random',
   description: 'Non-work banter and water cooler conversation.',
+  isDirectMessage: false,
   private: false)
 
-Channel.create(name: 'DM',
-  description: 'DM',
+Channel.create(name: 'Direct Message',
+  description: 'Direct Message',
+  isDirectMessage: true,
   private: true)
 
 Participation.create(channel_id: 1, user_id: 1)
@@ -38,3 +43,57 @@ Participation.create(channel_id: 2, user_id: 5)
 
 Participation.create(channel_id: 3, user_id: 1)
 Participation.create(channel_id: 3, user_id: 2)
+
+Message.create(
+  user_id: 1,
+  channel_id: 1,
+  text: 'How y\'all doing?'
+)
+
+Message.create(
+  user_id: 1,
+  channel_id: 1,
+  text: 'Hope the bay area life is fun?'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 1,
+  text: 'Loving the bay area!'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 1,
+  text: 'Much better weather than socal.'
+)
+
+Message.create(
+  user_id: 3,
+  channel_id: 1,
+  text: 'Yay!!'
+)
+
+Message.create(
+  user_id: 3,
+  channel_id: 2,
+  text: 'Much randomness'
+)
+
+Message.create(
+  user_id: 1,
+  channel_id: 3,
+  text: 'How is your project coming along Steven?'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 3,
+  text: 'Going well!! but..'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 3,
+  text: 'Seen better days.'
+)
