@@ -3,7 +3,9 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  width: 100%;
+  // TODO: Ask why calc sometimes doens't work with $sidebar_size
+  width: calc(100% - 220px);
+
   position: absolute;
   margin-left: $sidebar_size;
   $messenger_margin: 16px;
@@ -12,12 +14,13 @@
     overflow-y: scroll;
     height: 100%;
 
+
     #feed {
       width: 100%;
-
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      margin-bottom: $messenger_margin;
 
       .message {
         padding: $messenger_margin;
@@ -81,7 +84,8 @@
       background-color: #ffffff;
       border-radius: 5px;
       padding: 8px;
-      margin: $messenger_margin;
+      margin: 0 $messenger_margin $messenger_margin $messenger_margin;
+      // margin: 0px 16px 16px 16px;
     }
   }
 }
