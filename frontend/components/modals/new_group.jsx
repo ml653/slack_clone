@@ -18,7 +18,7 @@ export default class NewGroup extends React.Component {
     }
   }
 
-  handleSubmit(){
+  handleSubmit() {
 
   }
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import FeedContainer from './feed/feed_container'
-import Sidebar from './sidebar/sidebar'
 import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
-import { values } from 'lodash'
+// import NewGroup from 'Components/modals/new_group'
+// import NewDirectMessage from 'Components/modals/new_direct_message'
 
 class Team extends React.Component {
 
