@@ -1,18 +1,13 @@
 import React from 'react'
+import { Route, Redirect } from 'react-router'
 import FeedContainer from './feed/feed_container'
 import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
-// import NewGroup from 'Components/modals/new_group'
-// import NewDirectMessage from 'Components/modals/new_direct_message'
 
 class Team extends React.Component {
 
   componentDidMount() {
     this.resetSubscriptions()
-
-    // const firstChannelId = this.props.user.channels[0].id
-    this.props.receiveChannelId(1)
-    this.props.loadMessages(1)
   }
 
   componentWillUnmount() {
@@ -24,7 +19,7 @@ class Team extends React.Component {
     this.subscribeToAll()
   }
 
-  unsubscribeFromAll(){
+  unsubscribeFromAll() {
     window.App.cable.subscriptions.subscriptions.forEach(sub => {
       window.App.cable.subscriptions.remove(sub)
     })
@@ -51,7 +46,9 @@ class Team extends React.Component {
       <div>
         <SidebarContainer/>
         <div id='messenger'>
-          <FeedContainer/>
+          { this.props.user.channels
+            ? <Redirect from="/" to={`/${this.props.user.channels[1].id }`} /> : null }
+          <Route path='/:channel/' component={FeedContainer}/>
           <UserInputContainer/>
         </div>
       </div>

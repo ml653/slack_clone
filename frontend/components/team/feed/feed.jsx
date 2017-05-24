@@ -3,6 +3,25 @@ import Message from './message'
 
 class Feed extends React.Component {
 
+  componentWillMount() {
+    this.loadChannel(this.props.match.params.channel)
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.match.params.channel !== newProps.match.params.channel) {
+      this.loadChannel(newProps.match.params.channel)
+    }
+  }
+
+  loadChannel(channelId) {
+    console.log(channelId)
+    if(this.props.user.channels[channelId]) {
+      this.props.loadChannel(channelId)
+    } else {
+      this.props.history.push('/')
+    }
+  }
+
   componentDidMount() {
     this.scrollToBottom()
   }
@@ -13,6 +32,29 @@ class Feed extends React.Component {
 
   scrollToBottom() {
     $('.scroll').scrollTop(100000)
+  }
+
+  render() {
+    const messages = Object.values(this.props.messages).map((message, i, arr) => (
+    <div key={message.id}
+      id={ i === arr.length - 1 ? 'last-child' : '' }
+      ref={((message) => {
+        this.lastMessage = message
+      })}>
+
+      <Message message={message}/>
+       </div>
+    ))
+
+    return <div id='style-1' className='scroll'>
+      <ul id='feed'>
+        {messages}
+      </ul>
+    </div>
+  }
+}
+
+export default Feed
 
     // if(this.lastMessage !== undefined) {
       // console.log($("#last-child")[0].scrollHeight)
@@ -33,29 +75,3 @@ class Feed extends React.Component {
       // })
       // scroller.scrollToBottom(this.lastMessage)
     // }
-  }
-
-  render() {
-    const messages = Object.values(this.props.messages).map((message, i, arr) => (
-      <div key={message.id}
-        id={ i === arr.length - 1 ? 'last-child' : '' }
-        ref={((message) => {
-        this.lastMessage = message
-      })}>
-
-        <Message
-          message={message}
-       />
-       </div>
-    ))
-
-    return <div id='style-1' className='scroll'>
-      <ul id='feed'>
-        {messages}
-        {/* <Message message={Object.values(this.props.messages)[0]} /> */}
-      </ul>
-    </div>
-  }
-}
-
-export default Feed

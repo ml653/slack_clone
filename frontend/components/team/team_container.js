@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Team from './team'
-import { loadMessages, receiveMessage, receiveChannelId } from 'Actions/channel_actions'
+import { receiveMessage } from 'Actions/channel_actions'
 
 function mapStateToProps(state) {
   return {
@@ -8,4 +8,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { loadMessages, receiveMessage, receiveChannelId })(Team)
+export default connect(mapStateToProps, { receiveMessage })(Team)

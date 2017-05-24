@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
   loadChannel(channelId) {
     return () => {
-      this.props.loadChannel(channelId)
+      this.props.history.push(`/${channelId}`)
     }
   }
 
