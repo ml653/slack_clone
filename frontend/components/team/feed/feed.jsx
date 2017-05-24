@@ -1,9 +1,5 @@
 import React from 'react'
 import Message from './message'
-import scrollIntoView from 'scroll-into-view'
-import Scroll from 'react-scroll'
-const scroller = Scroll.animateScroll;
-
 
 class Feed extends React.Component {
 

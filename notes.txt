@@ -98,3 +98,4 @@ $.ajax({
     members: [1,2,3]
   }
 })
+.then(n => console.log(n), err => console.log(err.responseJSON))

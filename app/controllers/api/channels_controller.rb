@@ -20,7 +20,7 @@ class Api::ChannelsController < ApplicationController
           render ['Member suggestion is not valid'], status: :unprocessable_entity
         end
       end
-      
+
       render :show
     else
       render json: @channel.errors.full_messages, status: :unprocessable_entity
