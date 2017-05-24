@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { Switch } from 'react-router'
 import { HashRouter } from 'react-router-dom'
 import LoginPage from './authentication/login_page'
-import NewGroup from 'Components/modals/new_group'
+import NewChanelContainer from 'Components/modals/new_channel_container'
 import NewDirectMessage from 'Components/modals/new_direct_message'
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
@@ -16,7 +16,7 @@ class Root extends React.Component {
         <HashRouter>
           <Switch>
             <AuthRoute path='/login' component={LoginPage}/>
-            <ProtectedRoute path='/new-channel' component={NewGroup}/>
+            <ProtectedRoute path='/new-channel' component={NewChanelContainer}/>
             <ProtectedRoute path='/new-direct-message' component={NewDirectMessage}/>
             <ProtectedRoute path='/' component={TeamContainer}/>
           </Switch>

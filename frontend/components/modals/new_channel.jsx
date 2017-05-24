@@ -1,13 +1,20 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class NewGroup extends React.Component {
+class NewGroup extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       name: '',
-      description: ''
+      author_id: this.props.userId,
+      description: '',
+      isDirectMessage: false,
+      private: false
     }
+    this.updateField = this.updateField.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   updateField(field) {
@@ -18,8 +25,17 @@ export default class NewGroup extends React.Component {
     }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault()
+    this.props.createChannel(this.state, [])
+      .then(() => {
+        this.props.history.push('/')
+      })
+  }
 
+  handleCancel(e) {
+    e.preventDefault()
+    this.props.history.push('/')
   }
 
   render() {
@@ -57,7 +73,7 @@ export default class NewGroup extends React.Component {
             <div className='modal-submission'>
               <button
                 className='cancel-button'
-                onClick={this.handleSubmit}>
+                onClick={this.handleCancel}>
                 Cancel
               </button>
 
@@ -75,3 +91,5 @@ export default class NewGroup extends React.Component {
     )
   }
 }
+
+export default withRouter(NewGroup)
