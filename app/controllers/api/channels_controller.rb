@@ -7,7 +7,7 @@ class Api::ChannelsController < ApplicationController
       # If Channel is for direct messages, add all members to channel
       if @channel.isDirectMessage
         @members = channel_member_params.map { |member_id| Particpation.new(@channel.id, member_id) }
-        membersValid = @members.all? { |member| member.valid ? }
+        membersValid = @members.all? { |member| member.valid? }
         if membersValid
           @members.each { |member| member.save }
         else
@@ -15,9 +15,8 @@ class Api::ChannelsController < ApplicationController
         end
       else
       # If Channel is for not direct messages, only add author
-        participant = Participation.new(@channel.id, @channel.author_id)
-        if participant.save
-        else
+        participant = Participation.new(channel_id: @channel.id, user_id: @channel.author_id)
+        if !participant.save
           render ['Member suggestion is not valid'], status: :unprocessable_entity
         end
       end
