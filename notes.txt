@@ -83,3 +83,18 @@ $.ajax({
 store.dispatch(sessionActions.signup({user: {email: 'user_1@gmail.com', password: 'password'}}))
 store.dispatch(sessionActions.login({user: {email: 'user_1@gmail.com', password: 'password'}}))
 store.dispatch(sessionActions.logout())
+
+$.ajax({
+  url: '/api/channels',
+  type: 'POST',
+  data: {
+    channel: {
+      author_id: 1,
+      name: 'New Channel',
+      description: 'New Channel description',
+      isDirectMessage: true,
+      private: false,
+    },
+    members: [1,2,3]
+  }
+})

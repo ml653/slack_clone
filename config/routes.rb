@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   namespace :api, defaults: { format: :json } do
-    get '/users/find/', to: 'users#find'
-
     resources :users, only: [ :create ]
     resource :session, only: [ :create, :destroy ]
+
+    resources :channels, only: [:create]
+    resources :participations, only: [ :create ]
+
     resources :messages, only: [:create, :update, :destroy]
     get '/messages/:channel_id', to: 'messages#index'
-    resources :channels, only: [:show]
   end
 
 end

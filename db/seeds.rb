@@ -16,18 +16,21 @@ Channel.create(
   name: 'General',
   description: 'This channel is for team-wide communication and announcements.  All team members are on this channel.',
   isDirectMessage: false,
-  private: false)
+  private: false,
+  author_id: 1)
 
 Channel.create(
   name: 'Random',
   description: 'Non-work banter and water cooler conversation.',
   isDirectMessage: false,
-  private: false)
+  private: false,
+  author_id: 2)
 
 Channel.create(name: 'Direct Message',
   description: 'Direct Message',
   isDirectMessage: true,
-  private: true)
+  private: true,
+  author_id: 2)
 
 Participation.create(channel_id: 1, user_id: 1)
 Participation.create(channel_id: 1, user_id: 2)
