@@ -19,6 +19,7 @@ class Root extends React.Component {
             <ProtectedRoute path='/new-channel' component={NewChanelContainer}/>
             <ProtectedRoute path='/new-direct-message' component={NewDirectMessage}/>
             <ProtectedRoute path='/' component={TeamContainer}/>
+
           </Switch>
         </HashRouter>
       </Provider>

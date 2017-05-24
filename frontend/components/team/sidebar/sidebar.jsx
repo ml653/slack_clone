@@ -1,7 +1,6 @@
 import React from 'react'
 import { getDirectMessageMembers } from 'Util/selector_util'
-import { withRouter } from "react-router-dom";
-
+import { withRouter } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 
@@ -10,6 +9,11 @@ class Sidebar extends React.Component {
     this.loadChannel = this.loadChannel.bind(this)
     this.showNewChannel = this.showNewChannel.bind(this)
     this.showDirectMessage = this.showDirectMessage.bind(this)
+    this.logout = this.logout.bind(this)
+  }
+
+  logout() {
+    this.props.logout()
   }
 
   loadChannel(channelId) {
@@ -54,7 +58,8 @@ class Sidebar extends React.Component {
 
       <div id='user' className='sidebar-item'>
         <h2>Slack</h2>
-        <p id='username'>{ this.props.user.username }</p>
+        <p id='username'
+          onClick={this.logout}>{ this.props.user.username }</p>
       </div>
 
       <div id='channels'>

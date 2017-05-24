@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524001105) do
+ActiveRecord::Schema.define(version: 20170524215325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170524001105) do
     t.boolean  "isDirectMessage", null: false
     t.integer  "author_id",       null: false
     t.index ["description"], name: "index_channels_on_description", using: :btree
-    t.index ["name"], name: "index_channels_on_name", using: :btree
+    t.index ["name"], name: "index_channels_on_name", unique: true, using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
