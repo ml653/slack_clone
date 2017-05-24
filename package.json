@@ -31,7 +31,6 @@
     "react-scroll": "^1.5.2",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "scroll-into-view": "^1.8.0",
     "webpack": "^2.5.1"
   },
   "devDependencies": {
@@ -39,7 +38,7 @@
     "eslint": "^3.19.0"
   },
   "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
+    "node": "6.7.0",
+    "npm": "3.10.3"
   }
 }
