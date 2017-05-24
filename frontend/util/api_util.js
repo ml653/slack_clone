@@ -7,6 +7,22 @@
 //   })
 // )
 
+export const createChannel = (channel, members) => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/channels/`,
+    data: { channel, members }
+  })
+)
+
+export const subscribeToChannel = (participation) => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/participations/`,
+    data: { participation }
+  })
+)
+
 export const loadMessages = (channelId) => (
   $.ajax({
     method: 'GET',
@@ -26,7 +42,7 @@ export const signup = user => (
   $.ajax({
     method: 'POST',
     url: '/api/users',
-    data: user
+    data: { user }
   })
 )
 
@@ -34,7 +50,7 @@ export const login = user => (
   $.ajax({
     method: 'POST',
     url: '/api/session',
-    data: user
+    data: { user }
   })
 )
 

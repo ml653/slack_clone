@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Feed from './feed'
-import { loadMessages } from '../../../actions/channel_actions'
+import { loadMessages } from 'Actions/channel_actions'
 
 function mapStateToProps(state) {
   return {

@@ -1,28 +1,31 @@
-import * as channelActions from '../actions/channel_actions'
+import * as ChannelActions from 'Actions/channel_actions'
 import { merge } from 'lodash'
 
-export default (state = { currentChannelId: null, messages: {} }, action) => {
+const defaultState = { currentChannelId: null, messages: {} }
+
+export default (state = defaultState, action) => {
   switch(action.type) {
-  case channelActions.RECEIVE_CHANNEL_ID:
+  case ChannelActions.RECEIVE_CHANNEL_ID:
     return merge({}, state, { currentChannelId: action.channelId })
 
-  case channelActions.RECEIVE_MESSAGES: {
+  case ChannelActions.RECEIVE_MESSAGES: {
     const newState = merge({}, state)
     newState.messages = action.messages
     return newState
   }
 
-  case channelActions.RECEIVE_MESSAGE: {
+  case ChannelActions.RECEIVE_MESSAGE: {
     const newState = merge({}, state)
     newState.messages[action.message.id] = action.message
     return newState
   }
 
-  case channelActions.REMOVE_MESSAGES: {
+  case ChannelActions.REMOVE_MESSAGES: {
     const newState = merge({}, state)
     delete newState.messages[action.id]
     return newState
   }
+
   default:
     return state
   }

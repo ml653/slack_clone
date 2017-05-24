@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { loadChannel } from '../../../actions/channel_actions'
+import { loadChannel } from 'Actions/channel_actions'
 import Sidebar from './sidebar'
 import { values } from 'lodash'
 

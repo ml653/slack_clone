@@ -23,11 +23,6 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS
 })
 
-// const receiveUserHelper(user){
-//   dispatch(subscribe(user.channels[0].id))
-//   dispatch(receiveUser)
-// }
-
 export const signup = user => dispatch => (
   ApiUtil.signup(user)
     .done(user => dispatch(receiveUser(user)))
@@ -35,7 +30,7 @@ export const signup = user => dispatch => (
 )
 
 export const login = user => dispatch => (
-  ApiUtil.login({ user })
+  ApiUtil.login(user)
     .done(user => dispatch(receiveUser(user)))
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 )
@@ -43,4 +38,23 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
   ApiUtil.logout()
     .then(_user => dispatch(logoutUser()))
+)
+
+
+// Channels
+export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
+
+export const receiveChannel = (channel) => ({
+  type: RECEIVE_CHANNEL,
+  channel
+})
+
+export const createChannel = (channel, members) => dispatch => (
+  ApiUtil.createChannel(channel, members)
+    .then(channel => dispatch(receiveChannel(channel)))
+)
+
+export const subscribeToChannel = (channelId) => dispatch => (
+  ApiUtil.subscribeToChannel(channelId)
+    .then(channel => dispatch(receiveChannel(channel)))
 )

@@ -1,9 +1,4 @@
-import {
-  RECEIVE_USER,
-  LOGOUT_USER,
-  RECEIVE_ERRORS,
-  CLEAR_ERRORS
-} from '../actions/session_actions'
+import * as SessionActions from 'Actions/session_actions'
 import merge from 'lodash/merge'
 
 const defaultState = {
@@ -11,17 +6,28 @@ const defaultState = {
   errors: []
 }
 
-export default (oldState = defaultState, action) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
-  case RECEIVE_USER:
-    return merge({}, oldState, { user: action.user })
-  case LOGOUT_USER:
+  case SessionActions.RECEIVE_USER:
+    return merge({}, state, { user: action.user })
+
+  case SessionActions.LOGOUT_USER:
     return defaultState
-  case RECEIVE_ERRORS:
-    return merge({}, oldState, { errors: action.errors })
-  case CLEAR_ERRORS:
-    return merge({}, oldState, { errors: [] })
+
+  case SessionActions.RECEIVE_ERRORS:
+    return merge({}, state, { errors: action.errors })
+
+  case SessionActions.CLEAR_ERRORS:
+    return merge({}, state, { errors: [] })
+
+  case SessionActions.RECEIVE_CHANNEL: {
+    const newState = merge({}, state)
+    const channels = newState.user.channels
+    channels[action.channel.id] = action.channel
+    return newState
+  }
+
   default:
-    return oldState
+    return state
   }
 }

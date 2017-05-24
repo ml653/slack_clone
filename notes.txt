@@ -99,3 +99,8 @@ $.ajax({
   }
 })
 .then(n => console.log(n), err => console.log(err.responseJSON))
+
+ApiUtil.subscribeToChannel({channel_id: 3, user_id: 5}).then(n => console.log(n), err => console.log(err.responseJSON))
+store.dispatch(sessionActions.subscribeToChannel({channel_id: 3, user_id: 5}))
+
+TODO: Make participations unique by user_id, and channel_id

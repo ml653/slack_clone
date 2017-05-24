@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Team from './team'
-import { loadMessages, receiveMessage, receiveChannelId } from '../../actions/channel_actions'
+import { loadMessages, receiveMessage, receiveChannelId } from 'Actions/channel_actions'
 
 function mapStateToProps(state) {
   return {

@@ -6,7 +6,7 @@ class Api::ChannelsController < ApplicationController
 
       # If Channel is for direct messages, add all members to channel
       if @channel.isDirectMessage
-        @members = channel_member_params.map { |member_id| Particpation.new(@channel.id, member_id) }
+        @members = channel_member_params.map { |member_id| Participation.new(channel_id: @channel.id, user_id: member_id) }
         membersValid = @members.all? { |member| member.valid? }
         if membersValid
           @members.each { |member| member.save }

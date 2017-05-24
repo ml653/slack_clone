@@ -1,6 +1,6 @@
 import UserInput from './user_input'
 import { connect } from 'react-redux'
-import { sendMessage } from '../../../actions/channel_actions'
+import { sendMessage } from 'Actions/channel_actions'
 
 function mapStateToProps(state) {
   const currentChannelId = state.channel.currentChannelId

@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from './components/root'
 import configureStore from './store/store'
-import * as sessionActions from './actions/session_actions'
-import * as channelActions from './actions/channel_actions'
+import * as sessionActions from 'Actions/session_actions'
+import * as channelActions from 'Actions/channel_actions'
 import * as ApiUtil from './util/api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
