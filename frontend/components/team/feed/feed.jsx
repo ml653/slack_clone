@@ -3,24 +3,24 @@ import Message from './message'
 
 class Feed extends React.Component {
 
-  componentWillMount() {
-    console.log('feed mounted')
-    this.loadChannel(this.props.match.params.channel)
-  }
-
-  componentWillReceiveProps(newProps) {
-    if(this.props.match.params.channel !== newProps.match.params.channel) {
-      this.loadChannel(newProps.match.params.channel)
-    }
-  }
-
-  loadChannel(channelId) {
-    if(this.props.user.channels[channelId]) {
-      this.props.loadChannel(channelId)
-    } else {
-      this.props.history.push(`/${this.props.user.channels[1].id}`)
-    }
-  }
+  // componentWillMount() {
+  //   console.log('feed mounted')
+  //   this.loadChannel(this.props.match.params.channel)
+  // }
+  //
+  // componentWillReceiveProps(newProps) {
+  //   if(this.props.match.params.channel !== newProps.match.params.channel) {
+  //     this.loadChannel(newProps.match.params.channel)
+  //   }
+  // }
+  //
+  // loadChannel(channelId) {
+  //   if(this.props.user.channels[channelId]) {
+  //     this.props.loadChannel(channelId)
+  //   } else {
+  //     this.props.history.push(`/${this.props.user.channels[1].id}`)
+  //   }
+  // }
 
   componentDidMount() {
     this.scrollToBottom()

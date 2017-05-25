@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { logout } from 'Actions/session_actions'
+import { loadChannel } from 'Actions/channel_actions'
 import Sidebar from './sidebar'
 import { values } from 'lodash'
 
@@ -14,4 +15,4 @@ function mapStateToProp(state) {
   }
 }
 
-export default connect(mapStateToProp, { logout })(Sidebar)
+export default connect(mapStateToProp, { logout, loadChannel })(Sidebar)
