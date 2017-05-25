@@ -25,6 +25,8 @@ class Team extends React.Component {
     })
   }
 
+  // userSubscription
+
   subscribeToAll() {
     Object.values(this.props.user.channels).forEach(({ id }) => {
 
@@ -46,9 +48,9 @@ class Team extends React.Component {
       <div>
         <SidebarContainer/>
         <div id='messenger'>
-          { this.props.user.channels
-            ? <Redirect from="/" to={`/${this.props.user.channels[1].id }`} /> : null }
           <Route path='/:channel/' component={FeedContainer}/>
+          <Redirect path='/' to={`/${this.props.user.channels[1].id}`}/>
+          {/* TODO: Annoying bug; redirect doesn't work on history.push */}
           <UserInputContainer/>
         </div>
       </div>

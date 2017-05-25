@@ -4,6 +4,7 @@ import Message from './message'
 class Feed extends React.Component {
 
   componentWillMount() {
+    console.log('feed mounted')
     this.loadChannel(this.props.match.params.channel)
   }
 
@@ -14,11 +15,10 @@ class Feed extends React.Component {
   }
 
   loadChannel(channelId) {
-    console.log(channelId)
     if(this.props.user.channels[channelId]) {
       this.props.loadChannel(channelId)
     } else {
-      this.props.history.push('/')
+      this.props.history.push(`/${this.props.user.channels[1].id}`)
     }
   }
 
