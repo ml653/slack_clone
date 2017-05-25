@@ -60,3 +60,7 @@ export const logout = () => (
     url: '/api/session'
   })
 )
+
+export const loadUsers = () => (
+  $.ajax({ url: 'api/users', method: 'GET' })
+)

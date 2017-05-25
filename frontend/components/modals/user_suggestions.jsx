@@ -2,17 +2,21 @@ import React from 'react'
 
 export default class UserSuggestions extends React.Component {
   render() {
-    return <ul className='modal-suggestions'>
-      <li>
+    const suggestions = this.props.members.map(member => {
+      return <li>
         <div className='user'>
           <img src='/assets/profile_img_1.png'/>
           <div className='content'>
             <span className='username'>
-              Steven
+              { member.username }
             </span>
           </div>
         </div>
       </li>
+    })
+
+    return <ul className='modal-suggestions'>
+      {suggestions}
     </ul>
   }
 }

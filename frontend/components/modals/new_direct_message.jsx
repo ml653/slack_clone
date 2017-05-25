@@ -1,12 +1,32 @@
 import React from 'react'
 import UserSuggestions from './user_suggestions'
+import { loadUsers } from 'Util/api_util'
 
 export default class NewDirectMessage extends React.Component {
+
+  componentWillMount() {
+    loadUsers()
+      .then(users => {
+        this.setState({
+          allUsers: Object.values(users)
+        })
+      })
+  }
 
   constructor(props) {
     super(props)
     this.state = {
-      search: ''
+      cursorIndex: null,
+      allUsers: [],
+      members: [],
+      search: '',
+      channel: {
+        name: '_',
+        description: '_',
+        author_id: this.props.userId,
+        isDirectMessage: true,
+        private: true
+      }
     }
   }
 
@@ -16,6 +36,10 @@ export default class NewDirectMessage extends React.Component {
         [field]: e.currentTarget.value
       })
     }
+  }
+
+  isButtonEnabled() {
+    return (this.state.allUsuers.length !== 0)
   }
 
   handleSubmit() {
@@ -41,6 +65,7 @@ export default class NewDirectMessage extends React.Component {
                 <button
                   className='create-direct-message-button'
                   type='submit'
+                  disabled={false}
                   onSubmit={this.handleSubmit}>
                   Go
                 </button>
@@ -48,7 +73,7 @@ export default class NewDirectMessage extends React.Component {
             </div>
           </form>
 
-          <UserSuggestions />
+          <UserSuggestions members={this.state.allUsers} />
         </div>
       </div>
     )
