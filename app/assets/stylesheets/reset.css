@@ -40,6 +40,10 @@ body {
   background: #ffffff;
 }
 
+ul {
+  list-style-type: none;
+}
+
 button {
   cursor: pointer;
 }

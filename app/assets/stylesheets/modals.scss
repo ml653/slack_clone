@@ -33,8 +33,10 @@
     form {
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
 
       label {
+        width: 100%;
         font-size: 16px;
         margin: 40px 0px 10px 0px;
         font-weight: 400;
@@ -45,6 +47,7 @@
       }
 
       .modal-info {
+        width: 100%;
         font-size: 14px;
         font-weight: 400;
       }
@@ -78,19 +81,59 @@
         }
       }
 
-      .modal-submission {
+      .cancel-button {
+        width: 140px
+      }
+
+      .create-group-button {
+        width: 250px;
+      }
+
+      .create-direct-message-button {
+        width: 70px;
+      }
+
+      .new-direct-message-form {
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
 
-        .cancel-button {
-          width: 140px
-        }
-
-        .create-group-button {
-          width: 250px;
+        button {
+          margin: 0px;
+          margin-left: 10px;
         }
       }
+    }
+
+    .modal-suggestions {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px $light_border_grey solid;
+
+      li {
+        .user {
+          padding: 14px 7px;
+          display: flex;
+          border-top: 1px $light_border_grey solid;
+
+          img {
+            border-radius: $avatar_img_border_radius;
+            height: 35px;
+            width: 35px;
+          }
+
+          .content {
+            padding-left: 7px;
+            padding-right: 7px;
+
+            .username {
+              font-weight: 500;
+              font-size: 17px;
+            }
+          }
+        }
+      }
+
     }
   }
 }

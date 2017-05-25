@@ -1,4 +1,5 @@
 import React from 'react'
+import UserSuggestions from './user_suggestions'
 
 export default class NewDirectMessage extends React.Component {
 
@@ -29,23 +30,25 @@ export default class NewDirectMessage extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit}>
-            <input
-              placeholder='Find or start a conversation.'
-              type='text'
-              value={this.state.name}
-              onChange={this.updateField('search')} />
+            <div className='new-direct-message-form' >
+              <input
+                placeholder='Find or start a conversation.'
+                type='text'
+                value={this.state.name}
+                onChange={this.updateField('search')} />
 
-            <div className='modal-submission'>
-
-              <button
-                className='create-group-button'
-                type='submit'
-                onSubmit={this.handleSubmit}>
-                Create Direct Message
-              </button>
+              <div className='modal-submission'>
+                <button
+                  className='create-direct-message-button'
+                  type='submit'
+                  onSubmit={this.handleSubmit}>
+                  Go
+                </button>
+              </div>
             </div>
           </form>
 
+          <UserSuggestions />
         </div>
       </div>
     )

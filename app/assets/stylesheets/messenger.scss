@@ -35,9 +35,9 @@
         .message-avatar {
 
           img {
-            border-radius: 5px;
-            height: 45px;
-            width: 45px;
+            border-radius: $avatar_img_border_radius;
+            height: $avatar_img_border_width;
+            width: $avatar_img_border_height;
           }
 
         }

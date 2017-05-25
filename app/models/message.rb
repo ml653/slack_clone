@@ -13,14 +13,6 @@ class Message < ApplicationRecord
     self.channel.members.each do |member|
       MessageRelayJob.perform_later(self, "user_#{member.id}")
     end
-
-    # if self.isDirectMessage
-    #   self.channel.members.each do |members|
-    #     MessageRelayJob.perform_later(self, "user_#{member.id}")
-    #   end
-    # else
-    #   MessageRelayJob.perform_later(self, "user_#{member.id}")
-    # end
   end
 
 end
