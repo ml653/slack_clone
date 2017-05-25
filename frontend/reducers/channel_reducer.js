@@ -16,7 +16,9 @@ export default (state = defaultState, action) => {
 
   case ChannelActions.RECEIVE_MESSAGE: {
     const newState = merge({}, state)
-    newState.messages[action.message.id] = action.message
+    if(newState.currentChannelId === action.message.channel.id) {
+      newState.messages[action.message.id] = action.message
+    }
     return newState
   }
 

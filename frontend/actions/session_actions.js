@@ -1,6 +1,4 @@
 import * as ApiUtil from '../util/api_util'
-
-import { loadChannel } from './channel_actions'
 export const RECEIVE_USER = 'RECEIVE_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
@@ -41,27 +39,30 @@ export const logout = () => dispatch => (
     .then(_user => dispatch(logoutUser()))
 )
 
-
 // Channels
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 
-export const receiveChannel = (channel) => ({
+export const receiveChannel = (channel, options) => ({
   type: RECEIVE_CHANNEL,
-  channel
+  channel,
+  unread: options.unread
 })
 
 export const createChannel = (channel, members) => dispatch => (
   ApiUtil.createChannel(channel, members)
-    .then(channel => dispatch(receiveChannel(channel)))
+    .then(channel => dispatch(receiveChannel(channel, { unread: false })))
 )
 
 export const subscribeToChannel = (channelId) => dispatch => (
   ApiUtil.subscribeToChannel(channelId)
-    .then(channel => dispatch(receiveChannel(channel)))
+    .then(channel => dispatch(receiveChannel(channel, { unread: false })))
 )
 
-// Direct Messages
-export const receiveDirectMessage = (message) => dispatch => {
-  dispatch(receiveChannel(message.channel))
-  dispatch(loadChannel(message.channel.id))
+export const receiveChannelMessage = (message) => dispatch => {
+  dispatch(receiveChannel(message.channel, { unread: true }))
 }
+
+// Receiving channel
+// Receive from create/ subscribe (No messages) => loadChannel
+// Receive from message => Receive and do not load
+// Receive channel

@@ -105,3 +105,8 @@ store.dispatch(sessionActions.subscribeToChannel({channel_id: 3, user_id: 5}))
 
 Make participations unique by user_id, and channel_id
 Make name unique.
+
+$.ajax({
+  url: 'api/users',
+  type: 'GET'
+})
