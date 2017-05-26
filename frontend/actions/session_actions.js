@@ -61,8 +61,3 @@ export const subscribeToChannel = (channelId) => dispatch => (
 export const receiveChannelMessage = (message) => dispatch => {
   dispatch(receiveChannel(message.channel, { unread: true }))
 }
-
-// Receiving channel
-// Receive from create/ subscribe (No messages) => loadChannel
-// Receive from message => Receive and do not load
-// Receive channel

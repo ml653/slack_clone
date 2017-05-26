@@ -43,4 +43,8 @@ class User < ApplicationRecord
     self.session_token ||= User.generate_session_token
   end
 
+  def set_defaults
+    # self.img_url = '/public/img'
+  end
+
 end

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class LoginForm extends React.Component {
+export default class LoginForm extends React.Component {
 
   constructor(props) {
     super(props)
@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.login(this.state)
+    this.props.signup(this.state)
   }
 
   render() {
@@ -38,8 +38,15 @@ class LoginForm extends React.Component {
             {errors}
           </ul>
           <form onSubmit={this.handleSubmit}>
-            <h1>Sign in to Slack</h1>
+            <h1>Sign Up for Slack</h1>
             <p>Enter your <b>email address</b> and <b>password</b>.</p>
+
+            <input
+              placeholder='username'
+              type='text'
+              value={this.state.username}
+              required
+              onChange={this.updateField('username')} />
 
             <input
               placeholder='you@example.com'
@@ -68,5 +75,3 @@ class LoginForm extends React.Component {
     )
   }
 }
-
-export default LoginForm

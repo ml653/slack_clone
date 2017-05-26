@@ -22,8 +22,6 @@ export default class NewDirectMessage extends React.Component {
       members: [],
       search: '',
       channel: {
-        // name: 'DM',
-        // description: 'DM',
         author_id: this.props.userId,
         isDirectMessage: true,
         private: true
@@ -38,6 +36,7 @@ export default class NewDirectMessage extends React.Component {
 
   updateField(field) {
     return e => {
+      e.preventDefault()
       this.setState({
         [field]: e.currentTarget.value
       })
@@ -63,7 +62,8 @@ export default class NewDirectMessage extends React.Component {
     }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault()
     const memberIdArr = this.state.members.map(n => n.id)
     this.props.createChannel(this.state.channel, memberIdArr)
       .then(() => this.props.history.push('/'))

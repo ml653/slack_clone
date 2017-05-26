@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: 'ragegage', password: 'password', email: 'user_1@gmail.com', 'img_url': '/assets/profile_img_1.png')
-User.create(username: 'steven', password: 'password', email: 'user_2@gmail.com', 'img_url': '/assets/profile_img_1.png')
-User.create(username: 'debsfong', password: 'password', email: 'user_3@gmail.com', 'img_url': '/assets/profile_img_1.png')
-User.create(username: 'kelly', password: 'password', email: 'user_4@gmail.com', 'img_url': '/assets/profile_img_1.png')
-User.create(username: 'swwang', password: 'password', email: 'user_5@gmail.com', 'img_url': '/assets/profile_img_1.png')
+User.create(username: 'ragegage', password: 'password', email: 'user_1@gmail.com', 'img_url': '/images/profile_img_1.png')
+User.create(username: 'steven', password: 'password', email: 'user_2@gmail.com', 'img_url': '/images/profile_img_1.png')
+User.create(username: 'debsfong', password: 'password', email: 'user_3@gmail.com', 'img_url': '/images/profile_img_1.png')
+User.create(username: 'kelly', password: 'password', email: 'user_4@gmail.com', 'img_url': '/images/profile_img_1.png')
+User.create(username: 'swwang', password: 'password', email: 'user_5@gmail.com', 'img_url': '/images/profile_img_1.png')
 
 Channel.create(
   name: 'General',
