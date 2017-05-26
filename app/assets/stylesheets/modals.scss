@@ -64,10 +64,10 @@
         font-color: $font_color;
         font-weight: 300;
         text-align: left;
-      }
 
-      input:hover, input:focus, {
-        border-color: $highlight_blue;
+        &:hover, &:focus {
+          border-color: $highlight_blue;
+        }
       }
 
       button {
@@ -93,6 +93,7 @@
         width: 70px;
       }
 
+      // New Direct Message Form
       .new-direct-message-form {
         width: 100%;
         display: flex;
@@ -100,6 +101,47 @@
         button {
           margin: 0px;
           margin-left: 10px;
+        }
+      }
+
+      .new-direct-message-input {
+        border-radius: 5px;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #c5c5c5;
+        display: flex;
+        align-items: center;
+
+        input {
+          border: none;
+        }
+
+        .chosen-member {
+          margin: 3px;
+          border-radius: 5px;
+          background: $highlight_blue;
+          display: flex;
+          height: 30px;
+          align-items: center;
+
+            img {
+              width: 30px;
+              height: 30px;
+              border-radius: 3px;
+            }
+
+            img.close {
+              width: 15px;
+              height: 15px;
+              border-radius: 3px;
+            }
+
+            p {
+              padding-left: 5px;
+              padding-right: 5px;
+              color: #ffffff;
+            }
+
         }
       }
     }

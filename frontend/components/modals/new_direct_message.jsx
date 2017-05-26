@@ -1,6 +1,7 @@
 import React from 'react'
 import UserSuggestions from './user_suggestions'
 import { loadUsers } from 'Util/api_util'
+import ChosenMember from './chosen_member'
 
 export default class NewDirectMessage extends React.Component {
 
@@ -28,6 +29,11 @@ export default class NewDirectMessage extends React.Component {
         private: true
       }
     }
+
+    this.updateField = this.updateField.bind(this)
+    this.addMember = this.addMember.bind(this)
+    this.removeMember = this.removeMember.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   updateField(field) {
@@ -38,14 +44,36 @@ export default class NewDirectMessage extends React.Component {
     }
   }
 
-  isButtonEnabled() {
-    return (this.state.allUsuers.length !== 0)
+  addMember(member) {
+    return () => {
+      if(this.state.members.indexOf(member) < 0) {
+        this.state.members.push(member)
+        this.setState(this.state.members)
+      }
+    }
+  }
+
+  removeMember(member) {
+    return () => {
+      const index = this.state.members.indexOf(member)
+      if(index >= 0) {
+        this.state.members.splice(index, 1)
+        this.setState(this.state.members)
+      }
+    }
   }
 
   handleSubmit() {
+    const memberIdArr = this.state.members.map(n => n.id)
+    this.props.createChannel(this.state.channel, memberIdArr)
+      .then(() => this.props.history.push('/'))
   }
 
   render() {
+    const members = this.state.members.map(member => (
+      <ChosenMember user={member} removeMember={this.removeMember}/>)
+    )
+
     return (
       <div className='modal-background'>
         <div className='modal'>
@@ -55,11 +83,19 @@ export default class NewDirectMessage extends React.Component {
 
           <form onSubmit={this.handleSubmit}>
             <div className='new-direct-message-form' >
-              <input
-                placeholder='Find or start a conversation.'
-                type='text'
-                value={this.state.name}
-                onChange={this.updateField('search')} />
+              <div className='new-direct-message-input'>
+                <div className='chosen-member'>
+                  <img src='/assets/profile_img_1.png'/>
+                  <p>Steven</p>
+                  <img className='close' src='/assets/exit_x.png'/>
+                </div>
+                {members}
+                <input
+                  placeholder='Find or start a conversation.'
+                  type='text'
+                  value={this.state.name}
+                  onChange={this.updateField('search')} />
+              </div>
 
               <div className='modal-submission'>
                 <button
@@ -73,7 +109,7 @@ export default class NewDirectMessage extends React.Component {
             </div>
           </form>
 
-          <UserSuggestions members={this.state.allUsers} />
+          <UserSuggestions members={this.state.allUsers} addMember={this.addMember}/>
         </div>
       </div>
     )
