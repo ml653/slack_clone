@@ -3,8 +3,7 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { within: 6...64, allow_blank: true }
 
-  after_initialize :set_defaults
-  before_validation :ensure_session_token
+  before_validation :ensure_session_token, :set_defaults
 
   has_many :messages
 

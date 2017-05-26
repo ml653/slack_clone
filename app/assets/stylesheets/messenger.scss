@@ -10,10 +10,16 @@
   margin-left: $sidebar_size;
   $messenger_margin: 16px;
 
+  .channel-info {
+    
+  }
+
   .scroll {
     overflow-y: scroll;
     height: 100%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     #feed {
       width: 100%;
