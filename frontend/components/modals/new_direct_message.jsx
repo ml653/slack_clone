@@ -22,8 +22,8 @@ export default class NewDirectMessage extends React.Component {
       members: [],
       search: '',
       channel: {
-        name: '_',
-        description: '_',
+        // name: 'DM',
+        // description: 'DM',
         author_id: this.props.userId,
         isDirectMessage: true,
         private: true
@@ -71,7 +71,7 @@ export default class NewDirectMessage extends React.Component {
 
   render() {
     const members = this.state.members.map(member => (
-      <ChosenMember user={member} removeMember={this.removeMember}/>)
+      <ChosenMember user={member} removeMember={this.removeMember} key={member.id}/>)
     )
 
     return (
@@ -84,11 +84,6 @@ export default class NewDirectMessage extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className='new-direct-message-form' >
               <div className='new-direct-message-input'>
-                <div className='chosen-member'>
-                  <img src='/assets/profile_img_1.png'/>
-                  <p>Steven</p>
-                  <img className='close' src='/assets/exit_x.png'/>
-                </div>
                 {members}
                 <input
                   placeholder='Find or start a conversation.'
