@@ -45,6 +45,6 @@ class User < ApplicationRecord
   end
 
   def set_defaults
-    self.img_url = '/images/profile_img_1.png'
+    self.img_url = "/images/profile_img_#{rand(6) + 1}.png"
   end
 end

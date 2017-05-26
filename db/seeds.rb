@@ -92,11 +92,23 @@ Message.create(
 Message.create(
   user_id: 2,
   channel_id: 3,
-  text: 'Going well!! but..'
+  text: 'Going well!! Coming along pretty nicely.'
 )
 
 Message.create(
   user_id: 2,
   channel_id: 3,
-  text: 'Seen better days.'
+  text: 'A lot of the features have been implemented and there will be many more to come.'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 3,
+  text: 'Would love to add an indicator showing which users are online.'
+)
+
+Message.create(
+  user_id: 2,
+  channel_id: 3,
+  text: 'maybe along with some emoji\'s! as well'
 )
