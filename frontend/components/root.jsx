@@ -18,7 +18,7 @@ class Root extends React.Component {
         <HashRouter>
           <Switch>
             <AuthRoute path='/login' component={LoginFormContainer}/>
-            <AuthRoute path='/signup' component={SignupFormContainer}/>
+            <AuthRoute path='/sign-up' component={SignupFormContainer}/>
             <ProtectedRoute path='/new-channel' component={NewChanelContainer}/>
             <ProtectedRoute path='/new-direct-message' component={NewDirectMessageContainer}/>
             <ProtectedRoute path='/' component={TeamContainer}/>

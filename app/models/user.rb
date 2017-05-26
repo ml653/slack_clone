@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { within: 6...64, allow_blank: true }
 
+  after_initialize :set_defaults
   before_validation :ensure_session_token
 
   has_many :messages
@@ -44,7 +45,6 @@ class User < ApplicationRecord
   end
 
   def set_defaults
-    # self.img_url = '/public/img'
+    self.img_url = '/images/profile_img_1.png'
   end
-
 end
