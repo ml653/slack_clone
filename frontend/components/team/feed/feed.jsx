@@ -1,5 +1,6 @@
 import React from 'react'
 import Message from './message'
+import { values } from 'lodash'
 
 class Feed extends React.Component {
 
@@ -31,11 +32,12 @@ class Feed extends React.Component {
   }
 
   scrollToBottom() {
-    $('.scroll').scrollTop(100000)
+    // $('.scroll').scrollTop(100000)
+    console.log('scrollToBottom')
   }
 
   render() {
-    const messages = Object.values(this.props.messages).map((message, i, arr) => (
+    const messages = values(this.props.messages).map((message, i, arr) => (
     <div key={message.id}
       id={ i === arr.length - 1 ? 'last-child' : '' }
       ref={((message) => {

@@ -24,13 +24,17 @@ export const clearErrors = () => ({
 
 export const signup = user => dispatch => (
   ApiUtil.signup(user)
-    .done(user => dispatch(receiveUser(user)))
+    .done(user => {
+      dispatch(receiveUser(user))
+    })
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 )
 
 export const login = user => dispatch => (
   ApiUtil.login(user)
-    .done(user => dispatch(receiveUser(user)))
+    .done(user => {
+      dispatch(receiveUser(user))
+    })
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 )
 

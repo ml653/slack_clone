@@ -2,12 +2,15 @@ import React from 'react'
 import FeedContainer from './feed/feed_container'
 import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
+import TopBar from './top_bar/top_bar'
 
 class Team extends React.Component {
 
   componentWillMount() {
-    this.props.loadChannel(this.props.user.channels[1].id)
     this.initializeUserConnection()
+    if(!this.props.messages) {
+      this.props.loadChannel(this.props.currentChannelId)
+    }
   }
 
   componentWillUnmount() {
@@ -24,7 +27,7 @@ class Team extends React.Component {
     window.App.cable.subscriptions.create({
       channel: 'ChannelChannel',
       channel_id: `user_${this.props.user.id}`
-    },{
+    }, {
       connected: () => {},
       disconnected: () => {},
       received: ({ message }) => {
@@ -35,10 +38,12 @@ class Team extends React.Component {
   }
 
   render() {
+    const channel = this.props.user.channels[this.props.currentChannelId]
     return (
       <div>
         <SidebarContainer/>
         <div id='messenger'>
+          {/* <TopBar channel={channel}/> */}
           <FeedContainer/>
           {/* <Route path='/:channel/' component={FeedContainer}/> */}
           {/* <Redirect path='/' to={`/${this.props.user.channels[1].id}`}/> */}

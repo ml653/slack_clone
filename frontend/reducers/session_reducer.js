@@ -21,7 +21,6 @@ export default (state = defaultState, action) => {
     return merge({}, state, { errors: [] })
 
   case SessionActions.RECEIVE_CHANNEL: {
-    console.log('RECEIVE_CHANNEL', action)
     const newState = merge({}, state)
     const channels = newState.user.channels
     channels[action.channel.id] = action.channel

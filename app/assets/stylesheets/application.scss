@@ -14,8 +14,12 @@
 *= tree .
 */
 
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+
 @import 'reset';
 @import 'authentication';
 @import 'sidebar';
 @import 'messenger.scss';
 @import 'modals.scss';
+@import 'top_bar';

@@ -11,17 +11,15 @@
   $messenger_margin: 16px;
 
   .channel-info {
-    
+
   }
 
   .scroll {
-    overflow-y: scroll;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    overflow-y: auto;
 
     #feed {
+      height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -45,7 +43,6 @@
             height: $avatar_img_border_width;
             width: $avatar_img_border_height;
           }
-
         }
 
         .message-content {
@@ -69,7 +66,6 @@
               padding-left: 5px;
               vertical-align: baseline;
             }
-
           }
 
           .message-text {
