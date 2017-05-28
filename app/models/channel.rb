@@ -10,6 +10,10 @@ class Channel < ApplicationRecord
 
   has_many :participations
 
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: 'User'
+
   def only_null_name_for_direct_message
     if !self.name && !self.isDirectMessage
       errors.add(:expiration_date, "Channel requires a name.")

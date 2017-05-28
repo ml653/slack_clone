@@ -64,3 +64,7 @@ export const logout = () => (
 export const loadUsers = () => (
   $.ajax({ url: 'api/users', method: 'GET' })
 )
+
+export const loadChannels = () => (
+  $.ajax({ url: 'api/channels', method: 'GET' })
+)

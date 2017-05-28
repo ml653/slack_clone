@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :channels,
     through: :participations
 
+  has_many :authored,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: "Channel"
+
   attr_accessor :password
 
   def password=(password)

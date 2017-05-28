@@ -12,15 +12,14 @@ export default class UserSuggestions extends React.Component {
     const suggestions = this.props.members
     .map(member => {
       return <li key={member.id}
-        onClick={this.props.addMember(member)}>
-        <div className='user'>
+        onClick={this.props.addMember(member)}
+        className='user'>
           <img src='/assets/profile_img_1.png'/>
           <div className='content'>
-            <span className='username'>
+            <h5 className='username'>
               { member.username }
-            </span>
+            </h5>
           </div>
-        </div>
       </li>
     })
 
