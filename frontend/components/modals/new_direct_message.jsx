@@ -65,6 +65,7 @@ export default class NewDirectMessage extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const memberIdArr = this.state.members.map(n => n.id)
+    console.log(memberIdArr, typeof memberIdArr[0])
     this.props.createChannel(this.state.channel, memberIdArr)
       .then(() => this.props.history.push('/'))
   }

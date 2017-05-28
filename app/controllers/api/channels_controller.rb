@@ -5,34 +5,69 @@ class Api::ChannelsController < ApplicationController
     render :index
   end
 
-  def create
+  def build_public_channel
     @channel = Channel.new(channel_params)
     if @channel.save
+      # If Channel is for not direct messages, only add author
+      participant = Participation.new(channel_id: @channel.id, user_id: @channel.author_id)
+      if !participant.save
+        @channel.delete
+        render ['Member suggestion is not valid'], status: :unprocessable_entity and return
+      end
+      return @channel
+    else
+      render json: @channel.errors.full_messages, status: :unprocessable_entity and return
+    end
+  end
+
+  # Returns channel if it exists; else creates new channel
+  def build_direct_message_channel
+    @channel = direct_message_channel_exists?(
+      params.require(:channel)[:author_id],
+      channel_member_params
+    if @channel
+      return @channel
+    else
+      @channel = Channel.new(channel_params)
       # If Channel is for direct messages, add all members to channel
-      if @channel.isDirectMessage
+      if @channel.save
         @members = channel_member_params.map { |member_id| Participation.new(channel_id: @channel.id, user_id: member_id) }
         @members << Participation.new(channel_id: @channel.id, user_id: @channel.author_id)
-        membersValid = @members.all? { |member| puts "\n\n\n\n"; p member.valid? }
+        membersValid = @members.all? { |member| member.valid? }
         if membersValid
           @members.each { |member| member.save }
         else
           @channel.delete
           render ['Member suggestion is not valid'], status: :unprocessable_entity
         end
+        return @channel
       else
-      # If Channel is for not direct messages, only add author
-        participant = Participation.new(channel_id: @channel.id, user_id: @channel.author_id)
-        if !participant.save
-          @channel.delete
-          render ['Member suggestion is not valid'], status: :unprocessable_entity
-        end
+        render json: @channel.errors.full_messages, status: :unprocessable_entity
       end
-
-      render :show
-    else
-      puts @channel.errors.full_messages
-      render json: @channel.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  def direct_message_channel_exists? user_id, new_member_ids
+    @user = User.find(user_id)
+    @user.channels
+      .select { |channel| channel.isDirectMessage }
+      .each do |channel|
+      new_member_ids = new_member_ids.map { |member_id| member_id.to_i }
+      member_id_arr = channel.members.map { |member| member.id  }
+      if new_member_ids.uniq.sort == member_id_arr.uniq.sort
+        return channel
+      end
+    end
+    return nil
+  end
+
+  def create
+    if params.require(:channel)[:isDirectMessage] == 'true'
+      @channel = build_direct_message_channel
+    else
+      @channel = build_public_channel
+    end
+    render :show
   end
 
   def channel_params
@@ -40,6 +75,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def channel_member_params
+    params.merge(members: [])
     params.require(:members)
   end
 
