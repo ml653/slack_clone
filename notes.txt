@@ -110,3 +110,8 @@ $.ajax({
   url: 'api/users',
   type: 'GET'
 })
+
+$.ajax({
+  url: 'api/channels',
+  type: 'GET'
+})
