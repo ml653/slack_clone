@@ -66,7 +66,7 @@
         text-align: left;
 
         &:hover, &:focus {
-          border-color: $highlight_blue;
+          border-color: $blue_highlight;
         }
       }
 
@@ -119,7 +119,7 @@
         .chosen-member {
           margin: 3px;
           border-radius: 5px;
-          background: $highlight_blue;
+          background: $blue_highlight;
           display: flex;
           height: 30px;
           align-items: center;
@@ -150,13 +150,13 @@
       margin-top: 25px;
       display: flex;
       flex-direction: column;
-      border-bottom: 1px $light_border_grey solid;
+      border-bottom: 1px $grey_light_border solid;
 
       li {
         .user {
           padding: 14px 7px;
           display: flex;
-          border-top: 1px $light_border_grey solid;
+          border-top: 1px $grey_light_border solid;
 
           img {
             border-radius: $avatar_img_border_radius;

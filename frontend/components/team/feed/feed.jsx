@@ -23,17 +23,16 @@ class Feed extends React.Component {
   //   }
   // }
 
-  componentDidMount() {
-    this.scrollToBottom()
-  }
+  // componentDidMount() {
+  //   this.scrollToBottom()
+  // }
 
   componentDidUpdate() {
     this.scrollToBottom()
   }
 
   scrollToBottom() {
-    // $('.scroll').scrollTop(100000)
-    console.log('scrollToBottom')
+    $('.scroll').scrollTop(100000)
   }
 
   render() {

@@ -21,7 +21,9 @@ export default class UserInput extends React.Component {
     switch (true) {
     case this.props.channel && this.props.channel.isDirectMessage:
       placeholderSuffix = `@${SelectorUtil.getDirectMessageMembers(
-        this.props.userId, this.props.channel.members)}`
+        this.props.userId, this.props.channel.members)
+        .map(member => member.username)
+        .join(', ')}`
       break
     case this.props.channel && !this.props.channel.isDirectMessage:
       placeholderSuffix = `#${this.props.channel.name}`

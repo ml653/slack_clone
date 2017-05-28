@@ -43,7 +43,7 @@ class Team extends React.Component {
       <div>
         <SidebarContainer/>
         <div id='messenger'>
-          {/* <TopBar channel={channel}/> */}
+          <TopBar channel={channel} userId={this.props.user.id}/>
           <FeedContainer/>
           {/* <Route path='/:channel/' component={FeedContainer}/> */}
           {/* <Redirect path='/' to={`/${this.props.user.channels[1].id}`}/> */}

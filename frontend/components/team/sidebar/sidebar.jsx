@@ -49,7 +49,9 @@ class Sidebar extends React.Component {
         onClick={this.loadChannel(channel.id)}
         className={`channel sidebar-item
           ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
-        {getDirectMessageMembers(this.props.user.id, channel.members)}
+        {getDirectMessageMembers(this.props.user.id, channel.members)
+          .map(member => member.username)
+          .join(', ')}
         <img src='/assets/circle_x.png'/>
       </li>
     ))
