@@ -24,7 +24,7 @@ class Api::ChannelsController < ApplicationController
   def build_direct_message_channel
     @channel = direct_message_channel_exists?(
       params.require(:channel)[:author_id],
-      channel_member_params
+      channel_member_params)
     if @channel
       return @channel
     else
@@ -32,7 +32,6 @@ class Api::ChannelsController < ApplicationController
       # If Channel is for direct messages, add all members to channel
       if @channel.save
         @members = channel_member_params.map { |member_id| Participation.new(channel_id: @channel.id, user_id: member_id) }
-        @members << Participation.new(channel_id: @channel.id, user_id: @channel.author_id)
         membersValid = @members.all? { |member| member.valid? }
         if membersValid
           @members.each { |member| member.save }
@@ -75,8 +74,9 @@ class Api::ChannelsController < ApplicationController
   end
 
   def channel_member_params
-    params.merge(members: [])
-    params.require(:members)
+    defaults = {members: []}
+    defaults.merge(params)
+    params.require(:members) + [current_user.id]
   end
 
 end
