@@ -8,21 +8,16 @@ export default class ChannelSuggestions extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const suggestions = this.props.channels
     .map(channel => {
       return <li key={channel.id}
-        // onClick={this.props.addChannel(channel)}
+        onClick={this.props.subscribeToChannel(channel.id)}
         className='channel'>
           <div className='content'>
             <h5>{channel.name}</h5>
             <p>
               Created by <b>{channel.author.username}</b> on {this.parseDate(channel.created_at)}.
             </p>
-            {/* <div className='channel-name'>{channel.name}</div>
-            <div className='channel-info'>
-              Created by <b>{channel.author.username}</b> on {this.parseDate(channel.created_at)}.
-            </div> */}
           </div>
       </li>
     })

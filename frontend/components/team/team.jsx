@@ -9,7 +9,8 @@ class Team extends React.Component {
   componentWillMount() {
     this.initializeUserConnection()
     if(!this.props.messages) {
-      this.props.loadChannel(this.props.currentChannelId)
+      const defaultChannelId = Object.values(this.props.user.channels)[0].id
+      this.props.loadChannel(defaultChannelId)
     }
   }
 
@@ -38,7 +39,9 @@ class Team extends React.Component {
   }
 
   render() {
-    const channel = this.props.user.channels[this.props.currentChannelId]
+    const defaultChannelId = Object.values(this.props.user.channels)[0].id
+    const channel = this.props.user.channels[this.props.currentChannelId ?
+      this.props.currentChannelId : defaultChannelId]
     return (
       <div>
         <SidebarContainer/>

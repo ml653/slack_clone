@@ -9,10 +9,8 @@ import * as ApiUtil from './util/api_util'
 document.addEventListener('DOMContentLoaded', () => {
   let store
   if (window.currentUser) {
-    const currentChannelId = Object.values(window.currentUser.channels)[0].id
     const preloadedState = {
-      session: { user: window.currentUser },
-      channel: { currentChannelId }
+      session: { user: window.currentUser }
     }
     store = configureStore(preloadedState)
     delete window.currentUser

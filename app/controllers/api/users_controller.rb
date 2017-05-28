@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   def set_up_channel_subscriptions user
     default_subscriptions = [
       Participation.new(channel_id: 1, user_id: user.id),
-      Participation.new(channel_id: 2, user_id: user.id)
+      # Participation.new(channel_id: 2, user_id: user.id)
     ]
 
     default_subscriptions.each do |participation|

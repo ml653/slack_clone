@@ -7,6 +7,7 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props)
     this.loadChannel = this.loadChannel.bind(this)
+    this.showFindChannel = this.showFindChannel.bind(this)
     this.showNewChannel = this.showNewChannel.bind(this)
     this.showDirectMessage = this.showDirectMessage.bind(this)
     this.logout = this.logout.bind(this)
@@ -26,7 +27,8 @@ class Sidebar extends React.Component {
     this.props.history.push('/new-channel')
   }
 
-  findChannel() {
+  showFindChannel() {
+    this.props.history.push('/join-channel')
   }
 
   showDirectMessage() {
@@ -66,10 +68,12 @@ class Sidebar extends React.Component {
 
       <div id='channels'>
         <ul id='groups'>
-          <li id='title' className='title sidebar-item'
-              onClick={this.showNewChannel}>
-            Channels
-            <img src='/assets/circle_plus.png'/>
+          <li id='title' className='title sidebar-item'>
+            <p onClick={this.showFindChannel}>
+              Channels
+            </p>
+            <img src='/assets/circle_plus.png'
+              onClick={this.showNewChannel}/>
           </li>
           { groups }
         </ul>

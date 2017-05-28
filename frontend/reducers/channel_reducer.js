@@ -1,7 +1,7 @@
 import * as ChannelActions from 'Actions/channel_actions'
 import { merge } from 'lodash'
 
-const defaultState = { currentChannelId: null, messages: {} }
+const defaultState = { currentChannelId: null, messages: null }
 
 export default (state = defaultState, action) => {
   switch(action.type) {

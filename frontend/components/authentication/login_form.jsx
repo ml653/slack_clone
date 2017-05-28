@@ -30,7 +30,6 @@ class LoginForm extends React.Component {
 
   toSignUp(e) {
     e.preventDefault()
-    console.log('a')
     this.props.history.push('/sign-up')
   }
 

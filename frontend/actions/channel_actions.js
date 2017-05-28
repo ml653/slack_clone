@@ -20,10 +20,9 @@ export const receiveMessages = (messages) => ({
   messages
 })
 
-export const loadChannel = channelId => dispatch => {
+export const loadChannel = (channelId) => dispatch => {
   ApiUtil.loadMessages(channelId)
     .then(messages => {
-      console.log(channelId, messages)
       dispatch(receiveChannelId(channelId))
       dispatch(receiveMessages(messages))
     })

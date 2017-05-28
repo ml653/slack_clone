@@ -1,4 +1,5 @@
 import * as ApiUtil from '../util/api_util'
+import {loadChannel} from './channel_actions'
 export const RECEIVE_USER = 'RECEIVE_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
@@ -54,12 +55,18 @@ export const receiveChannel = (channel, options) => ({
 
 export const createChannel = (channel, members) => dispatch => (
   ApiUtil.createChannel(channel, members)
-    .then(channel => dispatch(receiveChannel(channel, { unread: false })))
+    .then(channel => {
+      dispatch(receiveChannel(channel, { unread: false }))
+      dispatch(loadChannel(channel.id))
+    })
 )
 
-export const subscribeToChannel = (channelId) => dispatch => (
-  ApiUtil.subscribeToChannel(channelId)
-    .then(channel => dispatch(receiveChannel(channel, { unread: false })))
+export const subscribeToChannel = (participation) => dispatch => (
+  ApiUtil.subscribeToChannel(participation)
+    .then(channel => {
+      dispatch(receiveChannel(channel, { unread: false }))
+      dispatch(loadChannel(channel.id))
+    })
 )
 
 export const receiveChannelMessage = (message) => dispatch => {

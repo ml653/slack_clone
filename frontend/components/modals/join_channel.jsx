@@ -12,6 +12,7 @@ export default class JoinChannel extends React.Component {
     }
 
     this.updateField = this.updateField.bind(this)
+    this.subscribeToChannel = this.subscribeToChannel.bind(this)
   }
 
   componentWillMount() {
@@ -21,6 +22,15 @@ export default class JoinChannel extends React.Component {
           channels: Object.values(users)
         })
       })
+  }
+
+  subscribeToChannel(channelId){
+    return () => {
+      this.props.subscribeToChannel({
+        user_id: this.props.userId,
+        channel_id: channelId
+      }).then(() => this.props.history.push('/'))
+    }
   }
 
   updateField(field) {
@@ -60,7 +70,9 @@ export default class JoinChannel extends React.Component {
           </div>
         </form>
 
-        <ChannelSuggestions channels={this.state.channels}/>
+        <ChannelSuggestions
+          channels={this.state.channels}
+          subscribeToChannel={this.subscribeToChannel}/>
 
       </div>
     </div>
