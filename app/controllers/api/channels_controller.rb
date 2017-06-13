@@ -5,6 +5,13 @@ class Api::ChannelsController < ApplicationController
     render :index
   end
 
+  def direct_message_index
+    user_id = params[:user_id]
+    @users = User.all
+    @channels = Channel.includes(:members).where(private: true)
+    render :direct_message_index
+  end
+
   def build_public_channel
     @channel = Channel.new(channel_params)
     if @channel.save
