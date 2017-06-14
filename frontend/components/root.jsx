@@ -13,7 +13,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import TeamContainer from './team/team_container'
 
 class Root extends React.Component {
-
   render() {
     return <Provider store={this.props.store}>
         <HashRouter>

@@ -16,7 +16,6 @@ export default class UserInput extends React.Component {
   }
 
   render() {
-
     let placeholderSuffix
     switch (true) {
     case this.props.channel && this.props.channel.isDirectMessage:

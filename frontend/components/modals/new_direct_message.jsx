@@ -65,7 +65,6 @@ export default class NewDirectMessage extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const memberIdArr = this.state.members.map(n => n.id)
-    console.log(memberIdArr, typeof memberIdArr[0])
     this.props.createChannel(this.state.channel, memberIdArr)
       .then(() => this.props.history.push('/'))
   }
@@ -87,7 +86,7 @@ export default class NewDirectMessage extends React.Component {
               <div className='new-direct-message-input'>
                 {members}
                 <input
-                  placeholder='Find or start a conversation.'
+                  placeholder={this.state.members.length > 0 ? '' : 'Find or start a conversation.'}
                   type='text'
                   value={this.state.name}
                   onChange={this.updateField('search')} />

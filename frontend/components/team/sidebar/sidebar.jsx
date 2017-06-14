@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
         className={`channel sidebar-item ${
           this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
         #{channel.name}
-        <img src='/assets/circle_x.png'/>
+        <img src='/images/circle_x.png'/>
       </li>
     ))
 
@@ -54,7 +54,7 @@ class Sidebar extends React.Component {
         {getDirectMessageMembers(this.props.user.id, channel.members)
           .map(member => member.username)
           .join(', ')}
-        <img src='/assets/circle_x.png'/>
+        <img src='/images/circle_x.png'/>
       </li>
     ))
 
@@ -72,7 +72,7 @@ class Sidebar extends React.Component {
             <p onClick={this.showFindChannel}>
               Channels
             </p>
-            <img src='/assets/circle_plus.png'
+            <img src='/images/circle_plus.png'
               onClick={this.showNewChannel}/>
           </li>
           { groups }
@@ -82,7 +82,7 @@ class Sidebar extends React.Component {
           <li className='title sidebar-item'
               onClick={this.showDirectMessage}>
             Direct Messages
-            <img src='/assets/circle_plus.png'/>
+            <img src='/images/circle_plus.png'/>
           </li>
           <li className='channel sidebar-item'>#Slackbot</li>
           { directMessages }
