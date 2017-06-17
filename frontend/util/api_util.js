@@ -60,6 +60,6 @@ export const loadChannels = () => (
   $.ajax({ url: 'api/channels', method: 'GET' })
 )
 
-export const loadDMUCs = (userId) => (
-  $.ajax({url: `api/channels/loadDMUCs${userId}`})
+export const loadDMChannelsAndUsers = (userId) => (
+  $.ajax({url: `api/channels/loadDMChannelsAndUsers/${userId}`})
 )

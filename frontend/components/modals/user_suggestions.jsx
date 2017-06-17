@@ -1,30 +1,32 @@
 import React from 'react'
+import UserSuggestionItem from './user_suggestion_item'
+import ChannelSuggestionItem from './channel_suggestion_item'
 
 export default class UserSuggestions extends React.Component {
 
-  addUser(userId) {
-    return () => {
-      this.props.addUser(userId)
-    }
-  }
-
   render() {
-    const suggestions = this.props.members
+    const userSuggestions = this.props.members
     .map(member => {
-      return <li key={member.id}
-        onClick={this.props.addMember(member)}
-        className='user'>
-          <img src='/assets/profile_img_1.png'/>
-          <div className='content'>
-            <h5 className='username'>
-              { member.username }
-            </h5>
-          </div>
-      </li>
+        return <UserSuggestionItem
+          key={`member-${member.id}`}
+          member={member}
+          addMember={this.props.addMember(member)}
+        />
+    })
+
+    const channelSuggestions = this.props.channels
+    .map(channel => {
+        return <ChannelSuggestionItem
+          key={`channel-${channel.id}`}
+          channel={channel}
+          userId={this.props.userId}
+          addMember={this.props.addMember}
+          />
     })
 
     return <ul className='modal-suggestions'>
-      {suggestions}
+      {channelSuggestions}
+      {userSuggestions}
     </ul>
   }
 }

@@ -1,17 +1,21 @@
 import React from 'react'
 import UserSuggestions from './user_suggestions'
-import { loadUsers } from 'Util/api_util'
+import { loadUsers, loadDMChannelsAndUsers } from 'Util/api_util'
 import ChosenMember from './chosen_member'
+import { values, merge } from 'lodash'
 
 export default class NewDirectMessage extends React.Component {
 
   componentWillMount() {
     // Load all users and channels; TODO
-    loadUsers()
-      .then(users => {
-        this.setState({
-          allUsers: Object.values(users)
+    loadDMChannelsAndUsers(this.props.userId)
+      .then(n => {
+        const newState = merge({}, this.state, {
+          users: n.users,
+          channels: n.channels
         })
+        this.updateUsersAndChannels(newState)
+        this.setState(this.updateUsersAndChannels(newState))
       })
   }
 
@@ -19,12 +23,15 @@ export default class NewDirectMessage extends React.Component {
     super(props)
     this.state = {
       cursorIndex: null,
-      allUsers: [],
       members: [],
+      users: [],
+      shownUsers: [],
+      channels: [],
+      shownChannels: [],
       search: '',
       channel: {
         author_id: this.props.userId,
-        isDirectMessage: true,
+        isDirectMessage: true, // TODO
         private: true
       }
     }
@@ -44,11 +51,31 @@ export default class NewDirectMessage extends React.Component {
     }
   }
 
+  updateUsersAndChannels(state){
+    // Update shownUsers
+    const memberIds = state.members.map(n => n.id)
+    state.shownUsers = state.users
+      .filter(user => memberIds.indexOf(user.id) < 0)
+
+    // Update shownChannels
+    state.shownChannels = state.channels
+      .filter(channel => values(channel.members)
+        .some(member => {
+          return memberIds.indexOf(member.id) < 0 && this.props.userId !== member.id
+        }))
+
+    return state
+  }
+
   addMember(member) {
     return () => {
-      if(this.state.members.indexOf(member) < 0) {
+      // Set state
+      const memberIds = this.state.members.map(n => n.id)
+      if(memberIds.indexOf(member.id) < 0) {
         this.state.members.push(member)
-        this.setState(this.state.members)
+
+        const newState = this.updateUsersAndChannels(this.state)
+        this.setState(newState)
       }
     }
   }
@@ -58,7 +85,8 @@ export default class NewDirectMessage extends React.Component {
       const index = this.state.members.indexOf(member)
       if(index >= 0) {
         this.state.members.splice(index, 1)
-        this.setState(this.state.members)
+        const newState = this.updateUsersAndChannels(this.state)
+        this.setState(newState)
       }
     }
   }
@@ -105,7 +133,11 @@ export default class NewDirectMessage extends React.Component {
             </div>
           </form>
 
-          <UserSuggestions members={this.state.allUsers} addMember={this.addMember}/>
+          <UserSuggestions
+            userId={this.props.userId}
+            members={this.state.shownUsers}
+            addMember={this.addMember}
+            channels={this.state.shownChannels} />
         </div>
       </div>
     )
