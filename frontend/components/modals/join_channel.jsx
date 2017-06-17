@@ -1,6 +1,7 @@
 import React from 'react'
 import { loadChannels } from 'Util/api_util'
 import ChannelSuggestions from './channel_suggestions'
+import { values } from 'lodash'
 
 export default class JoinChannel extends React.Component {
 
@@ -17,9 +18,9 @@ export default class JoinChannel extends React.Component {
 
   componentWillMount() {
     loadChannels()
-      .then(users => {
+      .then(channels => {
         this.setState({
-          channels: Object.values(users)
+          channels: values(channels)
         })
       })
   }
@@ -71,6 +72,7 @@ export default class JoinChannel extends React.Component {
         </form>
 
         <ChannelSuggestions
+          search={this.state.search}
           channels={this.state.channels}
           subscribeToChannel={this.subscribeToChannel}/>
 

@@ -9,6 +9,10 @@ export default class ChannelSuggestions extends React.Component {
 
   render() {
     const suggestions = this.props.channels
+    .filter(channel => {
+      const regexp = new RegExp(this.props.search)
+      return regexp.test(channel.name)
+    })
     .map(channel => {
       return <li key={channel.id}
         onClick={this.props.subscribeToChannel(channel.id)}

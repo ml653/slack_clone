@@ -73,7 +73,7 @@ export default class NewDirectMessage extends React.Component {
       const memberIds = this.state.members.map(n => n.id)
       if(memberIds.indexOf(member.id) < 0) {
         this.state.members.push(member)
-
+        this.state.search = ''
         const newState = this.updateUsersAndChannels(this.state)
         this.setState(newState)
       }
@@ -117,7 +117,7 @@ export default class NewDirectMessage extends React.Component {
                 <input
                   placeholder={this.state.members.length > 0 ? '' : 'Find or start a conversation.'}
                   type='text'
-                  value={this.state.name}
+                  value={this.state.search}
                   onChange={this.updateField('search')} />
               </div>
 
@@ -134,6 +134,7 @@ export default class NewDirectMessage extends React.Component {
           </form>
 
           <UserSuggestions
+            search={this.state.search}
             userId={this.props.userId}
             members={this.state.shownUsers}
             addMember={this.addMember}
