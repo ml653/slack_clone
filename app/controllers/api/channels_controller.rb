@@ -89,4 +89,13 @@ class Api::ChannelsController < ApplicationController
     params.require(:members) + [current_user.id]
   end
 
+  def public_channels
+    user_id = params.require(:user_id)
+    subquery = Participation.where(user_id: user_id)
+    @channels = Channel.where(private: false).where.not(id: Participation.where(user_id: user_id))
+    # @channels = Channel
+    #   .where(private: false)
+    #   .where.not(user_id: )
+    #   .where("participations.user_id = #{user_id}")
+  end
 end

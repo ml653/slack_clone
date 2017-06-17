@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :update, :destroy]
     get '/messages/:channel_id', to: 'messages#index'
     get '/channels/loadDMChannelsAndUsers/:user_id', to: 'channels#load_dm_channels_and_users'
+    get '/channels/public_channels/:user_id', to: 'channels#public_channels'
   end
 
 end
