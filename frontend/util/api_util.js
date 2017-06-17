@@ -1,12 +1,3 @@
-// const wrapAjaxAsPromise = (options) => (
-//   new Promise((resolve, reject) => {
-//     $.ajax(options)
-//       .then(
-//         res => resolve(res),
-//         err => reject(err))
-//   })
-// )
-
 export const createChannel = (channel, members) => (
   $.ajax({
     method: 'POST',
@@ -67,4 +58,8 @@ export const loadUsers = () => (
 
 export const loadChannels = () => (
   $.ajax({ url: 'api/channels', method: 'GET' })
+)
+
+export const loadDMUCs = (userId) => (
+  $.ajax({url: `api/channels/loadDMUCs${userId}`})
 )

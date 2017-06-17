@@ -6,6 +6,7 @@ import ChosenMember from './chosen_member'
 export default class NewDirectMessage extends React.Component {
 
   componentWillMount() {
+    // Load all users and channels; TODO
     loadUsers()
       .then(users => {
         this.setState({

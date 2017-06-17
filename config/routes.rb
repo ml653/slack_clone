@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root 'static#index'
 
   mount ActionCable.server => '/cable'
@@ -15,7 +13,7 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:create, :update, :destroy]
     get '/messages/:channel_id', to: 'messages#index'
-    get '/channels/:user_id', to: 'channels#direct_message_index'
+    get '/channels/loadDMChannelsAndUsers/:user_id', to: 'channels#load_dm_channels_and_users'
   end
 
 end

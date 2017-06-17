@@ -1,15 +1,18 @@
 class Api::ChannelsController < ApplicationController
 
+  # Load DMUCs
+  def load_dm_channels_and_users
+    user_id = params.require(:user_id)
+    @users = User.all.where.not(id: user_id)
+    @channels = Channel.joins(:members)
+      .where("participations.user_id = #{user_id}")
+      .where(private: true)
+    render :load_dm_channels_and_users
+  end
+
   def index
     @channels = Channel.where(private: false)
     render :index
-  end
-
-  def direct_message_index
-    user_id = params[:user_id]
-    @users = User.all
-    @channels = Channel.includes(:members).where(private: true)
-    render :direct_message_index
   end
 
   def build_public_channel

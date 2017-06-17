@@ -115,3 +115,8 @@ $.ajax({
   url: 'api/channels',
   type: 'GET'
 })
+
+$.ajax({
+  url: 'api/channels/loadDMChannelsAndUsers:1',
+  type: 'GET'
+})
