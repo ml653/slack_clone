@@ -61,5 +61,15 @@ export const loadChannels = () => (
 )
 
 export const loadDMChannelsAndUsers = (userId) => (
-  $.ajax({url: `api/channels/loadDMChannelsAndUsers/${userId}`})
+  $.ajax({
+    url: `api/channels/loadDMChannelsAndUsers/${userId}`,
+    method: 'GET'
+  })
+)
+
+export const publicChannels = (userId) => (
+  $.ajax({
+    url: `api/channels/public_channels/${userId}`,
+    method: 'GET'
+  })
 )

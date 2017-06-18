@@ -90,12 +90,17 @@ class Api::ChannelsController < ApplicationController
   end
 
   def public_channels
-    user_id = params.require(:user_id)
-    subquery = Participation.where(user_id: user_id)
-    @channels = Channel.where(private: false).where.not(id: Participation.where(user_id: user_id))
-    # @channels = Channel
-    #   .where(private: false)
-    #   .where.not(user_id: )
-    #   .where("participations.user_id = #{user_id}")
+    user_id = params[:user_id]
+
+    @channels = Channel.where(private: false)
+      .joins(
+        "Left Join
+          (Select *
+          From Participations
+          Where user_id = #{user_id}) as Participations
+        On Channels.id = Participations.channel_id")
+        .where('Participations.channel_id Is Null')
+      render :index
   end
+
 end

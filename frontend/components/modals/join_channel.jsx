@@ -1,5 +1,5 @@
 import React from 'react'
-import { loadChannels } from 'Util/api_util'
+import { publicChannels } from 'Util/api_util'
 import ChannelSuggestions from './channel_suggestions'
 import { values } from 'lodash'
 
@@ -12,12 +12,14 @@ export default class JoinChannel extends React.Component {
       channels: []
     }
 
+    console.log(publicChannels)
+
     this.updateField = this.updateField.bind(this)
     this.subscribeToChannel = this.subscribeToChannel.bind(this)
   }
 
   componentWillMount() {
-    loadChannels()
+    publicChannels(this.props.userId)
       .then(channels => {
         this.setState({
           channels: values(channels)
