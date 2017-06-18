@@ -28,7 +28,6 @@
     h2 {
       color: #ffffff;
       font-weight: 700;
-      // font-weight: 900;
       font-size: 18px;
       line-height: 22px;
     }
@@ -42,13 +41,13 @@
 
   #channels {
 
-    #groups, #direct-messages {
+    // #groups, #direct-messages {
 
-      img #new-group-button {
-        width: 15px;
-        height: 15px;
-      }
-    }
+    //   img #new-group-button {
+    //     width: 15px;
+    //     height: 15px;
+    //   }
+    // }
 
     .channel, .title {
       font-size: 14px;
@@ -60,7 +59,13 @@
       align-items: center;
       justify-content: space-between;
 
+      .fa {
+        font-size: 12px;
+        padding-right: 5px;
+      }
+
       img {
+        opacity: 0.5;
         width: 15px;
         height: 15px;
       }
@@ -68,18 +73,30 @@
 
     .title {
       text-transform: uppercase;
+
+      // Join and create new direct message buttons
+      img {
+        // opacity: 0.5;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
     }
 
+    // Remove channel images;
     .channel {
       img {
         display: none;
+
+        &:hover {
+          opacity: 0.9;
+        }
       }
 
       &:hover {
         img {
-          // display: inline-block;
-          // TODO: Implement channel deletion
-          display: none;
+          display: inline-block;
         }
       }
     }
@@ -98,3 +115,4 @@
 
   }
 }
+

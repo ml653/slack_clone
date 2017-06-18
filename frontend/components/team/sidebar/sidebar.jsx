@@ -23,15 +23,21 @@ class Sidebar extends React.Component {
     }
   }
 
-  showNewChannel() {
+  showNewChannel(e) {
+    e.preventDefault()
+    e.stopPropagation()
     this.props.history.push('/new-channel')
   }
 
-  showFindChannel() {
+  showFindChannel(e) {
+    e.preventDefault()
+    e.stopPropagation()
     this.props.history.push('/join-channel')
   }
 
-  showDirectMessage() {
+  showDirectMessage(e) {
+    e.preventDefault()
+    e.stopPropagation()
     this.props.history.push('/new-direct-message')
   }
 
@@ -50,11 +56,14 @@ class Sidebar extends React.Component {
       <li key={channel.id}
         onClick={this.loadChannel(channel.id)}
         className={`channel sidebar-item
-          ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
-        {getDirectMessageMembers(this.props.user.id, channel.members)
-          .map(member => member.username)
-          .join(', ')}
-        <img src='/images/circle_x.png'/>
+        ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
+          <div>
+            <i className="fa fa-heart-o" aria-hidden="true"/>
+            {getDirectMessageMembers(this.props.user.id, channel.members)
+              .map(member => member.username)
+              .join(', ')}
+          </div>
+          <img src='/images/circle_x.png'/>
       </li>
     ))
 
@@ -68,8 +77,9 @@ class Sidebar extends React.Component {
 
       <div id='channels'>
         <ul id='groups'>
-          <li id='title' className='title sidebar-item'>
-            <p onClick={this.showFindChannel}>
+          <li className='title sidebar-item'
+            onClick={this.showFindChannel}>
+            <p>
               Channels
             </p>
             <img src='/images/circle_plus.png'
