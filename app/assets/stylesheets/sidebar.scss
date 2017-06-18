@@ -41,14 +41,6 @@
 
   #channels {
 
-    // #groups, #direct-messages {
-
-    //   img #new-group-button {
-    //     width: 15px;
-    //     height: 15px;
-    //   }
-    // }
-
     .channel, .title {
       font-size: 14px;
       font-weight: 300;
@@ -106,7 +98,6 @@
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       color: #ffffff;
-      pointer-events: none;
     }
 
     #groups, #direct-messages {
