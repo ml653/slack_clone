@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactionBar from './reaction_bar'
 
 export default class Message extends React.Component {
 
@@ -8,20 +9,23 @@ export default class Message extends React.Component {
   }
 
   render() {
-    return <li className='message'>
-      <div className='message-avatar'>
-        <img src={this.props.message.user.img_url}/>
-      </div>
+    return <div className='message-group'>
+      <li className='message'>
+        <div className='message-avatar'>
+          <img src={this.props.message.user.img_url}/>
+        </div>
 
-      <div className='message-content'>
-        <div className='message-info'>
-          <span className='message-username'>{this.props.message.user.username}</span>
-          <span className='message-date'>{this.formatDate(this.props.message.created_at)}</span>
+        <div className='message-content'>
+          <div className='message-info'>
+            <span className='message-username'>{this.props.message.user.username}</span>
+            <span className='message-date'>{this.formatDate(this.props.message.created_at)}</span>
+          </div>
+          <div className='message-text'>
+            {this.props.message.text}
+          </div>
+          <ReactionBar/>
         </div>
-        <div className='message-text'>
-          {this.props.message.text}
-        </div>
-      </div>
-    </li>
+      </li>
+    </div>
   }
 }
