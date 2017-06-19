@@ -10,10 +10,8 @@ export default class ReactionBar extends React.Component {
     return <div className='reaction-bar'>
       <ul>
         <div className='reaction'>
-          <Twemoji>😂 1</Twemoji>
-        </div>
-        <div className='reaction'>
-          <Twemoji>😂 1</Twemoji>
+          <Twemoji className='twemoji'>😂</Twemoji>
+          1
         </div>
       </ul>
     </div>
