@@ -3,11 +3,11 @@
 #header {
   flex: 1;
   padding: 20px 14px 14px 14px;
-  border: 1px $grey_light_border solid;
+  border-bottom: 2px $grey_light_border solid;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 80px;
 
   .channel-name {
     color: $font_color;

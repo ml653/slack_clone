@@ -53,7 +53,7 @@ class Team extends React.Component {
               <FeedContainer/>
               <UserInputContainer/>
             </div>
-            <ChannelDetails/>
+            <ChannelDetails channel={channel}/>
           </div>
         </div>
       </div>
