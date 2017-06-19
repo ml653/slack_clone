@@ -1,7 +1,7 @@
 import * as ChannelActions from 'Actions/channel_actions'
 import { merge } from 'lodash'
 
-const defaultState = { currentChannelId: null, messages: null }
+const defaultState = { currentChannelId: null, messages: null, showChannelDetails: true}
 
 export default (state = defaultState, action) => {
   switch(action.type) {
@@ -25,6 +25,12 @@ export default (state = defaultState, action) => {
   case ChannelActions.REMOVE_MESSAGES: {
     const newState = merge({}, state)
     delete newState.messages[action.id]
+    return newState
+  }
+
+  case ChannelActions.TOGGLE_CHANNEL_DETAILS: {
+    const newState = merge({}, state)
+    newState.showChannelDetails = !newState.showChannelDetails
     return newState
   }
 

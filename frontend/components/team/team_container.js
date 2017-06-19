@@ -7,7 +7,8 @@ function mapStateToProps(state) {
   return {
     user: state.session.user, //Get channels to subscribe to; pass it receiveMessage prop
     currentChannelId: state.channel.currentChannelId,
-    messages: state.channel.messages
+    messages: state.channel.messages,
+    showChannelDetails: state.channel.showChannelDetails
   }
 }
 

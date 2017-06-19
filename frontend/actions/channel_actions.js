@@ -4,6 +4,7 @@ export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE'
+export const TOGGLE_CHANNEL_DETAILS = 'TOGGLE_CHANNEL_DETAILS'
 
 export const receiveChannelId = (channelId) => ({
   type: RECEIVE_CHANNEL_ID,
@@ -37,3 +38,7 @@ export const sendMessage = message => dispatch => (
   ApiUtil.sendMessage(message)
     .then(message => dispatch(receiveMessage(message)))
 )
+
+export const toggleChannelDetails = () => ({
+  type: TOGGLE_CHANNEL_DETAILS
+})

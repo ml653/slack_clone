@@ -2,7 +2,7 @@ import React from 'react'
 import FeedContainer from './feed/feed_container'
 import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
-import TopBar from './top_bar/top_bar'
+import TopBarContainer from './top_bar/top_bar_container'
 import ChannelDetails from './channel_details/channel_details'
 
 class Team extends React.Component {
@@ -47,13 +47,14 @@ class Team extends React.Component {
       <div>
         <SidebarContainer/>
         <div id='messenger'>
-          <TopBar channel={channel} userId={this.props.user.id}/>
+          <TopBarContainer channel={channel}/>
           <div id='main'>
             <div id='left-panel'>
               <FeedContainer/>
               <UserInputContainer/>
             </div>
-            <ChannelDetails channel={channel}/>
+            { this.props.showChannelDetails &&
+              <ChannelDetails channel={channel}/> }
           </div>
         </div>
       </div>
