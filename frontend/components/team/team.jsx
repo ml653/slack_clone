@@ -3,6 +3,7 @@ import FeedContainer from './feed/feed_container'
 import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
 import TopBar from './top_bar/top_bar'
+import ChannelDetails from './channel_details/channel_details'
 
 class Team extends React.Component {
 
@@ -47,11 +48,13 @@ class Team extends React.Component {
         <SidebarContainer/>
         <div id='messenger'>
           <TopBar channel={channel} userId={this.props.user.id}/>
-          <FeedContainer/>
-          {/* <Route path='/:channel/' component={FeedContainer}/> */}
-          {/* <Redirect path='/' to={`/${this.props.user.channels[1].id}`}/> */}
-          {/* TODO: Annoying bug; redirect doesn't work on history.push */}
-          <UserInputContainer/>
+          <div id='main'>
+            <div id='left-panel'>
+              <FeedContainer/>
+              <UserInputContainer/>
+            </div>
+            <ChannelDetails/>
+          </div>
         </div>
       </div>
     )

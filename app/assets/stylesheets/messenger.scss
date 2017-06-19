@@ -3,115 +3,118 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  // TODO: Ask why calc sometimes doens't work with $sidebar_size
   width: calc(100% - 220px);
 
   position: absolute;
   margin-left: $sidebar_size;
   $messenger_margin: 16px;
 
-  .channel-info {
+  #main {
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: row;
 
-  }
-
-  .scroll {
-    height: 100%;
-    overflow-y: auto;
-
-    #feed {
-      width: 100%;
+    #left-panel {
+      flex: 2;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      margin-bottom: $messenger_margin;
 
-      .message {
-        padding: $messenger_margin;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: row;
+      .scroll {
+        height: 100%;
+        overflow-y: auto;
 
-        &:hover {
-          background: $message_hover_grey;
-        }
-
-        .message-avatar {
-
-          img {
-            border-radius: $avatar_img_border_radius;
-            height: $avatar_img_border_width;
-            width: $avatar_img_border_height;
-          }
-        }
-
-        .message-content {
-          flex: 1;
+        #feed {
+          width: 100%;
           display: flex;
           flex-direction: column;
-          margin-left: 8px;
+          justify-content: flex-end;
+          margin-bottom: $messenger_margin;
 
-          .message-info {
-            line-height: 21px;
+          .message {
+            padding: $messenger_margin;
+            // flex-shrink: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
 
-            .message-username {
-              font-size: 18px;
-              font-weight: 700;
-              vertical-align: baseline;
+            &:hover {
+              background: $message_hover_grey;
             }
 
-            .message-date {
-              font-size: 12px;
-              font-weight: 500;
-              padding-left: 5px;
-              vertical-align: baseline;
+            .message-avatar {
+
+              img {
+                border-radius: $avatar_img_border_radius;
+                height: $avatar_img_border_width;
+                width: $avatar_img_border_height;
+              }
+            }
+
+            .message-content {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              margin-left: 8px;
+
+              .message-info {
+                line-height: 21px;
+
+                .message-username {
+                  font-size: 18px;
+                  font-weight: 700;
+                  vertical-align: baseline;
+                }
+
+                .message-date {
+                  font-size: 12px;
+                  font-weight: 500;
+                  padding-left: 5px;
+                  vertical-align: baseline;
+                }
+              }
+
+              .message-text {
+                width: 100%;
+                overflow-wrap: break-word;
+                word-wrap: break-all;
+                word-break: break-all;
+              }
             }
           }
-
-          .message-text {
-          }
-
         }
       }
+
+      #user-input {
+        width: 100%;
+
+        input {
+          width: calc(100% - #{2 * $messenger_margin});
+          border: 2px solid #c5c5c5;
+          bottom: 15px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          padding: 8px;
+          margin: 0 $messenger_margin $messenger_margin $messenger_margin;
+        }
+      }
+    } // End of left panel
+
+    #right-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      #channel-info {
+
+      }
+
+      #channel-members {
+
+      }
+
+
     }
   }
 
-  #user-input {
-    width: 100%;
-
-    input {
-      width: calc(100% - #{2 * $messenger_margin});
-      border: 2px solid #c5c5c5;
-      bottom: 15px;
-      background-color: #ffffff;
-      border-radius: 5px;
-      padding: 8px;
-      margin: 0 $messenger_margin $messenger_margin $messenger_margin;
-      // margin: 0px 16px 16px 16px;
-    }
-  }
 }
 
-// .scroll {
-//
-// }
-
-/*
- *  STYLE 1
- */
-
-// #style-1::-webkit-scrollbar-track {
-// 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-// 	border-radius: 10px;
-// 	background-color: #F5F5F5;
-// }
-//
-// #style-1::-webkit-scrollbar {
-// 	width: 12px;
-// 	background-color: #F5F5F5;
-// }
-//
-// #style-1::-webkit-scrollbar-thumb {
-// 	border-radius: 10px;
-// 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-// 	background-color: #555;
-// }

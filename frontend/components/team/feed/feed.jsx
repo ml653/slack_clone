@@ -14,17 +14,17 @@ class Feed extends React.Component {
 
   render() {
     const messages = values(this.props.messages).map((message, i, arr) => (
-    <div key={message.id}
-      id={ i === arr.length - 1 ? 'last-child' : '' }
-      ref={((message) => {
-        this.lastMessage = message
+      <div key={message.id}
+        id={ i === arr.length - 1 ? 'last-child' : '' }
+        ref={((message) => {
+          this.lastMessage = message
       })}>
 
-      <Message message={message}/>
-       </div>
+        <Message message={message}/>
+      </div>
     ))
 
-    return <div id='style-1' className='scroll'>
+    return <div className='scroll'>
       <ul id='feed'>
         {messages}
       </ul>
