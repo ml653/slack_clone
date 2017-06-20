@@ -120,3 +120,15 @@ $.ajax({
   url: 'api/channels/loadDMChannelsAndUsers:1',
   type: 'GET'
 })
+
+$.ajax({
+  url: 'api/reactions',
+  type: 'POST',
+  data: {
+    reaction: {
+      message_id: 1,
+      user_id: 2,
+      emoji: '\u03A9'
+    }
+  }
+}).then(n => console.log(n))

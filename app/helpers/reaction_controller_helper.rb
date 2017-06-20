@@ -1,0 +1,2 @@
+module ReactionControllerHelper
+end
