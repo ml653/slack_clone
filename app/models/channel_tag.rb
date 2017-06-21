@@ -4,4 +4,3 @@ class ChannelTag < ApplicationRecord
   belongs_to :channel
 end
 
-# Channel.includes(:channel_tags).where("channel_tags.user_id = 1").references(:channel_tags)

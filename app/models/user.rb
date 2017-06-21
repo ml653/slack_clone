@@ -25,9 +25,13 @@ class User < ApplicationRecord
   end
 
   def self.find_by_credentials(email, password)
-    user = User.includes(:channels).find_by(email: email)
+    # user = User.includes(:channels).find_by(email: email)
+    user = User.includes(channels: :channel_tags)
+      .where('channel_tags.user_id = users.id').references(:channel_tags)
+      .find_by(email: email)
     user && user.password_is?(password) ? user : nil
   end
+# Channel.includes(:channel_tags).where("channel_tags.user_id = 1").references(:channel_tags)
 
   def password_is?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)

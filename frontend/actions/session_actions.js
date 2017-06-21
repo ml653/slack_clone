@@ -1,5 +1,5 @@
 import * as ApiUtil from '../util/api_util'
-import {loadChannel} from './channel_actions'
+import {loadChannel,receiveChannelId} from './channel_actions'
 export const RECEIVE_USER = 'RECEIVE_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
@@ -42,6 +42,7 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
   ApiUtil.logout()
     .then(_user => dispatch(logoutUser()))
+    .then(_ => dispatch(receiveChannelId(null)))
 )
 
 // Channels
