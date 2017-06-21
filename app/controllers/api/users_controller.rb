@@ -35,6 +35,7 @@ class Api::UsersController < ApplicationController
     )
   end
 
+  # Used for pulling list of users for DM
   def index
     @users = User.all
     render :index, users: @user

@@ -112,3 +112,6 @@ Message.create(
   channel_id: 3,
   text: 'maybe along with some emoji\'s! as well'
 )
+
+ChannelTag.create(user_id: 1, channel_id: 1, info: 'STAR')
+ChannelTag.create(user_id: 1, channel_id: 3, info: 'SILENT')
