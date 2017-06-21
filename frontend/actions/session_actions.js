@@ -47,12 +47,14 @@ export const logout = () => dispatch => (
 // Channels
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 
+// Updates appropriate channel in state
 export const receiveChannel = (channel, options) => ({
   type: RECEIVE_CHANNEL,
   channel,
   unread: options.unread
 })
 
+// Creates public channel
 export const createChannel = (channel, members) => dispatch => (
   ApiUtil.createChannel(channel, members)
     .then(channel => {
@@ -61,6 +63,7 @@ export const createChannel = (channel, members) => dispatch => (
     })
 )
 
+// Subscribes to public channel
 export const subscribeToChannel = (participation) => dispatch => (
   ApiUtil.subscribeToChannel(participation)
     .then(channel => {
@@ -69,6 +72,7 @@ export const subscribeToChannel = (participation) => dispatch => (
     })
 )
 
+// Handles new direct message
 export const receiveChannelMessage = (message) => dispatch => {
   dispatch(receiveChannel(message.channel, { unread: true }))
 }

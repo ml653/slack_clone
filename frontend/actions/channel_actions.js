@@ -21,6 +21,7 @@ export const receiveMessages = (messages) => ({
   messages
 })
 
+// Default to load channel object in state
 export const loadChannel = (channelId) => dispatch => {
   ApiUtil.loadMessages(channelId)
     .then(messages => {
@@ -28,11 +29,6 @@ export const loadChannel = (channelId) => dispatch => {
       dispatch(receiveMessages(messages))
     })
 }
-
-export const loadMessages = channelId => dispatch => (
-  ApiUtil.loadMessages(channelId)
-    .then(messages => dispatch(receiveMessages(messages)))
-)
 
 export const sendMessage = message => dispatch => (
   ApiUtil.sendMessage(message)
@@ -42,3 +38,8 @@ export const sendMessage = message => dispatch => (
 export const toggleChannelDetails = () => ({
   type: TOGGLE_CHANNEL_DETAILS
 })
+
+// export const loadMessages = channelId => dispatch => (
+//   ApiUtil.loadMessages(channelId)
+//     .then(messages => dispatch(receiveMessages(messages)))
+// )
