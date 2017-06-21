@@ -23,7 +23,7 @@ export default class Message extends React.Component {
           <div className='message-text'>
             {this.props.message.text}
           </div>
-          <ReactionBar/>
+          <ReactionBar reactions={this.props.message.reactions}/>
         </div>
       </li>
     </div>

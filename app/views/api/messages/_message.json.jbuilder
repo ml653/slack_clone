@@ -12,6 +12,8 @@ end
 
 json.reactions do
   message.reactions.each do |reaction|
-    json.merge! reaction.attributes
+    json.set! message.id do
+      json.merge! reaction.attributes
+    end
   end
 end
