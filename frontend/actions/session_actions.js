@@ -47,6 +47,7 @@ export const logout = () => dispatch => (
 
 // Channels
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
+export const DELETE_CHANNEL = 'DELETE_CHANNEL'
 
 // Updates appropriate channel in state
 export const receiveChannel = (channel, options) => ({
@@ -55,7 +56,13 @@ export const receiveChannel = (channel, options) => ({
   unread: options.unread
 })
 
-// Creates public channel
+// TODO: Add to reducer
+export const removeChannel = (channel_id) => ({
+  type: RECEIVE_CHANNEL,
+  channel_id
+})
+
+// Creates channel
 export const createChannel = (channel, members) => dispatch => (
   ApiUtil.createChannel(channel, members)
     .then(channel => {
@@ -71,6 +78,23 @@ export const subscribeToChannel = (participation) => dispatch => (
       dispatch(receiveChannel(channel, { unread: false }))
       dispatch(loadChannel(channel.id))
     })
+)
+
+// Unsubscribes from public channel TODO:
+export const unsubscribeToChanel = (channel_id) => dispatch => (
+  ApiUtil.unsubscribeToChanel(channel_id)
+    .then(channel => dispatch(removeChannel(channel.id)))
+)
+
+// Channel tags TODO:
+export const createChannelTag = (channel_tag) => dispatch => (
+  ApiUtil.createChannelTag(channel_tag)
+    .then(channel => dispatch(receiveChannel(channel)))
+)
+// TODO:
+export const deleteChannelTag = (channel_tag) => dispatch => (
+  ApiUtil.deleteChannelTag(channel_tag)
+    .then(channel => dispatch(receiveChannel(channel)))
 )
 
 // Handles new direct message

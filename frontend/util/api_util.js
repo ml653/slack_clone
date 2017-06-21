@@ -56,10 +56,7 @@ export const loadUsers = () => (
   $.ajax({ url: 'api/users', method: 'GET' })
 )
 
-export const loadChannels = () => (
-  $.ajax({ url: 'api/channels', method: 'GET' })
-)
-
+// Not called by actions
 export const loadDMChannelsAndUsers = (userId) => (
   $.ajax({
     url: `api/channels/loadDMChannelsAndUsers/${userId}`,
@@ -73,3 +70,7 @@ export const publicChannels = (userId) => (
     method: 'GET'
   })
 )
+
+// Unsubscribe
+
+// Channel Tags

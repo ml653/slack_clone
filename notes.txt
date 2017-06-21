@@ -132,3 +132,20 @@ $.ajax({
     }
   }
 }).then(n => console.log(n))
+
+$.ajax({
+  url: 'api/channel_tags',
+  type: 'POST',
+  data: {
+    channel_tag: {
+      channel_id: 1,
+      user_id: 2,
+      info: 'STAR'
+    }
+  }
+}).then(n => console.log(n))
+
+$.ajax({
+  url: 'api/channel_tags/1',
+  type: 'DELETE',
+}).then(n => console.log(n))

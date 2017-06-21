@@ -9,10 +9,13 @@ Rails.application.routes.draw do
     resource :session, only: [ :create, :destroy ]
 
     resources :channels, only: [:index, :create]
-    resources :participations, only: [ :create ]
+    resources :participations, only: [ :create, :destroy ]
 
     resources :messages, only: [:create, :update, :destroy]
     resources :reactions, only: [:create, :destroy]
+
+    resources :channel_tags, only: [:create, :destroy]
+
     get '/messages/:channel_id', to: 'messages#index'
     get '/channels/loadDMChannelsAndUsers/:user_id', to: 'channels#load_dm_channels_and_users'
     get '/channels/public_channels/:user_id', to: 'channels#public_channels'

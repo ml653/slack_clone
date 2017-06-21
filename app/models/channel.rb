@@ -22,4 +22,8 @@ class Channel < ApplicationRecord
     end
   end
 
+  def get_channel_by_user_id(id)
+
+  end
+
 end
