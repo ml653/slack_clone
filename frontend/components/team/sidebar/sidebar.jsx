@@ -42,11 +42,19 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    const starred = this.props.starred.map(channel => (
+      <li key={channel.id}
+        onClick={this.loadChannel(channel.id)}
+        className={`channel sidebar-item ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
+        #{channel.name}
+        <img src='/images/circle_x.png'/>
+      </li>
+    ))
+
     const groups = this.props.groups.map(channel => (
       <li key={channel.id}
         onClick={this.loadChannel(channel.id)}
-        className={`channel sidebar-item ${
-          this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
+        className={`channel sidebar-item ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
         #{channel.name}
         <img src='/images/circle_x.png'/>
       </li>
@@ -55,8 +63,7 @@ class Sidebar extends React.Component {
     const directMessages = this.props.directMessages.map(channel => (
       <li key={channel.id}
         onClick={this.loadChannel(channel.id)}
-        className={`channel sidebar-item
-        ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
+        className={`channel sidebar-item ${this.props.currentChannelId === channel.id ? 'selected' : ''}`}>
           <div>
             <i className="fa fa-heart-o" aria-hidden="true"/>
             {getDirectMessageMembers(this.props.user.id, channel.members)
@@ -71,30 +78,34 @@ class Sidebar extends React.Component {
 
       <div id='user' className='sidebar-item'>
         <h2>Slack</h2>
-        <p id='username'
-          onClick={this.logout}>{ this.props.user.username }</p>
+        <p id='username' onClick={this.logout}>{ this.props.user.username }</p>
       </div>
 
       <div id='channels'>
+        <ul id='starred'>
+          <li className='title sidebar-item'>
+              <p>
+                <i className="fa fa-star" aria-hidden="true"/>
+                Starred
+              </p>
+          </li>
+          { starred }
+        </ul>
+
         <ul id='groups'>
           <li className='title sidebar-item'
             onClick={this.showFindChannel}>
-            <p>
-              Channels
-            </p>
-            <img src='/images/circle_plus.png'
-              onClick={this.showNewChannel}/>
+            Channels
+            <img src='/images/circle_plus.png' onClick={this.showNewChannel}/>
           </li>
           { groups }
         </ul>
 
         <ul id='direct-messages'>
-          <li className='title sidebar-item'
-              onClick={this.showDirectMessage}>
+          <li className='title sidebar-item' onClick={this.showDirectMessage}>
             Direct Messages
             <img src='/images/circle_plus.png'/>
           </li>
-          <li className='channel sidebar-item'>#Slackbot</li>
           { directMessages }
         </ul>
       </div>

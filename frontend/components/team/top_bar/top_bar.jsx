@@ -3,6 +3,10 @@ import { getChannelDisplayName } from 'Util/selector_util'
 
 export default class TopBar extends React.Component {
   render(){
+    const star = this.props.channel.channel_tags && this.props.channel.channel_tags.STAR
+      ? <i className="fa fa-star" aria-hidden="true"/>
+      : <i className="fa fa-star-o" aria-hidden="true"/>
+
     return <div id='header'>
       <div>
         <div className='channel-name'>
@@ -10,7 +14,7 @@ export default class TopBar extends React.Component {
         </div>
         <div className='items'>
           <div className='star item'>
-            <i className="fa fa-star-o" aria-hidden="true"/>
+            {star}
           </div>
           <div className='members item'
             onClick={this.props.toggleChannelDetails}>

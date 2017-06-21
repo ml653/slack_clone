@@ -1,3 +1,4 @@
+# Called from SessionController#Create, UserController#Create, ApplicationController
 json.merge! user.attributes
 json.channels do
   user.channels.each do |channel|

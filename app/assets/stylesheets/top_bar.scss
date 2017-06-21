@@ -30,8 +30,13 @@
 
     .star {
       cursor: pointer;
+
+      .fa-star {
+        color: #ee9c00;
+      }
+
       &:hover {
-        color: $yellow_like_star;
+        color:  #ee9c00;
       }
     }
 
