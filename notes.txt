@@ -149,3 +149,6 @@ $.ajax({
   url: 'api/channel_tags/1',
   type: 'DELETE',
 }).then(n => console.log(n))
+
+ApiUtil.createChannelTag({user_id: 1, channel_id: 1, info: 'STAR'})
+ApiUtil.unsubscribeFromChannel({user_id: 1, channel_id: 1}).then(n => console.log(n))

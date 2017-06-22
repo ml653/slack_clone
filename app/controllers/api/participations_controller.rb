@@ -11,7 +11,7 @@ class Api::ParticipationsController < ApplicationController
   end
 
   def destroy
-    @participation = Participation.find(params[:id])
+    @participation = Participation.find_by(participation_params)
     if @participation.delete
       @channel = @participation.channel
       render template: 'api/channels/show', channel: @channel

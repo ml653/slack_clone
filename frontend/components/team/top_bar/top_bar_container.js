@@ -1,7 +1,7 @@
-
 import { connect } from 'react-redux'
 import TopBar from './top_bar'
 import { toggleChannelDetails } from 'Actions/channel_actions'
+import { createChannelTag, deleteChannelTag } from 'Actions/session_actions'
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -10,4 +10,8 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { toggleChannelDetails })(TopBar)
+export default connect(mapStateToProps, {
+  toggleChannelDetails,
+  createChannelTag,
+  deleteChannelTag
+})(TopBar)

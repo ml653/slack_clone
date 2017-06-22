@@ -50,7 +50,7 @@ export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const DELETE_CHANNEL = 'DELETE_CHANNEL'
 
 // Updates appropriate channel in state
-export const receiveChannel = (channel, options) => ({
+export const receiveChannel = (channel, options={}) => ({
   type: RECEIVE_CHANNEL,
   channel,
   unread: options.unread
@@ -80,18 +80,17 @@ export const subscribeToChannel = (participation) => dispatch => (
     })
 )
 
-// Unsubscribes from public channel TODO:
 export const unsubscribeToChanel = (channel_id) => dispatch => (
   ApiUtil.unsubscribeToChanel(channel_id)
     .then(channel => dispatch(removeChannel(channel.id)))
 )
 
-// Channel tags TODO:
+// Channel Tags
 export const createChannelTag = (channel_tag) => dispatch => (
   ApiUtil.createChannelTag(channel_tag)
     .then(channel => dispatch(receiveChannel(channel)))
 )
-// TODO:
+
 export const deleteChannelTag = (channel_tag) => dispatch => (
   ApiUtil.deleteChannelTag(channel_tag)
     .then(channel => dispatch(receiveChannel(channel)))

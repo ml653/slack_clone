@@ -2,19 +2,37 @@ import React from 'react'
 import { getChannelDisplayName } from 'Util/selector_util'
 
 export default class TopBar extends React.Component {
-  render(){
-    const star = this.props.channel.channel_tags && this.props.channel.channel_tags.STAR
-      ? <i className="fa fa-star" aria-hidden="true"/>
-      : <i className="fa fa-star-o" aria-hidden="true"/>
+
+  constructor(props) {
+    super(props)
+    this.toggleStar = this.toggleStar.bind(this)
+  }
+
+  toggleStar() {
+    if(this.props.channel.channel_tags && this.props.channel.channel_tags.STAR){
+      this.props.deleteChannelTag(this.props.channel.channel_tags.STAR)
+    } else {
+      this.props.createChannelTag({
+        user_id: this.props.userId,
+        channel_id: this.props.channel.id,
+        info: 'STAR'
+      })
+    }
+  }
+
+  render() {
+    const starClass = this.props.channel.channel_tags && this.props.channel.channel_tags.STAR
+      ? 'fa-star' : 'fa-star-o'
 
     return <div id='header'>
       <div>
         <div className='channel-name'>
-          { getChannelDisplayName(this.props.channel, this.userId, true)}
+          { getChannelDisplayName(this.props.channel, null)}
         </div>
         <div className='items'>
           <div className='star item'>
-            {star}
+            <i className={ `fa ${starClass}` } aria-hidden="true"
+              onClick={this.toggleStar}/>
           </div>
           <div className='members item'
             onClick={this.props.toggleChannelDetails}>

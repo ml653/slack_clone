@@ -5,7 +5,7 @@ import { keys, values } from 'lodash'
 export default class ReactionBar extends React.Component {
 
   render(){
-    const aggregate = values( this.props.reactions )
+    const aggregate = values(this.props.reactions)
       .reduce((agg, reaction) => {
         agg[reaction.emoji] = agg[reaction.emoji] || 0
         agg[reaction.emoji] += 1

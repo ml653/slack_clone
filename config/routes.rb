@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resource :session, only: [ :create, :destroy ]
 
     resources :channels, only: [:index, :create]
-    resources :participations, only: [ :create, :destroy ]
+    resources :participations, only: [ :create ]
+    delete '/participations/', to: 'participations#destroy'
 
     resources :messages, only: [:create, :update, :destroy]
     resources :reactions, only: [:create, :destroy]

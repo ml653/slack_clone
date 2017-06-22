@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { logout } from 'Actions/session_actions'
-import { loadChannel } from 'Actions/channel_actions'
+import { loadChannel, createChannelTag } from 'Actions/channel_actions'
 import Sidebar from './sidebar'
 import { values } from 'lodash'
 
@@ -10,7 +10,7 @@ function mapStateToProp(state) {
   const publicChannels = values(state.session.user.channels)
       .filter(channel => channel.isDirectMessage === false && starred.indexOf(channel) < 0)
   const directMessages = values(state.session.user.channels)
-      .filter(channel => channel.isDirectMessage === true)
+      .filter(channel => channel.isDirectMessage === true && starred.indexOf(channel) < 0)
 
   return {
     user: state.session.user,
@@ -21,4 +21,4 @@ function mapStateToProp(state) {
   }
 }
 
-export default connect(mapStateToProp, { logout, loadChannel })(Sidebar)
+export default connect(mapStateToProp, { logout, loadChannel, createChannelTag })(Sidebar)

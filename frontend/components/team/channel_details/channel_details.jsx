@@ -3,8 +3,6 @@ import { values } from 'lodash'
 import {getChannelDisplayName} from 'Util/selector_util'
 
 export default class ChannelDetails extends React.Component {
-  initialize() {
-  }
 
   getCreatedBy(channel){
     const parsedDate = new Date(channel.created_at)
@@ -25,7 +23,7 @@ export default class ChannelDetails extends React.Component {
     })
     return <div id='right-panel' className='channel-details'>
       <div id='channel-about'>
-        About {getChannelDisplayName(this.props.channel, this.props.userId, true)}
+        About {getChannelDisplayName(this.props.channel, this.props.userId)}
       </div>
 
       <div id='channel-info'>

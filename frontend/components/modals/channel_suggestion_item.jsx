@@ -1,5 +1,5 @@
 import React from 'react'
-import { getDirectMessageMembers } from 'Util/selector_util'
+import { getChannelDisplayName } from 'Util/selector_util'
 
 export default (props) => {
   const addAllMembers = () => {
@@ -16,9 +16,7 @@ export default (props) => {
     <img src='/assets/profile_img_1.png'/>
     <div className='content'>
       <h5 className='username'>
-        { getDirectMessageMembers(null, props.channel.members)
-          .map(user => user.username)
-          .join(', ') }
+        { getChannelDisplayName(props.channel, null, { includeUserId: true, prefix: false}) }
       </h5>
     </div>
   </li>
