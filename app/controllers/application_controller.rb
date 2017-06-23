@@ -10,10 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User
-      .includes(channels: :channel_tags)
-      .where('channel_tags.user_id = users.id or channel_tags is null').references(:channel_tags)
-    .find_by(session_token: session[:session_token])
+      @current_user ||= User
+        .includes(channels: :channel_tags)
+        .where('(channel_tags.user_id = users.id AND channel_tags.channel_id = channels.id) OR channel_tags.id is null')
+        .references(channels: :channel_tags)
+        .find_by(session_token: session[:session_token])
   end
 
   def login!(user)
