@@ -12,6 +12,10 @@ class Sidebar extends React.Component {
     this.showDirectMessage = this.showDirectMessage.bind(this)
     this.logout = this.logout.bind(this)
     this.createSilentChannelTag = this.createSilentChannelTag.bind(this)
+
+    this.state = {
+      dropdownShown: false
+    }
   }
 
   logout() {
@@ -52,6 +56,11 @@ class Sidebar extends React.Component {
     this.props.history.push('/new-direct-message')
   }
 
+  showDropdown(e) {
+    e.stopPropagation()
+    $('#dropdown').css('display', 'block')
+  }
+
   render() {
     const starred = this.props.starred.map(channel => (
       <ChannelItem
@@ -84,9 +93,12 @@ class Sidebar extends React.Component {
 
     return <div id='sidebar' className='sidebar-menu'>
 
-      <div id='user' className='sidebar-item'>
+      <div id='user' className='sidebar-item' onClick={ this.showDropdown }>
         <h2>Slack</h2>
-        <p id='username' onClick={this.logout}>{ this.props.user.username }</p>
+        <p id='username'>{ this.props.user.username }</p>
+        <div id="dropdown" className="dropdown-content">
+          <a href="#" onClick={ this.logout }>Log out</a>
+        </div>
       </div>
 
       <div id='channels'>

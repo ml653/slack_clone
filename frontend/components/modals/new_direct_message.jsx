@@ -1,13 +1,12 @@
 import React from 'react'
 import UserSuggestions from './user_suggestions'
-import { loadUsers, loadDMChannelsAndUsers } from 'Util/api_util'
+import { loadDMChannelsAndUsers } from 'Util/api_util'
 import ChosenMember from './chosen_member'
 import { values, merge } from 'lodash'
 
 export default class NewDirectMessage extends React.Component {
 
   componentWillMount() {
-    // Load all users and channels; TODO
     loadDMChannelsAndUsers(this.props.userId)
       .then(n => {
         const newState = merge({}, this.state, {

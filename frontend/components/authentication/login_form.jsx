@@ -13,6 +13,8 @@ class LoginForm extends React.Component {
     this.updateField = this.updateField.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toSignUp = this.toSignUp.bind(this)
+    this.demo = this.demo.bind(this)
+    this.setFieldsWithDelay = this.setFieldsWithDelay.bind(this)
   }
 
   updateField(field) {
@@ -31,6 +33,29 @@ class LoginForm extends React.Component {
   toSignUp(e) {
     e.preventDefault()
     this.props.history.push('/sign-up')
+  }
+
+  demo(e) {
+    e.preventDefault()
+    this.setFieldsWithDelay('user_1@gmail.com', 'password')
+  }
+
+  setFieldsWithDelay(email, password) {
+    if(email) {
+      this.setState({email: this.state.email + email[0]})
+      setTimeout(
+        () => {this.setFieldsWithDelay(email.slice(1), password)},
+        80)
+
+    } else if(password) {
+      this.setState({password: this.state.password + password[0]})
+      setTimeout(
+        () => {this.setFieldsWithDelay(undefined, password.slice(1))},
+        80)
+
+    } else {
+      this.props.login(this.state)
+    }
   }
 
   render() {
@@ -69,6 +94,12 @@ class LoginForm extends React.Component {
                 type='submit'
                 onSubmit={this.handleSubmit}>
                 Sign In
+              </button>
+
+              <button
+                className='sign-in'
+                onClick={this.demo}>
+                Demo
               </button>
             </form>
           </div>
