@@ -5,6 +5,7 @@ class Api::ChannelTagsController < ApplicationController
     if @channel_tag.save
       @channel = Channel
         .find(@channel_tag.channel_id)
+      @user_id = current_user.id
 
       render 'api/channels/show'
     else
@@ -17,6 +18,7 @@ class Api::ChannelTagsController < ApplicationController
     if @channel_tag.delete
       @channel = Channel
         .find(@channel_tag.channel_id)
+      @user_id = current_user.id
 
       render 'api/channels/show'
     else

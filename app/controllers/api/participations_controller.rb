@@ -4,7 +4,8 @@ class Api::ParticipationsController < ApplicationController
     @participation = Participation.new(participation_params)
     if @participation.save
       @channel = @participation.channel
-      render template: 'api/channels/show', channel: @channel
+      @user_id = current_user.id
+      render template: 'api/channels/show', channel: @channel, user_id: @user_id
     else
       render json: @participation.errors.full_messages, status: :unprocessable_entity
     end
@@ -14,7 +15,8 @@ class Api::ParticipationsController < ApplicationController
     @participation = Participation.find_by(participation_params)
     if @participation.delete
       @channel = @participation.channel
-      render template: 'api/channels/show', channel: @channel
+      @user_id = @current_user.id
+      render template: 'api/channels/show', channel: @channel, user_id: @user_id
     else
       render json: @participation.errors.full_messages, status: :unprocessable_entity
     end

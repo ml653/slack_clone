@@ -29,6 +29,7 @@ class Channel < ApplicationRecord
 
   def delete_silent_tag(user_id)
     tag = ChannelTag.find_by(channel_id: self.id, user_id: user_id, info: 'SILENT')
+    p tag
     tag.delete if tag
   end
 end

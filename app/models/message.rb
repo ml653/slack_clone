@@ -12,6 +12,7 @@ class Message < ApplicationRecord
 
   def send_message()
     self.channel.members.each do |member|
+      channel.delete_silent_tag(member.id)
       MessageRelayJob.perform_later(self, "user_#{member.id}")
     end
   end

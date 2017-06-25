@@ -3,11 +3,14 @@ class Api::MessagesController < ApplicationController
   # Loads messages by channel
   def index
     @messages = Message.where("channel_id = ?", params[:channel_id]).order(:created_at)
-    render 'api/messages/index', messages: @messages, user_id: current_user.id
+    render partial: 'api/messages/index', locals: {
+      messages: @messages
+    }
   end
 
   def create
     @message = Message.new(message_params)
+    @user_id = current_user.id
     if @message.save
       # Save participation to channel
       render 'api/messages/show'

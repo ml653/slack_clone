@@ -2,16 +2,17 @@ class Api::ChannelsController < ApplicationController
 
   # Load DMUCs
   def load_dm_channels_and_users
-    user_id = params.require(:user_id)
-    @users = User.all.where.not(id: user_id)
+    @user_id = params.require(:user_id)
+    @users = User.all.where.not(id: @user_id)
     @channels = Channel.joins(:members)
-      .where("participations.user_id = #{user_id}")
+      .where("participations.user_id = #{@user_id}")
       .where(private: true)
     render :load_dm_channels_and_users
   end
 
   def index
     @channels = Channel.where(private: false)
+    @user_id = current_user.id
     render :index
   end
 
@@ -77,7 +78,7 @@ class Api::ChannelsController < ApplicationController
     else
       @channel = build_public_channel
     end
-    @user_id = @current_user.id
+    @user_id = current_user.id
     render :show
   end
 
@@ -92,14 +93,14 @@ class Api::ChannelsController < ApplicationController
   end
 
   def public_channels
-    user_id = params[:user_id]
+    @user_id = params[:user_id]
 
     @channels = Channel.where(private: false)
       .joins(
         "Left Join
           (Select *
           From Participations
-          Where user_id = #{user_id}) as Participations
+          Where user_id = #{@user_id}) as Participations
         On Channels.id = Participations.channel_id")
         .where('Participations.channel_id Is Null')
       render :index
