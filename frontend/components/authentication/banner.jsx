@@ -5,7 +5,7 @@ export default class Banner extends React.Component {
     return <nav>
       <div>
         <img src='/images/slack_logo.svg'/>
-        <p>Slack</p>
+        <p>Slack(er)</p>
       </div>
       <button onClick={this.props.onClickFnc}>
         {this.props.text}

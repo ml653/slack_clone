@@ -66,12 +66,13 @@ class LoginForm extends React.Component {
       <div>
         <Banner onClickFnc={this.toSignUp} text='Sign Up'/>
         <div className="auth">
+          <img src='/images/slack_background.png'/>
           <div className='auth-form'>
             <ul>
               {errors}
             </ul>
             <form onSubmit={this.handleSubmit}>
-              <h1>Sign in to Slack</h1>
+              <h1>Sign in to Slack(er)</h1>
               <p>Enter your <b>email address</b> and <b>password</b>.</p>
 
               <input

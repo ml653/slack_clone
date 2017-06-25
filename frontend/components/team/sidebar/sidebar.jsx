@@ -94,7 +94,7 @@ class Sidebar extends React.Component {
     return <div id='sidebar' className='sidebar-menu'>
 
       <div id='user' className='sidebar-item' onClick={ this.showDropdown }>
-        <h2>Slack</h2>
+        <h2>Slack(er)</h2>
         <p id='username'>{ this.props.user.username }</p>
         <div id="dropdown" className="dropdown-content">
           <a href="#" onClick={ this.logout }>Log out</a>

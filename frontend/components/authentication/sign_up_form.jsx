@@ -43,6 +43,7 @@ export default class LoginForm extends React.Component {
       <div>
         <Banner onClickFnc={this.toLogin} text='Login'/>
         <div className="auth">
+          <img src='/images/slack_background.png'/>
           <div className='auth-form'>
             <ul>
               {errors}
@@ -77,7 +78,7 @@ export default class LoginForm extends React.Component {
                 className='sign-in'
                 type='submit'
                 onSubmit={this.handleSubmit}>
-                Sign In
+                Sign Up
               </button>
             </form>
           </div>
