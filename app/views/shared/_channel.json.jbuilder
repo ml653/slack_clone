@@ -15,7 +15,8 @@ end
 
 # Set channel tags for user options
 json.channel_tags do
-  channel.channel_tags.each do |channel_tag|
+  # channel.channel_tags.each do |channel_tag|
+  channel.tags_by_user(current_user.id).each do |channel_tag|
     json.set! channel_tag.info, channel_tag.id
   end
 end

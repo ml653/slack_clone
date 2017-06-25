@@ -116,3 +116,4 @@ Message.create(
 ChannelTag.create(user_id: 1, channel_id: 1, info: 'STAR')
 ChannelTag.create(user_id: 1, channel_id: 3, info: 'SILENT')
 ChannelTag.create(user_id: 2, channel_id: 3, info: 'SILENT')
+ChannelTag.create(user_id: 2, channel_id: 1, info: 'STAR')

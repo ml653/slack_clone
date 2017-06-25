@@ -76,6 +76,7 @@ class Api::ChannelsController < ApplicationController
     else
       @channel = build_public_channel
     end
+    @user_id = @current_user.id
     render :show
   end
 

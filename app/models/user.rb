@@ -26,10 +26,9 @@ class User < ApplicationRecord
 
   def self.find_by_credentials(email, password)
     user = User
-      .includes(channels: :channel_tags)
-      .where('(channel_tags.user_id = users.id AND channel_tags.channel_id = channels.id) OR channel_tags.id is null')
-      .references(channels: :channel_tags)
+      .includes(:channels)
       .find_by(email: email)
+
     user && user.password_is?(password) ? user : nil
   end
 
