@@ -7,6 +7,9 @@
   height: 100%;
 
   display: flex;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   flex-direction: column;
   display: block;
   position: absolute;
@@ -55,9 +58,13 @@
       line-height: 22px;
 
       display: flex;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      -webkit-justify-content: space-between;
 
       .fa {
         font-size: 12px;

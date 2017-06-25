@@ -1,5 +1,6 @@
 import React from 'react'
 import { getChannelDisplayName } from 'Util/selector_util'
+import { values } from 'lodash'
 
 export default class TopBar extends React.Component {
 
@@ -38,7 +39,7 @@ export default class TopBar extends React.Component {
             onClick={this.props.toggleChannelDetails}>
             <i className="fa fa-user-o  fa-align-center fa-fw" aria-hidden="true"/>
             <p>
-              {Object.values(this.props.channel.members).length}
+              {values(this.props.channel.members).length}
             </p>
           </div>
         </div>

@@ -5,7 +5,11 @@
   padding: 20px 14px 14px 14px;
   border-bottom: 2px $grey_light_border solid;
   display: flex;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   justify-content: space-between;
+  -webkit-justify-content: space-between;
   align-items: center;
   height: 80px;
 
@@ -22,6 +26,9 @@
     line-height: 16px;
     vertical-align: middle;
     display: flex;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
 
     .item {
       padding: 0px 8px;
@@ -43,6 +50,9 @@
     .members {
       cursor: pointer;
       display: flex;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
 
       .fa {
         font-size: 12px;

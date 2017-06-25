@@ -4,13 +4,14 @@ import SidebarContainer from './sidebar/sidebar_container'
 import UserInputContainer from './user_input/user_input_container'
 import TopBarContainer from './top_bar/top_bar_container'
 import ChannelDetails from './channel_details/channel_details'
+import { values } from 'lodash'
 
 class Team extends React.Component {
 
   componentWillMount() {
     this.initializeUserConnection()
     if(!this.props.messages) {
-      const defaultChannelId = Object.values(this.props.user.channels)[0].id
+      const defaultChannelId = values(this.props.user.channels)[0].id
       this.props.loadChannel(defaultChannelId)
     }
   }
@@ -40,7 +41,7 @@ class Team extends React.Component {
   }
 
   render() {
-    const defaultChannelId = Object.values(this.props.user.channels)[0].id
+    const defaultChannelId = values(this.props.user.channels)[0].id
     const channel = this.props.user.channels[this.props.currentChannelId ?
       this.props.currentChannelId : defaultChannelId]
     return (
