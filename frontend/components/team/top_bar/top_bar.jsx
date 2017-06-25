@@ -9,7 +9,7 @@ export default class TopBar extends React.Component {
   }
 
   toggleStar() {
-    if(this.props.channel.channel_tags && this.props.channel.channel_tags.STAR){
+    if(this.props.channel.channel_tags.STAR){
       this.props.deleteChannelTag(this.props.channel.channel_tags.STAR)
     } else {
       this.props.createChannelTag({
@@ -21,7 +21,7 @@ export default class TopBar extends React.Component {
   }
 
   render() {
-    const starClass = this.props.channel.channel_tags && this.props.channel.channel_tags.STAR
+    const starClass = this.props.channel.channel_tags.STAR
       ? 'fa-star' : 'fa-star-o'
 
     return <div id='header'>

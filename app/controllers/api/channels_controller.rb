@@ -36,6 +36,7 @@ class Api::ChannelsController < ApplicationController
       params.require(:channel)[:author_id],
       channel_member_params)
     if @channel
+      @channel.delete_silent_tag(current_user.id)
       return @channel
     else
       @channel = Channel.new(channel_params)

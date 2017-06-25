@@ -2,9 +2,6 @@ class Api::MessagesController < ApplicationController
 
   # Loads messages by channel
   def index
-    puts "\n\n\n WTF"
-    p current_user.id
-    p "END"
     @messages = Message.where("channel_id = ?", params[:channel_id]).order(:created_at)
     render 'api/messages/index', messages: @messages, user_id: current_user.id
   end

@@ -11,6 +11,7 @@ class Sidebar extends React.Component {
     this.showNewChannel = this.showNewChannel.bind(this)
     this.showDirectMessage = this.showDirectMessage.bind(this)
     this.logout = this.logout.bind(this)
+    this.createSilentChannelTag = this.createSilentChannelTag.bind(this)
   }
 
   logout() {
@@ -20,6 +21,16 @@ class Sidebar extends React.Component {
   loadChannel(channelId) {
     return () => {
       this.props.loadChannel(channelId)
+    }
+  }
+
+  createSilentChannelTag(user_id, channel_id) {
+    return () => {
+      this.props.createChannelTag({
+        user_id,
+        channel_id,
+        info: 'SILENT'
+      })
     }
   }
 
@@ -61,12 +72,14 @@ class Sidebar extends React.Component {
    ))
 
     const directMessages = this.props.directMessages.map(channel => (
-      <ChannelItem
+      <DirectMessageItem
         key={channel.id}
         userId={this.props.user.id}
         channel={channel}
         load={this.loadChannel(channel.id)}
-        currentChannelId={this.props.currentChannelId} />
+        currentChannelId={this.props.currentChannelId}
+        createSilentChannelTag=
+          {this.createSilentChannelTag(this.props.user.id, channel.id)} />
     ))
 
     return <div id='sidebar' className='sidebar-menu'>
@@ -110,19 +123,29 @@ class Sidebar extends React.Component {
 }
 
 const ChannelItem = ({channel, userId, currentChannelId, load}) => {
-  const displayName = channel.isDirectMessage
-    ? getChannelDisplayName(channel, userId, { prefix: false, includeUserId: false })
-    : getChannelDisplayName(channel, userId, { prefix: true, includeUserId: false })
+  const displayName = getChannelDisplayName(channel, userId, { prefix: true, includeUserId: false })
 
   return <li key={channel.id}
       onClick={load}
       className={`channel sidebar-item ${currentChannelId === channel.id ? 'selected' : ''}`}>
     <div>
-      { channel.isDirectMessage && <i className="fa fa-heart-o" aria-hidden="true"/> }
       {displayName}
     </div>
-    <img src='/images/circle_x.png'/>
   </li>
 }
 
+const DirectMessageItem = ({channel, userId, currentChannelId, load, createSilentChannelTag}) => {
+  const displayName = getChannelDisplayName(channel, userId, { prefix: false, includeUserId: false })
+
+  return <li key={channel.id}
+      onClick={load}
+      className={`channel sidebar-item ${currentChannelId === channel.id ? 'selected' : ''}`}>
+    <div>
+      <i className="fa fa-heart-o" aria-hidden="true"/>
+      {displayName}
+    </div>
+      { channel.isDirectMessage && <img src='/images/circle_x.png'
+        onClick={createSilentChannelTag}/> }
+  </li>
+}
 export default withRouter(Sidebar)
