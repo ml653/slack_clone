@@ -6,11 +6,11 @@
   height: 100%;
   width: 100%;
 
-  display: flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
+  display: flex;
 
   padding-bottom: 100px;
   z-index: 100;
@@ -40,11 +40,11 @@
     }
 
     form {
-      display: flex;
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-box;
       display: -webkit-flex;
+      display: flex;
 
 
       -moz-box-direction: column;
@@ -55,12 +55,12 @@
       -ms-flex-direction: column;
       flex-direction: column;
 
-      align-items: flex-end;
       -webkit-box-align: flex-end;
       -webkit-align-items: flex-end;
       -moz-box-align: flex-end;
       -ms-flex-align: flex-end;
       -webkit-justify-content: flex-end;
+      align-items: flex-end;
 
       label {
         width: 100%;
@@ -123,11 +123,11 @@
       // New Direct Message Form
       .new-direct-message-form {
         width: 100%;
-        display: flex;
         display: -moz-box;
         display: -ms-flexbox;
         display: -webkit-box;
         display: -webkit-flex;
+        display: flex;
 
 
         button {
@@ -139,17 +139,18 @@
           box-sizing: border-box;
           width: 100%;
           border: 1px solid #c5c5c5;
-          display: flex;
           display: -moz-box;
           display: -ms-flexbox;
           display: -webkit-box;
           display: -webkit-flex;
+          display: flex;
 
-          align-items: center;
           -webkit-box-align: center;
           -webkit-align-items: center;
           -moz-box-align: center;
           -ms-flex-align: center;
+          align-items: center;
+
           input {
             border: none;
           }
@@ -157,18 +158,19 @@
             margin: 3px;
             border-radius: 5px;
             background: $blue_highlight;
-            display: flex;
+            height: 30px;
             display: -moz-box;
+
             display: -ms-flexbox;
             display: -webkit-box;
             display: -webkit-flex;
-            height: 30px;
+            display: flex;
 
-            align-items: center;
             -webkit-box-align: center;
             -webkit-align-items: center;
             -moz-box-align: center;
             -ms-flex-align: center;
+            align-items: center;
 
             -moz-box-direction: row;
             -webkit-box-direction: row;
@@ -203,11 +205,12 @@
 
     .modal-suggestions {
       margin-top: 25px;
-        display: flex;
         display: -moz-box;
         display: -ms-flexbox;
         display: -webkit-box;
         display: -webkit-flex;
+        display: flex;
+
         -moz-box-direction: column;
         -webkit-box-direction: column;
         -webkit-box-orient: vertical;
@@ -245,12 +248,14 @@
 
         &.user {
           padding: 14px 7px;
-        display: flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-box;
-        display: -webkit-flex;
           border-top: 1px $grey_light_border solid;
+
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+
           img {
             border-radius: $avatar_img_border_radius;
             height: 35px;
@@ -269,12 +274,12 @@
 
         &.channel {
           padding: 14px 7px;
-          display: flex;
+          border-top: 1px $grey_light_border solid;
           display: -moz-box;
           display: -ms-flexbox;
           display: -webkit-box;
           display: -webkit-flex;
-          border-top: 1px $grey_light_border solid;
+          display: flex;
         }
       }
     }

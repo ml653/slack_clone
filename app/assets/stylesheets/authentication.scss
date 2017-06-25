@@ -4,10 +4,10 @@ nav {
   padding: 10px;
   height: 50px;
 
-  display: flex;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -18,8 +18,11 @@ nav {
 
   div {
     height: 100%;
-    display: flex;
     display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
     flex-direction: row;
     align-items: center;
     font-size: 42px;

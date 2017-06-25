@@ -1,7 +1,25 @@
 #messenger {
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
+
+  -moz-box-direction: column;
+  -webkit-box-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flexbox-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
-  justify-content: flex-end;
+
+  // align-items: flex-end;
+  // -webkit-box-align: flex-end;
+  // -webkit-align-items: flex-end;
+  // -moz-box-align: flex-end;
+  // -ms-flex-align: flex-end;
+  // -webkit-justify-content: flex-end;
+
   height: 100%;
   width: calc(100% - 220px);
 
@@ -11,29 +29,82 @@
 
   #main {
     height: calc(100% - 80px);
+
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+
     flex-direction: row;
 
     #left-panel {
+      height: 100%;
+
+      -webkit-flex: 2; /* Safari 6.1+ */
+      -ms-flex: 2; /* IE 10 */
       flex: 2;
+
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: -webkit-flex;
+      flex-direction: column;
       display: flex;
+
+      -moz-box-direction: column;
+      -webkit-box-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -ms-flexbox-direction: column;
+      -ms-flex-direction: column;
       flex-direction: column;
 
       .scroll {
-        height: 100%;
+        // height: 100%;
+        // position:relative;
+        height: inherit;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        // height: 500px;
 
         #feed {
           width: 100%;
-          display: flex;
+
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-box;
+          display: -webkit-flex;
           flex-direction: column;
-          justify-content: flex-end;
+          display: flex;
+
+          -moz-box-direction: column;
+          -webkit-box-direction: column;
+          -webkit-box-orient: vertical;
+          -webkit-flex-direction: column;
+          -ms-flexbox-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
+
+          // align-items: flex-end;
+          // -webkit-box-align: flex-end;
+          // -webkit-align-items: flex-end;
+          // -moz-box-align: flex-end;
+          // -ms-flex-align: flex-end;
+          // -webkit-justify-content: flex-end;
+
           margin-bottom: $messenger_margin;
 
           .message {
             padding: 8px 16px;
             width: 100%;
+
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: -webkit-flex;
             display: flex;
+
             flex-direction: row;
 
             &:hover {
@@ -50,9 +121,25 @@
             }
 
             .message-content {
+              -webkit-flex: 1; /* Safari 6.1+ */
+              -ms-flex: 1; /* IE 10 */
               flex: 1;
-              display: flex;
+
+              display: -moz-box;
+              display: -ms-flexbox;
+              display: -webkit-box;
+              display: -webkit-flex;
               flex-direction: column;
+              display: flex;
+
+              -moz-box-direction: column;
+              -webkit-box-direction: column;
+              -webkit-box-orient: vertical;
+              -webkit-flex-direction: column;
+              -ms-flexbox-direction: column;
+              -ms-flex-direction: column;
+              flex-direction: column;
+
               margin-left: 8px;
 
               .message-info {
@@ -90,7 +177,12 @@
               }
 
               .reaction-bar ul {
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-box;
+                display: -webkit-flex;
                 display: flex;
+
                 padding: 7px 0px;
 
                 .reaction {
@@ -143,13 +235,15 @@
     } // End of left panel
 
     #right-panel {
+      -webkit-flex: 1; /* Safari 6.1+ */
+      -ms-flex: 1; /* IE 10 */
       flex: 1;
-      display: flex;
+
       flex-direction: column;
       border-left: 2px $grey_light_border solid;
       height: 100%;
       overflow-y: scroll;
-
+      display: flex;
 
       #channel-about {
         border-bottom: 2px $grey_light_border solid;

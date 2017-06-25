@@ -51,3 +51,7 @@ button {
 img {
   height: 100%;
 }
+
+input:invalid {
+    box-shadow: none;
+}
