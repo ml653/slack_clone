@@ -4,7 +4,6 @@ class Channel < ApplicationRecord
   validates_uniqueness_of :name, allow_blank: true, case_sensitive: false
   validate :only_null_name_for_direct_message
 
-
   has_many :members,
     through: :participations,
     source: :user

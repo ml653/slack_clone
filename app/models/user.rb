@@ -48,15 +48,24 @@ class User < ApplicationRecord
   end
 
   def set_channel_subscriptions
-    default_subscriptions = [
-      Participation.new(channel_id: 1, user_id: self.id),
-      Participation.new(channel_id: 2, user_id: self.id),
-      Participation.new(channel_id: 3, user_id: self.id),
-    ]
+    Participation.create(channel_id: 1, user_id: self.id)
+    Participation.create(channel_id: 2, user_id: self.id)
+    Participation.create(channel_id: 3, user_id: self.id)
 
-    default_subscriptions.each do |participation|
-      participation.save
+    if self.id != 2
+      channel = Channel.create(
+        name: nil,
+        description: '',
+        isDirectMessage: true,
+        private: true,
+        author_id: self.id)
+
+      Participation.create(user_id: self.id, channel_id: channel.id)
+      Participation.create(user_id: 2, channel_id: channel.id)
+
+      ChannelTag.create(channel_id: 1, user_id: self.id, info: 'STAR')
     end
+
   end
 
   private

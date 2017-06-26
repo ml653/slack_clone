@@ -1,6 +1,6 @@
 u1 = User.create(username: 'gage', password: 'password', email: 'gage@gmail.com')
 u2 = User.create(username: 'steven', password: 'password', email: 'steven@gmail.com')
-u3 = User.create(username: 'debsfong', password: 'password', email: 'defsfong@gmail.com')
+u3 = User.create(username: 'debsfong', password: 'password', email: 'debsfong@gmail.com')
 u4 = User.create(username: 'kelly', password: 'password', email: 'kelly@gmail.com')
 u5 = User.create(username: 'swwang', password: 'password', email: 'swwang@gmail.com')
 u6 = User.create(username: 'munyo', password: 'password', email: 'munyo@gmail.com')

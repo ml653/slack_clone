@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
 
   demo(e) {
     e.preventDefault()
-    this.setFieldsWithDelay('user_1@gmail.com', 'password')
+    this.setFieldsWithDelay('debsfong@gmail.com', 'password')
   }
 
   setFieldsWithDelay(email, password) {
