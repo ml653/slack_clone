@@ -12,10 +12,9 @@ export default class JoinChannel extends React.Component {
       channels: []
     }
 
-    console.log(publicChannels)
-
     this.updateField = this.updateField.bind(this)
     this.subscribeToChannel = this.subscribeToChannel.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   componentWillMount() {
@@ -44,9 +43,18 @@ export default class JoinChannel extends React.Component {
     }
   }
 
+  handleCancel(e) {
+    e.preventDefault()
+    this.props.history.push('/')
+  }
+
   render() {
     return <div className='modal-background'>
       <div className='modal'>
+        <div className='modal-exit'>
+          <img src='/images/exit_x.png' onClick={this.handleCancel}/>
+        </div>
+
         <div className='modal-header'>
           <h1>Join Channel</h1>
         </div>

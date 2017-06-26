@@ -39,6 +39,9 @@ class NewGroup extends React.Component {
   render() {
     return (
       <div className='modal-background'>
+        <div className='modal-exit'>
+          <img src='/images/exit_x.png' onClick={this.handleCancel}/>
+        </div>
         <div className='modal'>
           <div className='modal-header'>
             <h1>Create a Channel</h1>

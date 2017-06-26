@@ -39,6 +39,7 @@ export default class NewDirectMessage extends React.Component {
     this.addMember = this.addMember.bind(this)
     this.removeMember = this.removeMember.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   updateField(field) {
@@ -97,6 +98,11 @@ export default class NewDirectMessage extends React.Component {
       .then(() => this.props.history.push('/'))
   }
 
+  handleCancel(e) {
+    e.preventDefault()
+    this.props.history.push('/')
+  }
+
   render() {
     const members = this.state.members.map(member => (
       <ChosenMember user={member} removeMember={this.removeMember} key={member.id}/>)
@@ -104,6 +110,9 @@ export default class NewDirectMessage extends React.Component {
 
     return (
       <div className='modal-background'>
+        <div className='modal-exit'>
+          <img src='/images/exit_x.png' onClick={this.handleCancel}/>
+        </div>
         <div className='modal'>
           <div className='modal-header'>
             <h1>Direct Messages</h1>
