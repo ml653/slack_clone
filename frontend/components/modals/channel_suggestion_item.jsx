@@ -13,7 +13,7 @@ export default (props) => {
   return <li key={props.channel.id}
     onClick={addAllMembers}
     className='user'>
-    <img src='/assets/profile_img_1.png'/>
+    <img src='/images/profile_img_1.png'/>
     <div className='content'>
       <h5 className='username'>
         { getChannelDisplayName(props.channel, null, { includeUserId: true, prefix: false}) }

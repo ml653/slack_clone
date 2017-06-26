@@ -49,7 +49,7 @@ export default class LoginForm extends React.Component {
               {errors}
             </ul>
             <form onSubmit={this.handleSubmit}>
-              <h1>Sign Up for Slack</h1>
+              <h1>Sign Up for Slack(er)</h1>
               <p>Enter your <b>email address</b> and <b>password</b>.</p>
 
               <input
@@ -79,6 +79,12 @@ export default class LoginForm extends React.Component {
                 type='submit'
                 onSubmit={this.handleSubmit}>
                 Sign Up
+              </button>
+
+              <button
+                className='sign-in'
+                onSubmit={this.handleSubmit}>
+                Demo
               </button>
             </form>
           </div>

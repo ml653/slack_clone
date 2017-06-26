@@ -61,12 +61,9 @@
       flex-direction: column;
 
       .scroll {
-        // height: 100%;
-        // position:relative;
         height: inherit;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        // height: 500px;
 
         #feed {
           width: 100%;
