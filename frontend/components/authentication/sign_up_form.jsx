@@ -81,11 +81,6 @@ export default class LoginForm extends React.Component {
                 Sign Up
               </button>
 
-              <button
-                className='sign-in'
-                onSubmit={this.handleSubmit}>
-                Demo
-              </button>
             </form>
           </div>
         </div>
