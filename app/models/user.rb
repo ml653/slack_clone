@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :password, length: { within: 6...64, allow_blank: true }
 
   before_validation :ensure_session_token, :set_defaults
+  # after_save :set_channel_subscriptions
 
   has_many :messages
 
@@ -46,6 +47,18 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64(32)
   end
 
+  def set_channel_subscriptions
+    default_subscriptions = [
+      Participation.new(channel_id: 1, user_id: self.id),
+      Participation.new(channel_id: 2, user_id: self.id),
+      Participation.new(channel_id: 3, user_id: self.id),
+    ]
+
+    default_subscriptions.each do |participation|
+      participation.save
+    end
+  end
+
   private
   def ensure_session_token
     self.session_token ||= User.generate_session_token
@@ -54,4 +67,5 @@ class User < ApplicationRecord
   def set_defaults
     self.img_url = "/images/profile_img_#{rand(6) + 1}.png"
   end
+
 end

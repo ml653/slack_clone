@@ -4,26 +4,11 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-      set_up_channel_subscriptions(@user) # TODO: Move to verification
+      @user.set_channel_subscriptions
       render :show
     else
       render json: @user.errors.full_messages, status: 422
     end
-  end
-
-  def set_up_channel_subscriptions user
-    default_subscriptions = [
-      Participation.new(channel_id: 1, user_id: user.id),
-      # Participation.new(channel_id: 2, user_id: user.id)
-    ]
-
-    default_subscriptions.each do |participation|
-      if !participation.save
-        user.delete
-        render json: @participation.errors.full_messages, status: 422
-      end
-    end
-
   end
 
   def user_params
