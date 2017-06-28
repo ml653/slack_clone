@@ -7,6 +7,6 @@ export default (props) => (
     <p>{ props.user.username }</p>
     <img
       className='close'
-      src='/images/exit_x.png'/>
+      src='/images/exit_x_white.png'/>
   </div>
 )
